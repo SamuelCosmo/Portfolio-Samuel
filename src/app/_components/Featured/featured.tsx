@@ -50,7 +50,7 @@ export default function FeaturedComponent() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setMobile(window.innerWidth < 425);
+      setMobile(window.innerWidth < 720);
     }
   }, []);
 
