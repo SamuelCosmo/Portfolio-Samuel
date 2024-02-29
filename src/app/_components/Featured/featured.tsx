@@ -46,6 +46,13 @@ export default function FeaturedComponent() {
   const [initialPositionOfElement, setInitialPositionOfElement] = useState(0);
   const [position, setPosition] = useState<number>(0);
   const [newList, setNewList] = useState(list);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setMobile(window.innerWidth < 425);
+    }
+  }, []);
 
   const eventScroll = () => {
     let actualPosition =
@@ -133,7 +140,7 @@ export default function FeaturedComponent() {
                   (position === index ? styles["animation_feature"] : "")
                 }
                 style={{
-                  top: (window.innerWidth <= 425 ? 30 : 50) * index + "px",
+                  top: (mobile ? 30 : 50) * index + "px",
                   zIndex: feature.zIndex,
                   background: feature.background,
                 }}
