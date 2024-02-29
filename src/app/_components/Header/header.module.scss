@@ -1,0 +1,65 @@
+@import "src/shared/scss/media-queries";
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 8px 256px;
+  border: 2px solid #4dd6c3;
+  background: #15212c;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  @include mobile {
+    padding: 4px 16px;
+  }
+
+  &__title {
+    color: #f8f8ff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #000;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+
+    &__option {
+      color: #4dd6c3;
+      text-align: right;
+      font-family: "Inter";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  img {
+    @include mobile {
+      max-width: 32px;
+    }
+  }
+}

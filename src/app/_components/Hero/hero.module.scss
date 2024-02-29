@@ -1,0 +1,121 @@
+@import "src/shared/scss/media-queries";
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  background: transparent;
+  width: 100%;
+  max-width: 1064px;
+  height: 100vh;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+    width: calc(100% - 32px);
+    overflow: hidden;
+  }
+
+  &__photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 124px;
+
+    @include mobile {
+      margin-right: 0;
+    }
+
+    &__back {
+      position: absolute;
+      background: transparent;
+      z-index: 1;
+      animation: rotation 60s linear infinite;
+      height: auto;
+
+      @include mobile {
+        max-width: 340px;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    &__photo {
+      border-radius: 24px;
+      z-index: 2;
+      max-width: 350px;
+      height: auto;
+
+      @include mobile {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__information-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    max-width: 522px;
+
+    @include mobile {
+      align-items: center;
+      gap: 8px;
+    }
+
+    &__title {
+      color: #f8f8ff;
+      font-family: "Inter";
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      @include mobile {
+        text-align: center;
+        font-size: 42px;
+        max-width: 194px;
+      }
+    }
+
+    &__subtitle {
+      color: #4dd6c3;
+      font-family: "Inter";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      @include mobile {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+
+    &__description {
+      color: #f8f8ff;
+      font-family: "Inter";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      @include mobile {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}

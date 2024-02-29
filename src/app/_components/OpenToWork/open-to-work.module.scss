@@ -1,0 +1,234 @@
+@import "src/shared/scss/media-queries";
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 80px;
+  height: 100vh;
+
+  @include mobile {
+    width: calc(100% - 32px);
+    padding: 16px 16px 64px;
+    height: auto;
+    gap: 32px;
+  }
+
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
+    background: transparent;
+    width: 100%;
+    max-width: 1064px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    &__left {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      min-width: 413px;
+      gap: 40px;
+
+      @include mobile {
+        width: 100%;
+        min-width: auto;
+        gap: 32px;
+      }
+
+      &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+
+        &__title {
+          color: #f8f8ff;
+          font-family: Inter;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+          @include mobile {
+            font-size: 18px;
+          }
+        }
+
+        &__subtitle {
+          color: #f8f8ff;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          @include mobile {
+            font-size: 16px;
+          }
+        }
+      }
+
+      &__body {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+
+        &__inputs-container {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          gap: 8px;
+          width: 100%;
+
+          &__title {
+            color: #f8f8ff;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            @include mobile {
+              font-size: 16px;
+            }
+          }
+        }
+
+        &__button-container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          width: 100%;
+        }
+      }
+    }
+
+    &__right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 32px;
+
+      &__cv {
+        z-index: 2;
+        max-width: 319px;
+        height: auto;
+      }
+
+      &__background {
+        position: absolute;
+        z-index: 1;
+        max-width: 319px;
+        height: auto;
+        bottom: 0rem;
+        right: 0rem;
+      }
+    }
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #395773;
+    background: #192c3d;
+    min-height: 48px;
+
+    color: #f8f8ff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .text-area-input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #395773;
+    background: #192c3d;
+    min-height: 144px;
+
+    color: #f8f8ff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @include mobile {
+      min-height: 72px;
+    }
+  }
+
+  .button {
+    display: flex;
+    width: 198px;
+    padding: 12px 64px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 0px;
+    background: #2ca2ff;
+    color: #f8f8ff;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
+    cursor: pointer;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 8px;
+
+      img {
+        max-width: 24px;
+        height: auto;
+      }
+
+      span {
+        color: #f8f8ff;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
