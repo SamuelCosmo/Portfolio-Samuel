@@ -224,7 +224,9 @@ export default function FeaturedComponent() {
                     height={176}
                     src={"/assets/img_1.png"}
                     className={
-                      styles["body__featured-container__feature__right__second"]
+                      styles[
+                        "body__featured-container__feature__right__second"
+                      ] + " hide-mobile"
                     }
                   />
                 </div>

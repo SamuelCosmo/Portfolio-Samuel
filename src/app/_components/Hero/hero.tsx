@@ -22,12 +22,12 @@ export default function HeroComponent() {
         />
       </div>
       <div className={styles["body__information-container"]}>
-        <span className={styles["body__information-container__title"]}>
-          Ernesto Gutierrez
-        </span>
-        <span className={styles["body__information-container__subtitle"]}>
+        <h1 className={styles["body__information-container__title"]}>
+          Samuel Gutierrez
+        </h1>
+        <h2 className={styles["body__information-container__subtitle"]}>
           Front-end developer
-        </span>
+        </h2>
         <span className={styles["body__information-container__description"]}>
           I’m a patient guy who likes to learn about new and different areas,
           both inside and outside of what is related to my work.

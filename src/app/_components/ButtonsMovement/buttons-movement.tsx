@@ -39,7 +39,7 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
     };
   }, []);
 
-  const scrollToClosestChild = () => {
+  const scrollToClosestChild = (moveTo: "up" | "down") => {
     const windowHeight = window.innerHeight;
     const childRefArray = [
       childRefs.skillsetRef,
@@ -49,6 +49,7 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
     ];
 
     let closestChild: any = null;
+    let secondClosestChild: any = null;
     let minDistance = Number.MAX_SAFE_INTEGER;
 
     childRefArray.forEach((childRef: any) => {
@@ -56,47 +57,58 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
         const rect = childRef.current.getBoundingClientRect();
         const distance = rect.top - windowHeight;
 
-        if (distance > 0 && distance < minDistance) {
-          minDistance = distance;
+        if (moveTo === "down") {
+          if (distance > 0 && distance < minDistance) {
+            minDistance = distance;
+            closestChild = childRef.current;
+          }
+        } else if (distance < 0 && Math.abs(distance) < minDistance) {
+          minDistance = Math.abs(distance);
+          secondClosestChild = closestChild;
           closestChild = childRef.current;
         }
       }
     });
 
     let featuredRef: any = childRefs?.featuredRef;
-    console.log("ISFEATURED", isFeaturedComponent);
-    if (closestChild === featuredRef.current || isFeaturedComponent) {
+    if (
+      closestChild === featuredRef.current ||
+      secondClosestChild === featuredRef.current ||
+      isFeaturedComponent
+    ) {
       setIsFeaturedComponent(true);
-      const featuredBodyElement = document.getElementById("featured-body");
+      if (moveTo === "down") {
+        const featuredBodyElement = document.getElementById("featured-body");
 
-      if (featuredBodyElement) {
-        let actualPosition =
-          featuredBodyElement.offsetTop + featuredBodyElement.offsetHeight;
-        let parentHeight = featuredRef.current.offsetHeight;
-        const maxPosition = initialPositionOfFeaturedElement + parentHeight;
+        if (featuredBodyElement) {
+          let actualPosition =
+            featuredBodyElement.offsetTop + featuredBodyElement.offsetHeight;
+          let parentHeight = featuredRef.current.offsetHeight;
+          const maxPosition = initialPositionOfFeaturedElement + parentHeight;
 
-        const first_operation =
-          (maxPosition - initialPositionOfFeaturedElement) / 3 +
-          initialPositionOfFeaturedElement;
-        const second_operation =
-          ((maxPosition - initialPositionOfFeaturedElement) / 3) * 2 +
-          initialPositionOfFeaturedElement;
+          const first_operation =
+            (maxPosition - initialPositionOfFeaturedElement) / 3 +
+            initialPositionOfFeaturedElement;
+          const second_operation =
+            ((maxPosition - initialPositionOfFeaturedElement) / 3) * 2 +
+            initialPositionOfFeaturedElement;
 
-        if (
-          actualPosition >= initialPositionOfFeaturedElement &&
-          actualPosition < first_operation
-        ) {
-          window.scrollTo({
-            top: first_operation,
-            behavior: "smooth",
-          });
-        } else {
-          if (actualPosition < maxPosition) {
+          if (
+            actualPosition >= initialPositionOfFeaturedElement &&
+            actualPosition < first_operation
+          ) {
             window.scrollTo({
-              top: second_operation,
+              top: first_operation,
               behavior: "smooth",
             });
-            setIsFeaturedComponent(false);
+          } else {
+            if (actualPosition < maxPosition) {
+              window.scrollTo({
+                top: second_operation,
+                behavior: "smooth",
+              });
+              setIsFeaturedComponent(false);
+            }
           }
         }
       }
@@ -104,10 +116,22 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
 
     if (!isFeaturedComponent) {
       if (closestChild) {
-        window.scrollTo({
-          top: closestChild.offsetTop,
-          behavior: "smooth",
-        });
+        if (moveTo === "down")
+          window.scrollTo({
+            top: closestChild.offsetTop,
+            behavior: "smooth",
+          });
+        else if (secondClosestChild) {
+          console.log("Entre aqui...");
+          window.scrollTo({
+            top: secondClosestChild.offsetTop,
+            behavior: "smooth",
+          });
+        } else
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
       } else {
         window.scrollTo({
           top: document.body.scrollHeight,
@@ -123,7 +147,7 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
         className={styles["body__button-1"]}
         style={{ opacity: showButton1 ? "1" : "0" }}
         onClick={() => {
-          if (showButton1) scrollToClosestChild();
+          if (showButton1) scrollToClosestChild("down");
         }}
       >
         <Image
@@ -138,10 +162,11 @@ export default function ButtonsMovementComponent({ childRefs }: Props) {
         style={{ opacity: showButton2 ? "1" : "0" }}
         onClick={() => {
           if (showButton2) {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
+            scrollToClosestChild("up");
+            // window.scrollTo({
+            //   top: 0,
+            //   behavior: "smooth",
+            // });
             setIsFeaturedComponent(false);
           }
         }}
