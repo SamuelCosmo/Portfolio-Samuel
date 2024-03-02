@@ -14,7 +14,7 @@ export default function HeaderComponent() {
       >
         <span
           style={{
-            animationDelay: `${letterIndex * 0.1 + 0.5}s`,
+            animationDelay: `${letterIndex * 0.06 + 0.4}s`,
           }}
         >
           {letter}
