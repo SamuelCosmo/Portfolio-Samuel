@@ -1,14 +1,12 @@
 "use client";
 import styles from "./page.module.scss";
 import HeaderComponent from "./_components/Header/header";
-import HeroComponent from "./_components/Hero/hero";
+import AboutComponent from "./_components/About/about";
 import SkillsetComponent from "./_components/Skillset/skillset";
-import ExpertiseComponent from "./_components/Expertise/expertise";
-import FeaturedComponent from "./_components/Featured/featured";
-import OpenToWorkComponent from "./_components/OpenToWork/open-to-work";
-import BackgroundComponent from "./_components/Background/background";
+import ContactComponent from "./_components/Contact/contact";
 import ButtonsMovementComponent from "./_components/ButtonsMovement/buttons-movement";
 import { useRef } from "react";
+import HeroComponent from "./_components/Hero/hero";
 
 export default function Home() {
   const childRefs = {
@@ -20,25 +18,19 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <BackgroundComponent />
       <div className={styles.body}>
         <HeaderComponent />
-        <ButtonsMovementComponent childRefs={childRefs} />
+        {/* <ButtonsMovementComponent childRefs={childRefs} /> */}
         <HeroComponent />
+        <AboutComponent />
         <div ref={childRefs.skillsetRef} className={styles["body__container"]}>
           <SkillsetComponent />
-        </div>
-        <div ref={childRefs.expertiseRef} className={styles["body__container"]}>
-          <ExpertiseComponent />
-        </div>
-        <div ref={childRefs.featuredRef} className={styles["body__container"]}>
-          <FeaturedComponent />
         </div>
         <div
           ref={childRefs.openToWorkRef}
           className={styles["body__container"]}
         >
-          <OpenToWorkComponent />
+          <ContactComponent />
         </div>
       </div>
     </main>

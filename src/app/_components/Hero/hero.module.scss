@@ -1,121 +1,75 @@
 @import "src/shared/scss/media-queries";
 
-.body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 20px;
-  background: transparent;
-  width: 100%;
-  max-width: 1064px;
-  height: 100vh;
-
-  @include mobile {
-    flex-direction: column;
-    gap: 32px;
-    padding: 0 16px;
-    width: calc(100% - 32px);
-    overflow: hidden;
-  }
-
-  &__photo-container {
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    margin-right: 124px;
+    width: 100vw;
+    height: 100dvh;
 
-    @include mobile {
-      margin-right: 0;
-    }
+    .background {
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 32px;
+        position: absolute;
 
-    &__back {
-      position: absolute;
-      background: transparent;
-      z-index: 1;
-      animation: rotation 60s linear infinite;
-      height: auto;
-
-      @include mobile {
-        max-width: 340px;
-      }
-
-      @keyframes rotation {
-        0% {
-          transform: rotate(0deg);
+        &__first {
+            max-width: 50%;
+            width: 100%;
+            height: auto;
         }
-        100% {
-          transform: rotate(360deg);
+
+        &__second {
+            max-width: 76%;
+            width: 100%;
+            height: auto;
         }
-      }
     }
 
-    &__photo {
-      border-radius: 24px;
-      z-index: 2;
-      max-width: 350px;
-      height: auto;
+    .body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 128px;
+        width: 100%;
 
-      @include mobile {
-        max-width: 200px;
-      }
+        .portafolio {
+            font-family: "Inter";
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 28.1px;
+            text-align: left;
+            color: #A5A5A5;
+        }
+
+        .title {
+            font-family: Inter;
+            font-size: 5vw;
+            font-weight: 700;
+            line-height: 5.2vw;
+            text-align: left;
+            color: #FFFFFF;
+        }
+
+        .subtitle {
+            font-family: Inter;
+            font-size: 4.8vw;
+            font-weight: 700;
+            line-height: 5vw;
+            text-align: left;
+            color: #A5A5A5;
+
+            span {
+                font-family: Inter;
+                font-size: 4.8vw;
+                font-weight: 700;
+                line-height: 5vw;
+                text-align: left;
+                color: #99C06C;
+            }
+        }
     }
-  }
-
-  &__information-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 28px;
-    max-width: 522px;
-
-    @include mobile {
-      align-items: center;
-      gap: 8px;
-    }
-
-    &__title {
-      color: #f8f8ff;
-      font-family: "Inter";
-      font-size: 80px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-
-      @include mobile {
-        text-align: center;
-        font-size: 42px;
-        max-width: 194px;
-      }
-    }
-
-    &__subtitle {
-      color: #4dd6c3;
-      font-family: "Inter";
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-
-      @include mobile {
-        text-align: center;
-        font-size: 16px;
-      }
-    }
-
-    &__description {
-      color: #f8f8ff;
-      font-family: "Inter";
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-
-      @include mobile {
-        text-align: center;
-        font-size: 16px;
-      }
-    }
-  }
 }

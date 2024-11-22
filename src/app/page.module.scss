@@ -2,8 +2,8 @@
 
 .main {
   z-index: 1;
-  background: #15212c;
   position: relative;
+  background: linear-gradient(180deg, #2B2B2B 0%, #333333 100%);
 
   .body {
     display: flex;
@@ -11,8 +11,9 @@
     align-items: center;
     position: relative;
     gap: 256px;
-    min-height: 100vh;
+    min-height: 100dvh;
     z-index: 2;
+    scroll-snap-align: center;
 
     @include mobile {
       gap: 0;

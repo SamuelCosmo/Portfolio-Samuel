@@ -36,7 +36,7 @@
       justify-content: center;
       flex-direction: column;
       min-width: 413px;
-      gap: 40px;
+      gap: 24px;
 
       @include mobile {
         width: 100%;
@@ -53,27 +53,19 @@
 
         &__title {
           color: #f8f8ff;
-          font-family: Inter;
-          font-size: 30px;
-          font-style: normal;
+          text-align: center;
+          font-family: "Inter";
+          font-size: 36px;
           font-weight: 700;
-          line-height: normal;
+          line-height: 56.2px;
 
-          @include mobile {
-            font-size: 18px;
-          }
-        }
-
-        &__subtitle {
-          color: #f8f8ff;
-          font-family: Inter;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-
-          @include mobile {
-            font-size: 16px;
+          span {
+            font-family: "Inter";
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 28.1px;
+            text-align: right;
+            color: #A5D170;
           }
         }
       }
@@ -86,32 +78,64 @@
         width: 100%;
         gap: 16px;
 
-        &__inputs-container {
+        &__row {
           display: flex;
           align-items: flex-start;
           justify-content: center;
-          flex-direction: column;
-          gap: 8px;
+          flex-direction: row;
           width: 100%;
+          gap: 16px;
 
-          &__title {
-            color: #f8f8ff;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+          &__inputs-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
 
-            @include mobile {
-              font-size: 16px;
+            &__title {
+              font-family: "Inter";
+              font-size: 20px;
+              font-weight: 400;
+              line-height: 24.2px;
+              text-align: left;
+              color: #A5A5A5;
             }
           }
         }
 
+
+
         &__button-container {
           display: flex;
           align-items: center;
-          justify-content: flex-end;
+          justify-content: flex-start;
           width: 100%;
+
+          .button {
+            display: flex;
+            padding: 8px 64px;
+            border-radius: 4px;
+            background: #333333;
+            color: #A5D170;
+            border: 1px solid #A5D170;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            cursor: pointer;
+            transition: all 0.5s ease;
+
+            &:hover {
+              background: #474747;
+            }
+
+            &:active {
+              background: #333333;
+            }
+          }
         }
       }
     }
@@ -143,9 +167,9 @@
   .input {
     width: 100%;
     border-radius: 8px;
-    border: 1px solid #395773;
-    background: #192c3d;
-    min-height: 48px;
+    background: #393939;
+    border: 1px solid #7B7B7B;
+    padding: 8px 16px;
 
     color: #f8f8ff;
     font-size: 20px;
@@ -157,9 +181,11 @@
   .text-area-input {
     width: 100%;
     border-radius: 8px;
-    border: 1px solid #395773;
-    background: #192c3d;
+    background: #393939;
+    border: 1px solid #7B7B7B;
     min-height: 144px;
+    padding: 8px 16px;
+
 
     color: #f8f8ff;
     font-size: 20px;
@@ -169,27 +195,6 @@
 
     @include mobile {
       min-height: 72px;
-    }
-  }
-
-  .button {
-    display: flex;
-    width: 198px;
-    padding: 12px 64px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    border: 0px;
-    background: #2ca2ff;
-    color: #f8f8ff;
-    text-align: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-
-    @include mobile {
-      font-size: 16px;
     }
   }
 
@@ -222,14 +227,11 @@
 
       span {
         color: #f8f8ff;
-        font-size: 20px;
-        font-style: normal;
+        font-family: "Inter";
+        font-size: 12px;
         font-weight: 400;
-        line-height: normal;
-
-        @include mobile {
-          font-size: 16px;
-        }
+        line-height: 23.42px;
+        text-align: left;
       }
     }
   }

@@ -1,38 +1,18 @@
-import { LegacyRef } from "react";
-import styles from "./hero.module.scss";
-import Image from "next/image";
+import styles from './hero.module.scss'
+import Image from 'next/image'
+import shapes1 from '../../../../public/svg/hero/shapes_1.svg'
+import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 
 export default function HeroComponent() {
-  return (
-    <div className={styles.body}>
-      <div className={styles["body__photo-container"]}>
-        <Image
-          alt="background_photo"
-          width={597}
-          height={753}
-          src={"/svg/background_photo.svg"}
-          className={styles["body__photo-container__back"]}
-        />
-        <Image
-          alt="photo"
-          width={1545}
-          height={1936}
-          src={"/assets/photo.png"}
-          className={styles["body__photo-container__photo"]}
-        />
-      </div>
-      <div className={styles["body__information-container"]}>
-        <h1 className={styles["body__information-container__title"]}>
-          Samuel Gutierrez
-        </h1>
-        <h2 className={styles["body__information-container__subtitle"]}>
-          Front-end developer
-        </h2>
-        <span className={styles["body__information-container__description"]}>
-          I’m a patient guy who likes to learn about new and different areas,
-          both inside and outside of what is related to my work.
-        </span>
-      </div>
+    return <div className={styles.main}>
+        <div className={styles.background}>
+            <Image src={shapes1} alt='shapes' className={styles['background__first']} />
+            <Image src={shapes2} alt='shapes' className={styles['background__second']} />
+        </div>
+        <div className={styles.body}>
+            <p className={styles.portafolio}>portafolio</p>
+            <h1 className={styles.title}>Samuel Gutierrez</h1>
+            <h2 className={styles.subtitle}>I build things for the web<span>_{'>'}</span></h2>
+        </div>
     </div>
-  );
 }

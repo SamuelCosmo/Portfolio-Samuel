@@ -1,158 +1,63 @@
 import { LegacyRef } from "react";
 import styles from "./skillset.module.scss";
 import Image from "next/image";
+import angular from '../../../../public/svg/skillset/angular.svg'
+import node from '../../../../public/svg/skillset/node.svg'
+import react from '../../../../public/svg/skillset/react.svg'
+import typescript from '../../../../public/svg/skillset/typescript.svg'
+import html from '../../../../public/svg/skillset/html.svg'
+import sass from '../../../../public/svg/skillset/sass.svg'
+import c_sharp from '../../../../public/svg/skillset/c-sharp.svg'
 
 export default function SkillsetComponent() {
   return (
-    <div className={styles.body}>
-      <div className={styles["body__title-container"]}>
-        <span className={styles["body__title-container__title"]}>Skillset</span>
-        <span className={styles["body__title-container__subtitle"]}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-      </div>
-      <div className={styles["body__icons"]}>
-        <div className={styles["body__icons__first"] + " hide-mobile"}>
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/angular.svg"}
-            className={styles["icons"]}
-          />
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/node.svg"}
-            className={styles["icons"]}
-          />
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/react.svg"}
-            className={styles["icons"]}
-          />
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/typescript.svg"}
-            className={styles["icons"]}
-          />
+    <div className={styles.main}>
+      <div className={styles.body}>
+        <div className={styles["body__title-container"]}>
+          <span className={styles["body__title-container__title"]}><span>2. </span>Skillset</span>
         </div>
-        <div className={styles["body__icons__second"] + " hide-mobile"}>
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/html.svg"}
-            className={styles["icons"]}
-          />
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/sass.svg"}
-            className={styles["icons"]}
-          />
-          <Image
-            alt="angular"
-            width={180}
-            height={180}
-            src={"/svg/c-sharp.svg"}
-            className={styles["icons"]}
-          />
-        </div>
-        <div className={styles["body__icons__first"] + " hide-desktop"}>
-          <div className={styles["body__icons__icon-container"]}>
+        <div className={styles["body__icons-container"]}>
+          <div className={styles["body__icons-container__first"] + " hide-mobile"}>
             <Image
               alt="angular"
-              width={180}
-              height={180}
-              src={"/svg/angular.svg"}
+              src={angular}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              Angular
-            </span>
-          </div>
-          <div className={styles["body__icons__icon-container"]}>
             <Image
               alt="node"
-              width={180}
-              height={180}
-              src={"/svg/node.svg"}
+              src={node}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              Node JS
-            </span>
           </div>
-        </div>
-        <div className={styles["body__icons__first"] + " hide-desktop"}>
-          <div className={styles["body__icons__icon-container"]}>
+          <div className={styles["body__icons-container__first"] + " hide-mobile"}>
             <Image
               alt="react"
-              width={180}
-              height={180}
-              src={"/svg/react.svg"}
+              src={react}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              React
-            </span>
-          </div>
-          <div className={styles["body__icons__icon-container"]}>
             <Image
               alt="typescript"
-              width={180}
-              height={180}
-              src={"/svg/typescript.svg"}
+              src={typescript}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              Typescript
-            </span>
-          </div>
-          <div className={styles["body__icons__icon-container"]}>
             <Image
               alt="html"
-              width={180}
-              height={180}
-              src={"/svg/html.svg"}
+              src={html}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              HTML5
-            </span>
           </div>
-        </div>
-        <div className={styles["body__icons__first"] + " hide-desktop"}>
-          <div className={styles["body__icons__icon-container"]}>
+          <div className={styles["body__icons-container__first"] + " hide-mobile"}>
+
             <Image
               alt="sass"
-              width={180}
-              height={180}
-              src={"/svg/sass.svg"}
+              src={sass}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              SASS
-            </span>
-          </div>
-          <div className={styles["body__icons__icon-container"]}>
             <Image
               alt="c-sharp"
-              width={180}
-              height={180}
-              src={"/svg/c-sharp.svg"}
+              src={c_sharp}
               className={styles["icons"]}
             />
-            <span className={styles["body__icons__icon-container--text"]}>
-              C#
-            </span>
           </div>
         </div>
       </div>

@@ -5,9 +5,8 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  padding: 8px 256px;
-  border: 2px solid #4dd6c3;
-  background: #15212c;
+  padding: 16px 64px;
+  background: transparent;
   width: 100%;
   position: fixed;
   top: 0;
@@ -30,6 +29,11 @@
     line-height: normal;
     background: transparent;
     border: 0;
+    line-height: 48.41px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
 
     @include mobile {
       font-size: 24px;
@@ -48,17 +52,31 @@
     align-items: center;
 
     &__option {
-      color: #4dd6c3;
+      color: white;
       text-align: right;
       font-family: "Inter";
       font-size: 24px;
       font-style: normal;
-      font-weight: 500;
-      line-height: normal;
+      font-weight: 400;
+      line-height: 28.1px;
+      text-align: right;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
       cursor: pointer;
 
       &:hover {
         text-decoration: underline;
+      }
+
+      span {
+        font-family: Consolas;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 28.1px;
+        text-align: right;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #A5D170;
       }
     }
   }

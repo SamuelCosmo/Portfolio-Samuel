@@ -34,13 +34,13 @@ export default function HeaderComponent() {
           });
         }}
       >
-        SamGtz.
+        Samuel Gutierrez
       </button>
       <div className={styles["body__menu"] + " hide-mobile"}>
-        <span className={styles["body__menu__option"]}>Skillset</span>
-        <span className={styles["body__menu__option"]}>Expertise</span>
-        <span className={styles["body__menu__option"]}>Work</span>
-        <span className={styles["body__menu__option"]}>Contact</span>
+        <p className={styles["body__menu__option"]}><span>01. </span>About Me</p>
+        <p className={styles["body__menu__option"]}><span>02. </span>Expertise</p>
+        <p className={styles["body__menu__option"]}><span>03. </span>Work</p>
+        <p className={styles["body__menu__option"]}><span>04. </span>Contact</p>
       </div>
       <Image
         alt="menu"
