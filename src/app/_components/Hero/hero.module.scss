@@ -1,75 +1,113 @@
-@import "src/shared/scss/media-queries";
+@import 'src/shared/scss/media-queries';
 
 .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100dvh;
+
+  .background {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 32px;
+    position: absolute;
+
+    &__first {
+      max-width: 50%;
+      width: 100%;
+      height: auto;
+    }
+
+    &__second {
+      max-width: 76%;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .body {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100dvh;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0 128px;
+    width: 100%;
 
-    .background {
-        display: flex;
-        width: 100%;
-        align-items: flex-end;
-        flex-direction: column;
-        gap: 32px;
-        position: absolute;
-
-        &__first {
-            max-width: 50%;
-            width: 100%;
-            height: auto;
-        }
-
-        &__second {
-            max-width: 76%;
-            width: 100%;
-            height: auto;
-        }
+    .portafolio {
+      font-family: 'Inter';
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 28.1px;
+      text-align: left;
+      color: #a5a5a5;
     }
 
-    .body {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 0 128px;
-        width: 100%;
-
-        .portafolio {
-            font-family: "Inter";
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 28.1px;
-            text-align: left;
-            color: #A5A5A5;
-        }
-
-        .title {
-            font-family: Inter;
-            font-size: 5vw;
-            font-weight: 700;
-            line-height: 5.2vw;
-            text-align: left;
-            color: #FFFFFF;
-        }
-
-        .subtitle {
-            font-family: Inter;
-            font-size: 4.8vw;
-            font-weight: 700;
-            line-height: 5vw;
-            text-align: left;
-            color: #A5A5A5;
-
-            span {
-                font-family: Inter;
-                font-size: 4.8vw;
-                font-weight: 700;
-                line-height: 5vw;
-                text-align: left;
-                color: #99C06C;
-            }
-        }
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: row;
+      font-family: Inter;
+      font-size: 5vw;
+      font-weight: 700;
+      line-height: 5.2vw;
+      text-align: left;
+      color: #ffffff;
     }
+
+    .subtitle {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: row;
+      font-family: Inter;
+      font-size: 4.8vw;
+      font-weight: 700;
+      line-height: 5vw;
+      text-align: left;
+      color: #a5a5a5;
+
+      span {
+        font-family: Inter;
+        font-size: 4.8vw;
+        font-weight: 700;
+        line-height: 5vw;
+        text-align: left;
+        color: #99c06c;
+        animation: blink 1.5s 3.5s steps(1, end) infinite;
+        opacity: 0;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+.letter {
+  opacity: 0;
+  animation: showLetter 0.5s steps(1, end) forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showLetter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

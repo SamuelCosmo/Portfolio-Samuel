@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0px;
+  left: 32px;
+  z-index: 3;
+
+  img {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+  }
+
+  .line {
+    width: 2px;
+    height: 128px;
+    background: #a5a5a5;
+  }
+}

@@ -1,0 +1,207 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent;
+    width: 100%;
+    max-width: 1245px;
+    padding: 16px;
+    height: 100vh;
+
+    &__title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 16px;
+      width: 100%;
+
+      &__title {
+        color: #f8f8ff;
+        text-align: start;
+        font-family: 'Inter';
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 56.2px;
+
+        span {
+          font-family: 'Inter';
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 28.1px;
+          text-align: right;
+          color: #a5d170;
+        }
+      }
+    }
+
+    .information-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      gap: 32px;
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 16px;
+
+        .option {
+          padding: 16px;
+          border-left: 4px solid black;
+          width: 100%;
+          transition: all 0.8s ease;
+          cursor: pointer;
+
+          .job-title {
+            font-family: 'Inter';
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18.73px;
+            color: #7c7c7c;
+            transition: all 0.8s ease;
+
+            &--active {
+              color: #7ea153;
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &--active {
+            border-left: 4px solid #7ea153;
+          }
+        }
+      }
+
+      .images-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 720px;
+        width: 100%;
+        position: absolute;
+        right: 0;
+
+        .laptop-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          position: relative;
+
+          .laptop {
+            width: 100%;
+            height: 430px;
+            z-index: 1;
+          }
+
+          .background {
+            z-index: 2;
+            width: 90%;
+            height: auto;
+            position: absolute;
+            right: 0;
+            width: 623px;
+            height: 336px;
+            top: 21px;
+            background: black;
+          }
+
+          .images {
+            z-index: 3;
+            width: 90%;
+            height: auto;
+            position: absolute;
+            right: 0;
+            width: 623px;
+            height: 336px;
+            top: 21px;
+            opacity: 0;
+            transition: all 0.5s ease;
+
+            &--active {
+              opacity: 1;
+            }
+          }
+        }
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: 340px;
+          height: 180px;
+          position: absolute;
+          background: white;
+          border-radius: 8px;
+          padding: 16px;
+          top: -90px;
+          left: -170px;
+          overflow: hidden;
+          z-index: 4;
+
+          .option {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            gap: 32px;
+            opacity: 0;
+            transition: all 0.8s ease;
+            position: absolute;
+            width: calc(100% - 32px);
+            transform: scale(0);
+
+            &--active {
+              opacity: 1;
+              transform: scale(100%);
+            }
+
+            .description {
+              font-family: 'Inter';
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 14.73px;
+              text-align: left;
+            }
+          }
+        }
+
+        .domain {
+          font-family: 'Inter';
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 16.08px;
+          text-align: left;
+          text-decoration: underline;
+          color: white;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
