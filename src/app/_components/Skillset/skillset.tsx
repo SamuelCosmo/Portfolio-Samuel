@@ -8,10 +8,13 @@ import typescript from '../../../../public/svg/skillset/typescript.svg'
 import html from '../../../../public/svg/skillset/html.svg'
 import sass from '../../../../public/svg/skillset/sass.svg'
 import c_sharp from '../../../../public/svg/skillset/c-sharp.svg'
+import shapes from '../../../../public/svg/skillset/shapes.svg'
 
 export default function SkillsetComponent() {
   return (
     <div className={styles.main}>
+      <Image src={shapes} alt='shapes' className={styles['shapes--1']} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--2']} />
       <div className={styles.body}>
         <div className={styles['body__title-container']}>
           <span className={styles['body__title-container__title']}>

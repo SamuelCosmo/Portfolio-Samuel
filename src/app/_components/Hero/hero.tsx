@@ -8,7 +8,7 @@ const title = 'Samuel Gutierrez'
 const subtitle = 'Building things for the web'
 
 export default function HeroComponent() {
-  const splitString = (text: string, first: boolean) => {
+  const splitString = (text: any, first: boolean) => {
     const list = text.split('')
     return list.map((item: string, index: number) => {
       return (
@@ -28,7 +28,7 @@ export default function HeroComponent() {
 
   return (
     <div className={styles.main}>
-      <div className={styles.background}>
+      <div className={styles.background + ' hide-mobile'}>
         <Image src={shapes1} alt='shapes' className={styles['background__first']} />
         <Image src={shapes2} alt='shapes' className={styles['background__second']} />
       </div>

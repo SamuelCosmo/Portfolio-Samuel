@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styles from './expertise.module.scss'
+import Image from 'next/image'
+import shapes from '../../../../public/svg/expertise/shapes.svg'
 
 interface Props {
   job_title: string
@@ -48,6 +50,7 @@ export default function ExpertiseComponent() {
 
   return (
     <div className={styles['main']}>
+      <Image src={shapes} alt='shapes' className={styles['shapes']} />
       <div className={styles['body']}>
         <div className={styles['body__title-container']}>
           <h2 className={styles['body__title-container__title']}>

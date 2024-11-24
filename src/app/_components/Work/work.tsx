@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import styles from './work.module.scss'
-import laptop from '../../../../public/assets/work/laptop.webp'
 import byop from '../../../../public/assets/work/byop-excess.png'
 import ssi from '../../../../public/assets/work/ssi-excess.png'
 import medicaid from '../../../../public/assets/work/medicaid-excess.png'
@@ -9,12 +8,26 @@ import medical from '../../../../public/assets/work/medical-excess.png'
 import wic from '../../../../public/assets/work/wic-excess.png'
 import angel from '../../../../public/assets/work/angel-mobile.png'
 import unlimited from '../../../../public/assets/work/boost-unlimited.png'
+import galaxy from '../../../../public/assets/work/boost-galaxy.png'
+import iphone from '../../../../public/assets/work/boost-iphone.png'
+import boost_byop from '../../../../public/assets/work/boost-byop.png'
+import multilines from '../../../../public/assets/work/boost-multilines.png'
+import react from '../../../../public/svg/work/react.svg'
+import sass from '../../../../public/svg/work/sass.svg'
+import typescript from '../../../../public/svg/work/typescript.svg'
+import shapes from '../../../../public/svg/work/shapes.svg'
+
+interface ImageProps {
+  image: StaticImageData
+  alt: string
+}
 
 interface Props {
   web_title: string
   domain: string
   description: any
   image: StaticImageData
+  technologies: ImageProps[]
 }
 
 const text = (
@@ -34,41 +47,134 @@ const expertises: Props[] = [
     domain: 'https://excess-byop.1wireless.com',
     description: text,
     image: byop,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
   },
   {
     web_title: 'Excess - SSI',
     domain: 'https://excess-ssi.1wireless.com',
     description: text,
     image: ssi,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
   },
   {
     web_title: 'Excess - Medicaid',
     domain: 'https://excess-medicaid.1wireless.com',
     description: text,
     image: medicaid,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
   },
   {
     web_title: 'Excess - Medical',
     domain: 'https://excess-medical.1wireless.com',
     description: text,
     image: medical,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
   },
-  { web_title: 'Excess - Wic', domain: 'https://excess-wic.1wireless.com', description: text, image: wic },
-  { web_title: 'Angel Mobile', domain: 'https://www.getangelmobile.com', description: text, image: angel },
+  {
+    web_title: 'Excess - Wic',
+    domain: 'https://excess-wic.1wireless.com',
+    description: text,
+    image: wic,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
+  {
+    web_title: 'Angel Mobile',
+    domain: 'https://www.getangelmobile.com',
+    description: text,
+    image: angel,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
   {
     web_title: 'Boost Affiliate - Unlimited',
     domain: 'https://boostaffiliate.com/unlimited',
     description: text,
     image: unlimited,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
+  {
+    web_title: 'Boost Affiliate - Galaxy',
+    domain: 'https://boostaffiliate.com/access-galaxy',
+    description: text,
+    image: galaxy,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
+  {
+    web_title: 'Boost Affiliate - Iphone',
+    domain: 'https://boostaffiliate.com/access-iphone',
+    description: text,
+    image: iphone,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
+  {
+    web_title: 'Boost Affiliate - Byop',
+    domain: 'https://boostaffiliate.com/bring-your-device',
+    description: text,
+    image: boost_byop,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
+  {
+    web_title: 'Boost Affiliate - Multilines',
+    domain: 'https://boostaffiliate.com/multilines',
+    description: text,
+    image: multilines,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
   },
 ]
 
 export default function WorkComponent() {
   const [selected, setSelected] = useState<number>(0)
   const [domainSelected, setDomainSelected] = useState<string>(expertises[0].domain)
+  const [technologiesAssets, setTechnologiesAssets] = useState<ImageProps[]>(expertises[0].technologies)
 
   return (
     <div className={styles['main']}>
+      <Image src={shapes} alt='shapes' className={styles['shapes--1']} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--2']} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--3']} />
       <div className={styles['body']}>
         <div className={styles['body__title-container']}>
           <h2 className={styles['body__title-container__title']}>
@@ -84,6 +190,7 @@ export default function WorkComponent() {
                   onClick={() => {
                     setSelected(index)
                     setDomainSelected(item.domain)
+                    setTechnologiesAssets(item.technologies)
                   }}
                   key={'menu-option-' + index}
                 >
@@ -108,7 +215,7 @@ export default function WorkComponent() {
               })}
             </div>
             <div className={styles['laptop-container']}>
-              <Image src={laptop} alt='Laptop' className={styles['laptop']} />
+              <div className={styles['frame']}></div>
               <div className={styles['background']} />
               {expertises.map((item: Props, index: number) => {
                 return (
@@ -126,6 +233,12 @@ export default function WorkComponent() {
               <a href={domainSelected} target='_blank' rel='noopener noreferrer'>
                 {domainSelected}
               </a>
+            </p>
+            <p className={styles['technologies-container']}>
+              Technologies:{' '}
+              {technologiesAssets.map((item: ImageProps, index: number) => {
+                return <Image src={item.image} alt={item.alt} key={index} />
+              })}
             </p>
           </div>
         </div>

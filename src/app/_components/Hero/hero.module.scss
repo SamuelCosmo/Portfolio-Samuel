@@ -16,14 +16,12 @@
     position: absolute;
 
     &__first {
-      max-width: 50%;
-      width: 100%;
+      width: 50%;
       height: auto;
     }
 
     &__second {
-      max-width: 76%;
-      width: 100%;
+      width: 76%;
       height: auto;
     }
   }
@@ -35,6 +33,10 @@
     flex-direction: column;
     padding: 0 128px;
     width: 100%;
+
+    @include mobile {
+      padding: 0;
+    }
 
     .portafolio {
       font-family: 'Inter';

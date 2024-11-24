@@ -1,4 +1,4 @@
-@import "src/shared/scss/media-queries";
+@import 'src/shared/scss/media-queries';
 
 .body {
   display: flex;
@@ -33,7 +33,7 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-
+    cursor: pointer;
 
     @include mobile {
       font-size: 24px;
@@ -54,7 +54,7 @@
     &__option {
       color: white;
       text-align: right;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-size: 24px;
       font-style: normal;
       font-weight: 400;
@@ -76,7 +76,7 @@
         text-align: right;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
-        color: #A5D170;
+        color: #a5d170;
       }
     }
   }
@@ -114,7 +114,7 @@
 
         color: #4dd6c3;
         text-align: right;
-        font-family: "Inter";
+        font-family: 'Inter';
         font-size: 24px;
         font-style: normal;
         font-weight: 500;

@@ -6,6 +6,15 @@
   width: 100%;
   position: relative;
 
+  .shapes {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 50%;
+    height: auto;
+    opacity: 0.5;
+  }
+
   .body {
     display: flex;
     justify-content: center;
@@ -95,6 +104,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         width: 75%;
+        height: 333px;
         position: relative;
 
         .option {
