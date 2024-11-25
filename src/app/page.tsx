@@ -39,9 +39,9 @@ export default function Home() {
         <div ref={childRefs.workRef} className={styles['body__container']}>
           <WorkComponent />
         </div>
-        {/* <div ref={childRefs.contactRef} className={styles['body__container']}>
+        <div ref={childRefs.contactRef} className={styles['body__container']}>
           <ContactComponent />
-        </div> */}
+        </div>
       </div>
     </main>
   )
