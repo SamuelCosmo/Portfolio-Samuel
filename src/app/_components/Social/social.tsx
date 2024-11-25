@@ -7,6 +7,7 @@ import linkedin from '../../../../public/svg/social/linkedin.svg'
 export default function SocialComponent() {
   return (
     <div className={styles['main']}>
+      <div className={styles['line'] + ' hide-tablet hide-desktop'} />
       <Image src={facebook} alt='facebook' />
       <Image src={github} alt='github' />
       <Image src={linkedin} alt='linkedin' />

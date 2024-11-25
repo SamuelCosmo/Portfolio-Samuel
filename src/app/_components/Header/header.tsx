@@ -19,7 +19,7 @@ export default function HeaderComponent({ childRefs }: Props) {
 
   const splitWord = (value: string) => {
     return value.split('').map((letter, letterIndex) => (
-      <div key={letterIndex} className={styles['body__side-menu__submenu__option--letter']}>
+      <div key={letterIndex} className={styles['main__side-menu__submenu__option--letter']}>
         <span
           style={{
             animationDelay: `${letterIndex * 0.06 + 0.4}s`,
@@ -33,85 +33,87 @@ export default function HeaderComponent({ childRefs }: Props) {
   }
 
   return (
-    <div className={styles.body}>
-      <button
-        className={styles['body__title']}
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          })
-        }}
-      >
-        Samuel Gutierrez
-      </button>
-      <div className={styles['body__menu'] + ' hide-mobile'}>
-        <p
-          className={styles['body__menu__option']}
+    <div className={styles.main}>
+      <div className={styles.body}>
+        <button
+          className={styles['body__title']}
           onClick={() => {
-            aboutRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
           }}
         >
-          <span>01. </span>About Me
-        </p>
-        <p
-          className={styles['body__menu__option']}
-          onClick={() => {
-            skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
+          Samuel Gutierrez
+        </button>
+        <div className={styles['body__menu'] + ' hide-mobile'}>
+          <p
+            className={styles['body__menu__option']}
+            onClick={() => {
+              aboutRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <span>01. </span>About Me
+          </p>
+          <p
+            className={styles['body__menu__option']}
+            onClick={() => {
+              skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <span>02. </span>Skillset
+          </p>
+          <p
+            className={styles['body__menu__option']}
+            onClick={() => {
+              expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <span>03. </span>Expertise
+          </p>
+          <p
+            className={styles['body__menu__option']}
+            onClick={() => {
+              workRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <span>04. </span>Work
+          </p>
+          <p
+            className={styles['body__menu__option']}
+            onClick={() => {
+              contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <span>05. </span>Contact Me
+          </p>
+        </div>
+        <Image
+          alt='menu'
+          width={44}
+          height={44}
+          src='/svg/menu.svg'
+          className={styles['body__menu-icon'] + ' hide-desktop'}
+          onClick={(e: any) => {
+            e.preventDefault()
+            setSideBarOpen(!sideBarOpen)
           }}
-        >
-          <span>02. </span>Skillset
-        </p>
-        <p
-          className={styles['body__menu__option']}
-          onClick={() => {
-            expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
-          }}
-        >
-          <span>03. </span>Expertise
-        </p>
-        <p
-          className={styles['body__menu__option']}
-          onClick={() => {
-            workRef?.current?.scrollIntoView({ behavior: 'smooth' })
-          }}
-        >
-          <span>04. </span>Work
-        </p>
-        <p
-          className={styles['body__menu__option']}
-          onClick={() => {
-            contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
-          }}
-        >
-          <span>05. </span>Contact Me
-        </p>
+        />
       </div>
-      <Image
-        alt='menu'
-        width={44}
-        height={44}
-        src='/svg/menu.svg'
-        className={styles['body__menu-icon'] + ' hide-desktop'}
-        onClick={(e: any) => {
-          e.preventDefault()
-          setSideBarOpen(!sideBarOpen)
-        }}
-      />
 
       <div
         className={
-          styles['body__side-menu'] + ' hide-desktop ' + (sideBarOpen ? styles['body__side-menu--opened'] : '')
+          styles['main__side-menu'] + ' hide-desktop ' + (sideBarOpen ? styles['main__side-menu--opened'] : '')
         }
       >
-        <div className={styles['body__side-menu__submenu']}>
-          <span className={styles['body__side-menu__submenu__option']}>{sideBarOpen ? splitWord('About Me') : ''}</span>
-          <span className={styles['body__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Skillset') : ''}</span>
-          <span className={styles['body__side-menu__submenu__option']}>
+        <div className={styles['main__side-menu__submenu']}>
+          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('About Me') : ''}</span>
+          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Skillset') : ''}</span>
+          <span className={styles['main__side-menu__submenu__option']}>
             {sideBarOpen ? splitWord('Expertise') : ''}
           </span>
-          <span className={styles['body__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Work') : ''}</span>
-          <span className={styles['body__side-menu__submenu__option']}>
+          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Work') : ''}</span>
+          <span className={styles['main__side-menu__submenu__option']}>
             {sideBarOpen ? splitWord('Contact Me') : ''}
           </span>
         </div>

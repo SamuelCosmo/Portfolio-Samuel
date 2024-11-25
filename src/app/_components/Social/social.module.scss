@@ -1,3 +1,5 @@
+@import 'src/shared/scss/media-queries';
+
 .main {
   display: flex;
   justify-content: center;
@@ -9,15 +11,33 @@
   left: 32px;
   z-index: 3;
 
+  @include mobile {
+    gap: 12px;
+    left: 0;
+    bottom: 32px;
+    flex-direction: row;
+    width: 100%;
+  }
+
   img {
     width: 45px;
     height: 45px;
     cursor: pointer;
+
+    @include mobile {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   .line {
     width: 2px;
-    height: 128px;
+    height: 92px;
     background: #a5a5a5;
+
+    @include mobile {
+      width: 25%;
+      height: 2px;
+    }
   }
 }

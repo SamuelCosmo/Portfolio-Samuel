@@ -27,7 +27,7 @@ export default function Home() {
         <HeaderComponent childRefs={childRefs} />
         {/* <ButtonsMovementComponent childRefs={childRefs} /> */}
         <HeroComponent />
-        <div ref={childRefs.aboutRef} className={styles['body__container']}>
+        {/* <div ref={childRefs.aboutRef} className={styles['body__container']}>
           <AboutComponent />
         </div>
         <div ref={childRefs.skillsetRef} className={styles['body__container']}>
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
         <div ref={childRefs.contactRef} className={styles['body__container']}>
           <ContactComponent />
-        </div>
+        </div> */}
       </div>
     </main>
   )

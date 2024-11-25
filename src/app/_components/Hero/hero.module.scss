@@ -6,6 +6,7 @@
   align-items: center;
   width: 100vw;
   height: 100dvh;
+  overflow: hidden;
 
   .background {
     display: flex;
@@ -36,6 +37,7 @@
 
     @include mobile {
       padding: 0;
+      align-items: center;
     }
 
     .portafolio {
@@ -45,6 +47,48 @@
       line-height: 28.1px;
       text-align: left;
       color: #a5a5a5;
+    }
+
+    &__photo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 16px;
+
+      &__back {
+        position: absolute;
+        background: transparent;
+        z-index: 1;
+        animation: rotation 60s linear infinite;
+        height: auto;
+        width: 520px;
+
+        @include mobile {
+          max-width: 367px;
+        }
+
+        @keyframes rotation {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+
+      &__photo {
+        border-radius: 50%;
+        z-index: 2;
+        max-width: 360px;
+        height: auto;
+
+        @include mobile {
+          max-width: 246px;
+        }
+      }
     }
 
     .title {
@@ -58,6 +102,12 @@
       line-height: 5.2vw;
       text-align: left;
       color: #ffffff;
+      z-index: 2;
+
+      @include mobile {
+        font-size: 32px;
+        line-height: 34px;
+      }
     }
 
     .subtitle {
@@ -70,7 +120,13 @@
       font-weight: 700;
       line-height: 5vw;
       text-align: left;
+      z-index: 2;
       color: #a5a5a5;
+
+      @include mobile {
+        font-size: 22px;
+        line-height: 24px;
+      }
 
       span {
         font-family: Inter;
