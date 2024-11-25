@@ -42,6 +42,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               top: 0,
               behavior: 'smooth',
             })
+            setSideBarOpen(false)
           }}
         >
           Samuel Gutierrez
@@ -115,7 +116,7 @@ export default function HeaderComponent({ childRefs }: Props) {
                 block: 'center',
                 inline: 'center',
               })
-              setSideBarOpen(false)
+              setSideBarOpen(!sideBarOpen)
             }}
           >
             {sideBarOpen ? splitWord('About Me') : ''}
@@ -124,7 +125,7 @@ export default function HeaderComponent({ childRefs }: Props) {
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
               skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
-              setSideBarOpen(false)
+              setSideBarOpen(!sideBarOpen)
             }}
           >
             {sideBarOpen ? splitWord('Skillset') : ''}
@@ -133,7 +134,7 @@ export default function HeaderComponent({ childRefs }: Props) {
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
               expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
-              setSideBarOpen(false)
+              setSideBarOpen(!sideBarOpen)
             }}
           >
             {sideBarOpen ? splitWord('Expertise') : ''}
@@ -142,7 +143,7 @@ export default function HeaderComponent({ childRefs }: Props) {
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
               workRef?.current?.scrollIntoView({ behavior: 'smooth' })
-              setSideBarOpen(false)
+              setSideBarOpen(!sideBarOpen)
             }}
           >
             {sideBarOpen ? splitWord('Work') : ''}
@@ -151,7 +152,7 @@ export default function HeaderComponent({ childRefs }: Props) {
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
               contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
-              setSideBarOpen(false)
+              setSideBarOpen(!sideBarOpen)
             }}
           >
             {sideBarOpen ? splitWord('Contact Me') : ''}

@@ -15,19 +15,6 @@ const text = (
     includes designing and implementing new database schemas, creating and optimizing tables, and developing
     comprehensive services to support the application&apos;s functionality. My approach ensures scalable, secure, and
     efficient data management.
-    <br />
-    <br />
-    On the front-end, I employ a variety of frameworks to construct dynamic and responsive user interfaces across
-    multiple projects. This involves not only coding the essential functionalities but also meticulously crafting styles
-    and incorporating animations to enhance visual appeal and user interaction. My goal is to deliver a seamless and
-    engaging user experience that meets the highest standards of performance and design.
-    <br />
-    <br />
-    Through this work, I consistently adhere to best practices in software development, ensuring code quality,
-    maintainability, and adaptability. I collaborate closely with cross-functional teams to integrate front-end and
-    back-end components seamlessly, facilitating smooth project workflows and achieving our collective objectives.
-    Additionally, I stay abreast of emerging technologies and industry trends to continuously improve my skills and
-    contribute innovative solutions to the projects I undertake.
   </>
 )
 

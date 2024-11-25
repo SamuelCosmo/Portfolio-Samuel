@@ -1,3 +1,5 @@
+@import 'src/shared/scss/media-queries';
+
 .main {
   display: flex;
   justify-content: center;
@@ -45,6 +47,10 @@
     height: 100vh;
     z-index: 2;
 
+    @include mobile {
+      gap: 8px;
+    }
+
     &__title-container {
       display: flex;
       flex-direction: column;
@@ -60,13 +66,8 @@
         font-weight: 700;
         line-height: 56.2px;
 
-        span {
-          font-family: 'Inter';
-          font-size: 32px;
-          font-weight: 400;
-          line-height: 28.1px;
-          text-align: right;
-          color: #a5d170;
+        @include mobile {
+          align-self: center;
         }
       }
     }
@@ -79,6 +80,11 @@
       width: 100%;
       gap: 32px;
 
+      @include mobile {
+        flex-direction: column;
+        gap: 24px;
+      }
+
       .menu {
         display: flex;
         flex-direction: column;
@@ -88,12 +94,33 @@
         overflow: auto;
         height: 413px;
 
+        @include mobile {
+          flex-direction: row;
+          height: auto;
+          width: 100%;
+          // justify-content: center;
+          align-items: center;
+          padding-left: initial;
+        }
+
+        .division {
+          height: 16px;
+          width: 2px;
+          background: white;
+          flex: 0 0 auto;
+        }
+
         .option {
           padding: 16px;
           border-left: 4px solid black;
           width: 100%;
           transition: all 0.8s ease;
           cursor: pointer;
+
+          @include mobile {
+            border-left: 0;
+            padding: 8px 16px;
+          }
 
           .job-title {
             font-family: 'Inter';
@@ -110,10 +137,18 @@
             &:hover {
               text-decoration: underline;
             }
+
+            @include mobile {
+              white-space: nowrap;
+            }
           }
 
           &--active {
             border-left: 4px solid #7ea153;
+
+            @include mobile {
+              border-left: 0;
+            }
           }
         }
       }
@@ -126,12 +161,22 @@
         width: 100%;
         position: relative;
 
+        @include mobile {
+          flex-direction: column;
+          gap: 16px;
+        }
+
         .laptop-container {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
           position: relative;
+
+          @include mobile {
+            height: 382px;
+            width: 226px;
+          }
 
           .frame {
             width: 100%;
@@ -140,6 +185,13 @@
             background: #1a202c;
             border-radius: 16px;
             border: 2px solid #4a5568;
+
+            @include mobile {
+              height: 382px;
+              width: 226px;
+              background: black;
+              border: 1px solid #4a5568;
+            }
           }
 
           .background {
@@ -151,6 +203,10 @@
             height: 361px;
             border-radius: 8px;
             background: black;
+
+            @include mobile {
+              height: 230px;
+            }
           }
 
           .images {
@@ -165,6 +221,12 @@
 
             &--active {
               opacity: 1;
+            }
+
+            @include mobile {
+              width: 190px;
+              height: 348px;
+              border-radius: 4px;
             }
           }
         }
@@ -212,44 +274,55 @@
           }
         }
 
-        .domain {
-          font-family: 'Inter';
-          font-size: 14px;
-          font-weight: 300;
-          line-height: 16.08px;
-          text-align: left;
-          text-decoration: underline;
-          color: white;
-          position: absolute;
-          bottom: -25px;
-          left: 0;
-          z-index: 2;
-
-          a {
-            color: white;
-          }
-        }
-
-        .technologies-container {
+        .domain-container {
           display: flex;
-          flex-direction: row;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
-          gap: 16px;
-          font-family: 'Inter';
-          font-size: 14px;
-          font-weight: 300;
-          line-height: 16.08px;
-          text-align: left;
-          color: white;
+          flex-direction: row;
           position: absolute;
-          bottom: -29px;
-          right: 16px;
-          z-index: 2;
+          bottom: -35px;
+          width: 100%;
 
-          img {
-            width: 24px;
-            height: 24px;
+          @include mobile {
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            position: initial;
+          }
+
+          .domain {
+            font-family: 'Inter';
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 16.08px;
+            text-align: left;
+            text-decoration: underline;
+            color: white;
+            z-index: 2;
+
+            a {
+              color: white;
+            }
+          }
+
+          .technologies-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Inter';
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 16.08px;
+            text-align: left;
+            color: white;
+            z-index: 2;
+
+            img {
+              width: 24px;
+              height: 24px;
+            }
           }
         }
       }
