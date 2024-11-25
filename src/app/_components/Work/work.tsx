@@ -172,9 +172,9 @@ export default function WorkComponent() {
 
   return (
     <div className={styles['main']}>
-      <Image src={shapes} alt='shapes' className={styles['shapes--1']} />
-      <Image src={shapes} alt='shapes' className={styles['shapes--2']} />
-      <Image src={shapes} alt='shapes' className={styles['shapes--3']} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--1'] + ' hide-mobile'} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--2'] + ' hide-mobile'} />
+      <Image src={shapes} alt='shapes' className={styles['shapes--3'] + ' hide-mobile'} />
       <div className={styles['body']}>
         <div className={styles['body__title-container']}>
           <h2 className={styles['body__title-container__title']}>

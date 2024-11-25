@@ -33,13 +33,13 @@ export default function Home() {
         <div ref={childRefs.skillsetRef} className={styles['body__container']}>
           <SkillsetComponent />
         </div>
-        {/* <div ref={childRefs.expertiseRef} className={styles['body__container']}>
+        <div ref={childRefs.expertiseRef} className={styles['body__container']}>
           <ExpertiseComponent />
         </div>
         <div ref={childRefs.workRef} className={styles['body__container']}>
           <WorkComponent />
         </div>
-        <div ref={childRefs.contactRef} className={styles['body__container']}>
+        {/* <div ref={childRefs.contactRef} className={styles['body__container']}>
           <ContactComponent />
         </div> */}
       </div>

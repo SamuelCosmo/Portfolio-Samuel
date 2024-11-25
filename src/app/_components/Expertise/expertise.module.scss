@@ -1,10 +1,14 @@
+@import 'src/shared/scss/media-queries';
+
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100%;
+  height: 100dvh;
   position: relative;
+  overflow: hidden;
 
   .shapes {
     position: absolute;
@@ -41,6 +45,7 @@
         font-size: 36px;
         font-weight: 700;
         line-height: 56.2px;
+        align-self: center;
 
         span {
           font-family: 'Inter';
@@ -61,12 +66,23 @@
       width: 100%;
       gap: 32px;
 
+      @include mobile {
+        flex-direction: column;
+        gap: 16px;
+      }
+
       .menu {
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: flex-start;
         width: 25%;
+
+        @include mobile {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+        }
 
         .option {
           padding: 16px;
@@ -95,6 +111,12 @@
           &--active {
             border-left: 4px solid #7ea153;
           }
+
+          @include mobile {
+            display: flex;
+            align-items: center;
+            height: 70px;
+          }
         }
       }
 
@@ -106,6 +128,12 @@
         width: 75%;
         height: 333px;
         position: relative;
+
+        @include mobile {
+          height: 40dvh;
+          overflow: hidden;
+          width: 100%;
+        }
 
         .option {
           display: flex;
@@ -121,6 +149,10 @@
           &--active {
             opacity: 1;
             transform: translateX(0%);
+          }
+
+          @include mobile {
+            gap: 16px;
           }
 
           .title {

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import shapes from '../../../../public/svg/expertise/shapes.svg'
 
 interface Props {
-  job_title: string
+  job_title: any
   title: string
   description: any
 }
@@ -33,7 +33,13 @@ const text = (
 
 const expertises: Props[] = [
   {
-    job_title: 'N3 Devices (Sales-Hub)',
+    job_title: (
+      <>
+        N3 Devices
+        <br />
+        (Sales-Hub)
+      </>
+    ),
     title: 'Fullstack Developer',
     description: text,
   },
@@ -50,12 +56,10 @@ export default function ExpertiseComponent() {
 
   return (
     <div className={styles['main']}>
-      <Image src={shapes} alt='shapes' className={styles['shapes']} />
+      <Image src={shapes} alt='shapes' className={styles['shapes'] + ' hide-mobile'} />
       <div className={styles['body']}>
         <div className={styles['body__title-container']}>
-          <h2 className={styles['body__title-container__title']}>
-            <span>3. </span>Expertise
-          </h2>
+          <h2 className={styles['body__title-container__title']}>Expertise</h2>
         </div>
         <div className={styles['information-container']}>
           <div className={styles['menu']}>
