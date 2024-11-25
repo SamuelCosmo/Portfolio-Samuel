@@ -53,7 +53,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               aboutRef?.current?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            <span>01. </span>About Me
+            About me
           </p>
           <p
             className={styles['body__menu__option']}
@@ -61,7 +61,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            <span>02. </span>Skillset
+            Skillset
           </p>
           <p
             className={styles['body__menu__option']}
@@ -69,7 +69,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            <span>03. </span>Expertise
+            Expertise
           </p>
           <p
             className={styles['body__menu__option']}
@@ -77,7 +77,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               workRef?.current?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            <span>04. </span>Work
+            Work
           </p>
           <p
             className={styles['body__menu__option']}
@@ -85,7 +85,7 @@ export default function HeaderComponent({ childRefs }: Props) {
               contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            <span>05. </span>Contact Me
+            Contact Me
           </p>
         </div>
         <Image
@@ -107,13 +107,53 @@ export default function HeaderComponent({ childRefs }: Props) {
         }
       >
         <div className={styles['main__side-menu__submenu']}>
-          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('About Me') : ''}</span>
-          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Skillset') : ''}</span>
-          <span className={styles['main__side-menu__submenu__option']}>
+          <span
+            className={styles['main__side-menu__submenu__option']}
+            onClick={() => {
+              aboutRef?.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
+              })
+              setSideBarOpen(false)
+            }}
+          >
+            {sideBarOpen ? splitWord('About Me') : ''}
+          </span>
+          <span
+            className={styles['main__side-menu__submenu__option']}
+            onClick={() => {
+              skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setSideBarOpen(false)
+            }}
+          >
+            {sideBarOpen ? splitWord('Skillset') : ''}
+          </span>
+          <span
+            className={styles['main__side-menu__submenu__option']}
+            onClick={() => {
+              expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setSideBarOpen(false)
+            }}
+          >
             {sideBarOpen ? splitWord('Expertise') : ''}
           </span>
-          <span className={styles['main__side-menu__submenu__option']}>{sideBarOpen ? splitWord('Work') : ''}</span>
-          <span className={styles['main__side-menu__submenu__option']}>
+          <span
+            className={styles['main__side-menu__submenu__option']}
+            onClick={() => {
+              workRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setSideBarOpen(false)
+            }}
+          >
+            {sideBarOpen ? splitWord('Work') : ''}
+          </span>
+          <span
+            className={styles['main__side-menu__submenu__option']}
+            onClick={() => {
+              contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setSideBarOpen(false)
+            }}
+          >
             {sideBarOpen ? splitWord('Contact Me') : ''}
           </span>
         </div>

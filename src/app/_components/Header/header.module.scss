@@ -18,9 +18,7 @@
     align-items: center;
     flex-direction: row;
     padding: 16px 64px;
-    background: #2b2b2b;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     z-index: 2;
 
     @include mobile {
@@ -69,24 +67,10 @@
         font-style: normal;
         font-weight: 400;
         line-height: 28.1px;
-        text-align: right;
-        text-underline-position: from-font;
-        text-decoration-skip-ink: none;
         cursor: pointer;
 
         &:hover {
           text-decoration: underline;
-        }
-
-        span {
-          font-family: Consolas;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: 28.1px;
-          text-align: right;
-          text-underline-position: from-font;
-          text-decoration-skip-ink: none;
-          color: #a5d170;
         }
       }
     }

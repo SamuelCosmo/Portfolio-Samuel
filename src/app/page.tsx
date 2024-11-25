@@ -27,10 +27,10 @@ export default function Home() {
         <HeaderComponent childRefs={childRefs} />
         {/* <ButtonsMovementComponent childRefs={childRefs} /> */}
         <HeroComponent />
-        {/* <div ref={childRefs.aboutRef} className={styles['body__container']}>
+        <div ref={childRefs.aboutRef} className={styles['body__container']}>
           <AboutComponent />
         </div>
-        <div ref={childRefs.skillsetRef} className={styles['body__container']}>
+        {/* <div ref={childRefs.skillsetRef} className={styles['body__container']}>
           <SkillsetComponent />
         </div>
         <div ref={childRefs.expertiseRef} className={styles['body__container']}>
