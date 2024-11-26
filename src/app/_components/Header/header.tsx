@@ -4,6 +4,7 @@ import styles from './header.module.scss'
 import Image from 'next/image'
 import menu from '../../../../public/svg/menu.svg'
 import paper_plane from '../../../../public/svg/header/paper-plane.svg'
+import PlaneIcon from './header/paper-plane'
 
 interface Props {
   indexRef: number
@@ -144,15 +145,19 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           >
             {sideBarOpen ? splitWord('Work') : ''}
           </span>
-          <span
-            className={styles['main__side-menu__submenu__option']}
+        </div>
+        <div className={styles['contact-container']}>
+          <div className={styles['line']}></div>
+          <div
+            className={styles['contact-container__plane']}
             onClick={() => {
               setIndexRef(5)
               setSideBarOpen(!sideBarOpen)
             }}
           >
-            {sideBarOpen ? splitWord('Contact Me') : ''}
-          </span>
+            {PlaneIcon('white')}
+          </div>
+          <div className={styles['line']}></div>
         </div>
       </div>
     </div>

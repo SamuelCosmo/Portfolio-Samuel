@@ -1,41 +1,59 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import styles from './expertise.module.scss'
 import Image from 'next/image'
 import shapes from '../../../../public/svg/expertise/shapes.svg'
 
 interface Props {
-  job_title: any
+  job_title: string
   title: string
   description: any
 }
 
-const text = (
+const salesText = (
   <>
-    In my current role, I am focused on developing the back-end architecture using Node.js, Express, and Knex. This
-    includes designing and implementing new database schemas, creating and optimizing tables, and developing
-    comprehensive services to support the application&apos;s functionality. My approach ensures scalable, secure, and
-    efficient data management.
+    Developed a sales and user management system using Angular, TypeScript, and SCSS in the first year.
+    <br />
+    In the second year, migrated multiple projects to React and Next.js with TypeScript, improving efficiency and
+    modularity.
+    <br />
+    Implemented automated tests with Cypress to ensure proper functionality across systems.
+    <br />
+    Optimized animations and collaborated with design and backend teams to maintain visual and functional consistency.
+  </>
+)
+
+const gpsText = (
+  <>
+    Designed and developed robust database architectures using Node, Knex, and MySQL, ensuring scalability, data
+    integrity, and high performance for various internal systems.
+    <br />
+    Created and optimized complex SQL queries to handle large datasets, enabling efficient data retrieval and real-time
+    reporting for the warehouse and vehicle management systems.
+    <br />
+    Integrated backend services with front-end applications to ensure smooth communication between the server and the
+    user interface, improving overall system functionality
+  </>
+)
+
+const redText = (
+  <>
+    Developed dynamic web pages using Angular, JavaScript, and Node.js, focusing on both front-end and back-end
+    integration.
   </>
 )
 
 const expertises: Props[] = [
   {
-    job_title: (
-      <>
-        N3 Devices
-        <br />
-        (Sales-Hub)
-      </>
-    ),
-    title: 'Fullstack Developer',
-    description: text,
+    job_title: 'N3 Devices (Sales-Hub)',
+    title: 'Front-end Developer (2022-2024)',
+    description: salesText,
   },
   {
     job_title: 'GPS Geologistic',
-    title: 'Fullstack Developer',
-    description: text,
+    title: 'Fullstack Developer (2021-2022)',
+    description: gpsText,
   },
-  { job_title: 'Grupo Red', title: 'Fullstack Developer', description: text },
+  { job_title: 'Grupo Red', title: 'Fullstack Developer (2019-2019)', description: redText },
 ]
 
 export default function ExpertiseComponent() {
@@ -52,17 +70,19 @@ export default function ExpertiseComponent() {
           <div className={styles['menu']}>
             {expertises.map((item: Props, index: number) => {
               return (
-                <div
-                  className={styles['option'] + ' ' + (selected === index ? styles['option--active'] : '')}
-                  onClick={() => {
-                    setSelected(index)
-                  }}
-                  key={'menu-option-' + index}
-                >
-                  <p className={styles['job-title'] + ' ' + (selected === index ? styles['job-title--active'] : '')}>
-                    {item.job_title}
-                  </p>
-                </div>
+                <Fragment key={'menu-option-' + index}>
+                  {index !== 0 && <div className={styles['division'] + ' hide-tablet hide-desktop'}></div>}
+                  <div
+                    className={styles['option'] + ' ' + (selected === index ? styles['option--active'] : '')}
+                    onClick={() => {
+                      setSelected(index)
+                    }}
+                  >
+                    <p className={styles['job-title'] + ' ' + (selected === index ? styles['job-title--active'] : '')}>
+                      {item.job_title}
+                    </p>
+                  </div>
+                </Fragment>
               )
             })}
           </div>

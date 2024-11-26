@@ -69,6 +69,17 @@
         }
       }
 
+      .skills-names-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+
+        @include mobile {
+          justify-content: center;
+        }
+      }
+
       &__skillset-title {
         color: #848484;
         text-align: center;
@@ -78,10 +89,29 @@
         line-height: 22.2px;
         align-self: center;
         transition: all 0.5s ease-in-out;
-        transform: translateX(-100vw);
+        animation: exitSkill 0.5s forwards ease-in-out;
+        position: absolute;
 
         &--active {
-          transform: translateX(0);
+          animation: enterSkill 0.5s forwards ease-in-out;
+        }
+
+        @keyframes exitSkill {
+          0% {
+            transform: translateX(0vw);
+          }
+          100% {
+            transform: translateX(100vw);
+          }
+        }
+
+        @keyframes enterSkill {
+          0% {
+            transform: translateX(-100vw);
+          }
+          100% {
+            transform: translateX(0vw);
+          }
         }
       }
     }
@@ -112,21 +142,23 @@
       }
 
       .icons {
-        width: 120px;
-        height: auto;
-        transition: all 0.4s ease;
-        animation: rotationRight 60s linear infinite;
+        svg {
+          width: 120px;
+          height: auto;
+          transition: all 0.4s ease;
+          animation: rotationRight 60s linear infinite;
 
-        &:hover {
-          width: 140px;
+          &:hover {
+            width: 140px;
+
+            @include mobile {
+              width: 82px;
+            }
+          }
 
           @include mobile {
-            width: 82px;
+            width: 72px;
           }
-        }
-
-        @include mobile {
-          width: 72px;
         }
       }
     }

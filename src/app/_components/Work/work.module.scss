@@ -75,7 +75,7 @@
     .information-container {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       align-items: flex-start;
       width: 100%;
       gap: 32px;
@@ -174,7 +174,7 @@
           position: relative;
 
           @include mobile {
-            height: 382px;
+            height: 360px;
             width: 226px;
           }
 
@@ -187,8 +187,8 @@
             border: 2px solid #4a5568;
 
             @include mobile {
-              height: 382px;
-              width: 226px;
+              height: 356px;
+              width: 196px;
               background: black;
               border: 1px solid #4a5568;
             }
@@ -224,15 +224,15 @@
             }
 
             @include mobile {
-              width: 190px;
-              height: 348px;
+              width: 168px;
+              height: 320px;
               border-radius: 4px;
             }
           }
         }
 
         .information {
-          display: flex;
+          display: none;
           flex-direction: column;
           justify-content: flex-start;
           align-items: flex-start;
@@ -328,4 +328,10 @@
       }
     }
   }
+}
+
+.modal {
+  position: initial;
+  width: 90vw;
+  height: auto;
 }

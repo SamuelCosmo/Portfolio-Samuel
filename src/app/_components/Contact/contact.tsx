@@ -8,6 +8,15 @@ import location from '../../../../public/svg/contact/location.svg'
 import download from '../../../../public/svg/contact/download.svg'
 
 export default function ContactComponent() {
+  const [showDownload, setShowDownload] = useState(false)
+
+  const handleDownload = () => {
+    const pdfUrl = '/files/resume.pdf'
+    const link = document.createElement('a')
+    link.href = pdfUrl
+    link.download = 'resume.pdf'
+    link.click()
+  }
   return (
     <div className={styles.main}>
       <div className={styles.body}>
@@ -56,7 +65,27 @@ export default function ContactComponent() {
           </div>
         </div>
         <div className={styles['body__right'] + ' hide-mobile'}>
-          <Image alt='cv' width={595} height={842} src={'/assets/cv.webp'} className={styles['body__right__cv']} />
+          <div
+            className={styles['body__right__cv-container']}
+            onClick={() => {
+              handleDownload()
+            }}
+            onMouseEnter={() => {
+              setShowDownload(true)
+            }}
+            onMouseLeave={() => {
+              setShowDownload(false)
+            }}
+          >
+            <Image
+              alt='cv'
+              width={595}
+              height={842}
+              src={'/assets/cv.webp'}
+              className={styles['body__right__cv'] + ' ' + (showDownload ? styles['body__right__cv--active'] : '')}
+            />
+            {showDownload && <p className={styles['download']}>Download PDF</p>}
+          </div>
           <Image
             alt='cv'
             width={595}

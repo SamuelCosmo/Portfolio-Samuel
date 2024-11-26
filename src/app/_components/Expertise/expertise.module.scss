@@ -31,6 +31,10 @@
     padding: 16px;
     height: 100vh;
 
+    @include mobile {
+      gap: 8px;
+    }
+
     &__title-container {
       display: flex;
       flex-direction: column;
@@ -55,7 +59,7 @@
     .information-container {
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: center;
       align-items: flex-start;
       width: 100%;
       gap: 32px;
@@ -73,9 +77,19 @@
         width: 25%;
 
         @include mobile {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          flex-direction: row;
+          height: auto;
           width: 100%;
+          align-items: center;
+          padding-left: initial;
+          overflow: auto;
+        }
+
+        .division {
+          height: 16px;
+          width: 2px;
+          background: white;
+          flex: 0 0 auto;
         }
 
         .option {
@@ -87,18 +101,29 @@
 
           .job-title {
             font-family: 'Inter';
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 400;
-            line-height: 18.73px;
+            line-height: 22.73px;
             color: #7c7c7c;
             transition: all 0.8s ease;
+            white-space: nowrap;
 
             &--active {
               color: #7ea153;
+              font-weight: 500;
             }
 
             &:hover {
               text-decoration: underline;
+            }
+
+            @include mobile {
+              text-align: center;
+              align-self: center;
+              width: 100%;
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 20.73px;
             }
           }
 
@@ -109,7 +134,12 @@
           @include mobile {
             display: flex;
             align-items: center;
-            height: 70px;
+            border-left: initial;
+            padding: 4px 8px;
+
+            &--active {
+              border-left: initial;
+            }
           }
         }
       }
@@ -119,7 +149,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        width: 75%;
+        width: 720px;
         height: 333px;
         position: relative;
 
@@ -127,6 +157,7 @@
           height: 40dvh;
           overflow: hidden;
           width: 100%;
+          padding: 8px 12px;
         }
 
         .option {
@@ -145,24 +176,35 @@
             transform: translateX(0%);
           }
 
+          @include mobile {
+            width: calc(100% - 24px);
+          }
+
           .title {
             font-family: 'Inter';
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
-            line-height: 30.05px;
+            line-height: 26.05px;
             color: #a5d170;
+
+            @include mobile {
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 20.05px;
+              align-self: center;
+            }
           }
 
           .description {
             font-family: 'Inter';
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 400;
-            line-height: 26.2px;
+            line-height: 24.2px;
             text-align: left;
             color: #848484;
 
             @include mobile {
-              font-size: 18px;
+              font-size: 16px;
               line-height: 20px;
             }
           }

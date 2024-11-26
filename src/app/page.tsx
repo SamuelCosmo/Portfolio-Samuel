@@ -10,6 +10,7 @@ import HeroComponent from './_components/Hero/hero'
 import ExpertiseComponent from './_components/Expertise/expertise'
 import WorkComponent from './_components/Work/work'
 import SocialComponent from './_components/Social/social'
+import ModalComponent from '@/shared/components/Modal/modal'
 
 export default function Home() {
   const childRefs = {
@@ -23,6 +24,8 @@ export default function Home() {
 
   const [indexRef, setIndexRef] = useState<number>(0)
   const [scrolling, setScrolling] = useState<boolean>(false)
+  const [showModal, setModalShow] = useState<any>(null)
+  const [modalContent, setModalContent] = useState<any>(null)
 
   useEffect(() => {
     if (!scrolling) {
@@ -62,6 +65,14 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <ModalComponent
+        show={showModal}
+        setShow={(value: boolean) => {
+          setModalShow(value)
+        }}
+      >
+        {modalContent}
+      </ModalComponent>
       <div className={styles.body}>
         <SocialComponent
           indexRef={indexRef}
@@ -92,7 +103,14 @@ export default function Home() {
           <ExpertiseComponent />
         </div>
         <div ref={childRefs.workRef} className={styles['body__container']}>
-          <WorkComponent />
+          <WorkComponent
+            showModal={(value: boolean) => {
+              setModalShow(value)
+            }}
+            changeModalContent={(value: any) => {
+              setModalContent(value)
+            }}
+          />
         </div>
         <div ref={childRefs.contactRef} className={styles['body__container']}>
           <ContactComponent />

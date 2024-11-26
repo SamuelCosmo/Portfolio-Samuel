@@ -15,7 +15,8 @@
     min-height: 100dvh;
     z-index: 2;
     scroll-snap-type: both mandatory;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 100dvh;
 
     @include mobile {

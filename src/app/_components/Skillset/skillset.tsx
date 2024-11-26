@@ -1,17 +1,19 @@
 import { LegacyRef, useState } from 'react'
 import styles from './skillset.module.scss'
 import Image from 'next/image'
-import angular from '../../../../public/svg/skillset/angular.svg'
-import node from '../../../../public/svg/skillset/node.svg'
-import react from '../../../../public/svg/skillset/react.svg'
-import typescript from '../../../../public/svg/skillset/typescript.svg'
-import html from '../../../../public/svg/skillset/html.svg'
-import sass from '../../../../public/svg/skillset/sass.svg'
-import c_sharp from '../../../../public/svg/skillset/c-sharp.svg'
 import shapes from '../../../../public/svg/skillset/shapes.svg'
+import AngularIcon from './svg/angular'
+import JavaScriptIcon from './svg/javascript'
+import ReactIcon from './svg/react'
+import TypescriptIcon from './svg/typescript'
+import HtmlIcon from './svg/html'
+import SassIcon from './svg/sass'
+import CSharpIcon from './svg/c-sharp'
+
+const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'html', 'sass', 'c-sharp']
 
 export default function SkillsetComponent() {
-  const [skillsetName, setSkillSetName] = useState('')
+  const [skillSet, setSkillSet] = useState(-1)
 
   return (
     <div className={styles.main}>
@@ -20,78 +22,106 @@ export default function SkillsetComponent() {
       <div className={styles.body}>
         <div className={styles['body__title-container']}>
           <span className={styles['body__title-container__title']}>Skillset</span>
-          <span
-            className={
-              styles['body__title-container__skillset-title'] +
-              ' ' +
-              (skillsetName !== '' ? styles['body__title-container__skillset-title--active'] : '')
-            }
-          >
-            {skillsetName}
-          </span>
+          <div className={styles['skills-names-container']}>
+            {skills.map((item: string, index: number) => {
+              return (
+                <span
+                  className={
+                    styles['body__title-container__skillset-title'] +
+                    ' ' +
+                    (index === skillSet ? styles['body__title-container__skillset-title--active'] : '')
+                  }
+                  key={item + '-' + index}
+                >
+                  {item}
+                </span>
+              )
+            })}
+          </div>
         </div>
         <div className={styles['body__icons-container']}>
           <div className={styles['body__icons-container__first']}>
-            <Image
-              alt='angular'
-              src={angular}
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('angular')
+              onMouseEnter={() => {
+                setSkillSet(0)
               }}
-            />
-            <Image
-              alt='node'
-              src={node}
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {AngularIcon(skillSet === 0 ? '#A91814' : undefined)}
+            </div>
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('javascript')
+              onMouseEnter={() => {
+                setSkillSet(1)
               }}
-            />
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {JavaScriptIcon(skillSet === 1 ? '#D6BB38' : undefined)}
+            </div>
           </div>
           <div className={styles['body__icons-container__first']}>
-            <Image
-              alt='react'
-              src={react}
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('react')
+              onMouseEnter={() => {
+                setSkillSet(2)
               }}
-            />
-            <Image
-              alt='typescript'
-              src={typescript}
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {ReactIcon(skillSet === 2 ? '#09D9FF' : undefined)}
+            </div>
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('typescript')
+              onMouseEnter={() => {
+                setSkillSet(3)
               }}
-            />
-            <Image
-              alt='html'
-              src={html}
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {TypescriptIcon(skillSet === 3 ? '#377CC8' : undefined)}
+            </div>
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('html')
+              onMouseEnter={() => {
+                setSkillSet(4)
               }}
-            />
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {HtmlIcon(skillSet === 4 ? '#FF5225' : undefined)}
+            </div>
           </div>
           <div className={styles['body__icons-container__first']}>
-            <Image
-              alt='sass'
-              src={sass}
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('sass')
+              onMouseEnter={() => {
+                setSkillSet(5)
               }}
-            />
-            <Image
-              alt='c-sharp'
-              src={c_sharp}
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {SassIcon(skillSet === 5 ? '#CF6C9C' : undefined)}
+            </div>
+            <div
               className={styles['icons']}
-              onClick={() => {
-                setSkillSetName('c-sharp')
+              onMouseEnter={() => {
+                setSkillSet(6)
               }}
-            />
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {CSharpIcon(skillSet === 6 ? '#6D287E' : undefined)}
+            </div>
           </div>
         </div>
       </div>

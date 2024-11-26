@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import styles from './work.module.scss'
 import byop from '../../../../public/assets/work/byop-excess.png'
@@ -40,6 +40,11 @@ interface Props {
   image: StaticImageData
   image_mobile: StaticImageData
   technologies: ImageProps[]
+}
+
+interface ComponentProps {
+  showModal: (value: boolean) => void
+  changeModalContent: (value: any) => void
 }
 
 const text = (
@@ -188,10 +193,18 @@ const expertises: Props[] = [
   },
 ]
 
-export default function WorkComponent() {
+export default function WorkComponent({ showModal, changeModalContent }: ComponentProps) {
   const [selected, setSelected] = useState<number>(0)
   const [domainSelected, setDomainSelected] = useState<string>(expertises[0].domain)
   const [technologiesAssets, setTechnologiesAssets] = useState<ImageProps[]>(expertises[0].technologies)
+
+  useEffect(() => {
+    changeModalContent(
+      <>
+        <Image src={expertises[0].image_mobile} alt='image' className={styles['modal']} />
+      </>
+    )
+  }, [])
 
   return (
     <div className={styles['main']}>
@@ -214,6 +227,11 @@ export default function WorkComponent() {
                       setSelected(index)
                       setDomainSelected(item.domain)
                       setTechnologiesAssets(item.technologies)
+                      changeModalContent(
+                        <>
+                          <Image src={item.image_mobile} alt='image' className={styles['modal']} />
+                        </>
+                      )
                     }}
                   >
                     <p className={styles['job-title'] + ' ' + (selected === index ? styles['job-title--active'] : '')}>
@@ -259,6 +277,9 @@ export default function WorkComponent() {
                         ' ' +
                         (selected === index ? styles['images--active'] : '')
                       }
+                      onClick={() => {
+                        showModal(true)
+                      }}
                       key={index}
                     />
                   </Fragment>
