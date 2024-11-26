@@ -2,6 +2,10 @@
 import { LegacyRef, useEffect, useState } from 'react'
 import styles from './contact.module.scss'
 import Image from 'next/image'
+import email from '../../../../public/svg/contact/email.svg'
+import phone from '../../../../public/svg/contact/phone.svg'
+import location from '../../../../public/svg/contact/location.svg'
+import download from '../../../../public/svg/contact/download.svg'
 
 export default function ContactComponent() {
   return (
@@ -33,19 +37,19 @@ export default function ContactComponent() {
             </div>
             <div className={styles['main__footer']}>
               <div className={styles['main__footer__container']}>
-                <Image alt='icon' width={20} height={16} src={'/svg/contact/email.svg'} />
+                <Image alt='icon' src={email} />
                 <span>link_1095@hotmail.com</span>
               </div>
               <div className={styles['main__footer__container']}>
-                <Image alt='icon' width={18} height={18} src={'/svg/contact/phone.svg'} />
+                <Image alt='icon' src={phone} />
                 <span>+52 686 255-1906</span>
               </div>
               <div className={styles['main__footer__container']}>
-                <Image alt='icon' width={18} height={20} src={'/svg/contact/location.svg'} />
+                <Image alt='icon' src={location} />
                 <span>Mexico</span>
               </div>
               <div className={styles['main__footer__container'] + ' hide-desktop hide-tablet'}>
-                <Image alt='icon' width={18} height={20} src={'/svg/contact/download.svg'} />
+                <Image alt='icon' src={download} />
                 <span>Download Resume</span>
               </div>
             </div>

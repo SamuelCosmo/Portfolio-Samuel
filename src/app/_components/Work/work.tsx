@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import styles from './work.module.scss'
 import byop from '../../../../public/assets/work/byop-excess.png'
@@ -206,7 +206,7 @@ export default function WorkComponent() {
           <div className={styles['menu']}>
             {expertises.map((item: Props, index: number) => {
               return (
-                <>
+                <Fragment key={'menu-option-' + index}>
                   {index !== 0 && <div className={styles['division'] + ' hide-tablet hide-desktop'}></div>}
                   <div
                     className={styles['option'] + ' ' + (selected === index ? styles['option--active'] : '')}
@@ -215,13 +215,12 @@ export default function WorkComponent() {
                       setDomainSelected(item.domain)
                       setTechnologiesAssets(item.technologies)
                     }}
-                    key={'menu-option-' + index}
                   >
                     <p className={styles['job-title'] + ' ' + (selected === index ? styles['job-title--active'] : '')}>
                       {item.web_title}
                     </p>
                   </div>
-                </>
+                </Fragment>
               )
             })}
           </div>
@@ -243,14 +242,13 @@ export default function WorkComponent() {
               <div className={styles['background'] + ' hide-mobile'} />
               {expertises.map((item: Props, index: number) => {
                 return (
-                  <>
+                  <Fragment key={'images-' + index}>
                     <Image
                       src={item.image}
                       alt='image'
                       className={
                         styles['images'] + ' hide-mobile ' + ' ' + (selected === index ? styles['images--active'] : '')
                       }
-                      key={index}
                     />
                     <Image
                       src={item.image_mobile}
@@ -263,7 +261,7 @@ export default function WorkComponent() {
                       }
                       key={index}
                     />
-                  </>
+                  </Fragment>
                 )
               })}
             </div>
@@ -277,7 +275,7 @@ export default function WorkComponent() {
               <p className={styles['technologies-container']}>
                 Technologies:{' '}
                 {technologiesAssets.map((item: ImageProps, index: number) => {
-                  return <Image src={item.image} alt={item.alt} key={index} />
+                  return <Image src={item.image} alt={item.alt} key={'technologies-' + index} />
                 })}
               </p>
             </div>

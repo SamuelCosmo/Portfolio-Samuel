@@ -2,27 +2,24 @@
 import { LegacyRef, useState } from 'react'
 import styles from './header.module.scss'
 import Image from 'next/image'
+import menu from '../../../../public/svg/menu.svg'
+import paper_plane from '../../../../public/svg/header/paper-plane.svg'
 
 interface Props {
-  childRefs: {
-    aboutRef: any
-    skillsetRef: any
-    expertiseRef: any
-    workRef: any
-    contactRef: any
-  }
+  indexRef: number
+  setIndexRef: (position: number) => void
 }
 
-export default function HeaderComponent({ childRefs }: Props) {
+export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
   const [sideBarOpen, setSideBarOpen] = useState(false)
-  const { aboutRef, skillsetRef, expertiseRef, workRef, contactRef } = childRefs
+  const [isHovered, setIsHovered] = useState(false)
 
   const splitWord = (value: string) => {
     return value.split('').map((letter, letterIndex) => (
       <div key={letterIndex} className={styles['main__side-menu__submenu__option--letter']}>
         <span
           style={{
-            animationDelay: `${letterIndex * 0.06 + 0.4}s`,
+            animationDelay: `${letterIndex * 0.03 + 0.4}s`,
             width: letter === ' ' ? '8px' : 'initial',
           }}
         >
@@ -38,62 +35,65 @@ export default function HeaderComponent({ childRefs }: Props) {
         <button
           className={styles['body__title']}
           onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            })
+            setIndexRef(0)
             setSideBarOpen(false)
           }}
         >
           Samuel Gutierrez
         </button>
         <div className={styles['body__menu'] + ' hide-mobile'}>
-          <p
+          <span
             className={styles['body__menu__option']}
             onClick={() => {
-              aboutRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(1)
             }}
           >
             About me
-          </p>
-          <p
+          </span>
+          <span
             className={styles['body__menu__option']}
             onClick={() => {
-              skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(2)
             }}
           >
             Skillset
-          </p>
-          <p
+          </span>
+          <span
             className={styles['body__menu__option']}
             onClick={() => {
-              expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(3)
             }}
           >
             Expertise
-          </p>
-          <p
+          </span>
+          <span
             className={styles['body__menu__option']}
             onClick={() => {
-              workRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(4)
             }}
           >
             Work
-          </p>
-          <p
-            className={styles['body__menu__option']}
-            onClick={() => {
-              contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
+          </span>
+          <button
+            className={styles['body__menu__contact']}
+            onClick={(e: any) => {
+              e.preventDefault()
+              setIndexRef(5)
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            Contact Me
-          </p>
+            <p className={styles['text'] + ' ' + (isHovered ? styles['text--active'] : '')}>Contact</p>
+            <Image
+              src={paper_plane}
+              alt='paper_plane'
+              className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}
+            />
+          </button>
         </div>
         <Image
           alt='menu'
-          width={44}
-          height={44}
-          src='/svg/menu.svg'
+          src={menu}
           className={styles['body__menu-icon'] + ' hide-desktop'}
           onClick={(e: any) => {
             e.preventDefault()
@@ -111,11 +111,7 @@ export default function HeaderComponent({ childRefs }: Props) {
           <span
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
-              aboutRef?.current?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'center',
-              })
+              setIndexRef(1)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -124,7 +120,7 @@ export default function HeaderComponent({ childRefs }: Props) {
           <span
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
-              skillsetRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(2)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -133,7 +129,7 @@ export default function HeaderComponent({ childRefs }: Props) {
           <span
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
-              expertiseRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(3)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -142,7 +138,7 @@ export default function HeaderComponent({ childRefs }: Props) {
           <span
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
-              workRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(4)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -151,7 +147,7 @@ export default function HeaderComponent({ childRefs }: Props) {
           <span
             className={styles['main__side-menu__submenu__option']}
             onClick={() => {
-              contactRef?.current?.scrollIntoView({ behavior: 'smooth' })
+              setIndexRef(5)
               setSideBarOpen(!sideBarOpen)
             }}
           >

@@ -10,13 +10,13 @@
   bottom: 0px;
   left: 32px;
   z-index: 3;
-
   @include mobile {
     gap: 12px;
     left: 0;
     bottom: 32px;
     flex-direction: row;
     width: 100%;
+    padding: 0 5%;
   }
 
   img {
@@ -30,13 +30,25 @@
     }
   }
 
+  .arrow-left {
+    width: 36px;
+    height: 36px;
+    transform: rotate(90deg);
+  }
+
+  .arrow-right {
+    width: 36px;
+    height: 36px;
+    transform: scaleX(-1) rotate(-90deg);
+  }
+
   .line {
     width: 2px;
     height: 92px;
     background: #a5a5a5;
 
     @include mobile {
-      width: 25%;
+      width: 100%;
       height: 2px;
     }
   }

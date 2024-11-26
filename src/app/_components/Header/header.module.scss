@@ -49,6 +49,8 @@
     }
 
     &__menu-icon {
+      width: 44px;
+      height: auto;
       cursor: pointer;
     }
 
@@ -73,6 +75,49 @@
           text-decoration: underline;
         }
       }
+
+      &__contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border: 0;
+        border-radius: 6px;
+        background: #99c06c;
+        cursor: pointer;
+        overflow: hidden;
+        width: 132px;
+        height: 38px;
+        position: relative;
+
+        .text {
+          color: black;
+          font-family: 'Inter';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          transition: all 0.3s ease;
+          transform: translateX(0);
+          position: absolute;
+          line-height: 28.1px;
+
+          &--active {
+            transform: translateX(200%);
+          }
+        }
+
+        .plane {
+          width: 32px;
+          height: auto;
+          transition: all 0.3s ease;
+          transform: translateX(-450%) scaleX(-1);
+          position: absolute;
+
+          &--active {
+            transform: translateX(0) scaleX(-1);
+          }
+        }
+      }
     }
 
     img {
@@ -95,7 +140,7 @@
     top: 56px;
     left: -100vw;
     background: linear-gradient(180deg, #2b2b2b 0%, #333333 100%);
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
     z-index: 1;
 
     &--opened {
@@ -136,7 +181,7 @@
           span {
             // position: absolute;
             opacity: 0;
-            animation: enterLetter 0.5s 1.5s forwards ease-out;
+            animation: enterLetter 0.3s 0.2s forwards ease-out;
           }
 
           @keyframes enterLetter {

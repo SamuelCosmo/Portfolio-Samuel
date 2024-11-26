@@ -134,7 +134,7 @@
           flex-direction: column;
           justify-content: start;
           align-items: flex-start;
-          gap: 32px;
+          gap: 16px;
           opacity: 0;
           transition: all 0.8s ease;
           position: absolute;
@@ -145,23 +145,19 @@
             transform: translateX(0%);
           }
 
-          @include mobile {
-            gap: 16px;
-          }
-
           .title {
             font-family: 'Inter';
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
-            line-height: 29.05px;
+            line-height: 30.05px;
             color: #a5d170;
           }
 
           .description {
             font-family: 'Inter';
-            font-size: 16px;
+            font-size: 24px;
             font-weight: 400;
-            line-height: 18.2px;
+            line-height: 26.2px;
             text-align: left;
             color: #848484;
 

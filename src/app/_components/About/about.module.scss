@@ -92,6 +92,10 @@
       align-items: flex-start;
       gap: 4px;
 
+      @include mobile {
+        gap: 16px;
+      }
+
       &__title {
         color: white;
         font-family: 'Inter';
@@ -118,6 +122,7 @@
         @include mobile {
           line-height: 24.73px;
           text-align: center;
+          font-size: 20px;
         }
       }
     }

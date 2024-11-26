@@ -4,7 +4,7 @@ import shapes1 from '../../../../public/svg/hero/shapes_1.svg'
 import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 import background from '../../../../public/svg/about/background_photo.svg'
 import photo from '../../../../public/assets/about/photo.png'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 const title = 'Samuel Gutierrez'
 const subtitle = 'Building things for the web'
@@ -15,9 +15,8 @@ export default function HeroComponent() {
     const list = text.split('')
     return list.map((item: string, index: number) => {
       return (
-        <>
+        <Fragment key={'letter-' + index}>
           <div
-            key={index}
             style={{
               width: item === ' ' ? '16px' : 'initial',
               animationDelay: `${index * 0.1 + 0.5}s`,
@@ -27,7 +26,6 @@ export default function HeroComponent() {
             {item}
           </div>
           <div
-            key={index}
             style={{
               width: item === ' ' ? '8px' : 'initial',
               animationDelay: `${index * 0.1 + 0.5}s`,
@@ -36,7 +34,7 @@ export default function HeroComponent() {
           >
             {item}
           </div>
-        </>
+        </Fragment>
       )
     })
   }
@@ -44,8 +42,8 @@ export default function HeroComponent() {
   return (
     <div className={styles.main}>
       <div className={styles.background + ' hide-mobile'}>
-        <Image src={shapes1} alt='shapes' className={styles['background__first']} />
-        <Image src={shapes2} alt='shapes' className={styles['background__second']} />
+        <Image src={shapes1} alt='shapes' className={styles['background__first']} priority />
+        <Image src={shapes2} alt='shapes' className={styles['background__second']} priority />
       </div>
       <div className={styles.body}>
         <div className={styles['body__photo-container'] + ' hide-desktop hide-tablet'}>
