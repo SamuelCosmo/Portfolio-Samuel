@@ -3,6 +3,7 @@ import { LegacyRef, useState } from 'react'
 import styles from './header.module.scss'
 import Image from 'next/image'
 import menu from '../../../../public/svg/menu.svg'
+import logo from '../../../../public/assets/header/logo.png'
 import PlaneIcon from './header/paper-plane'
 
 interface Props {
@@ -39,7 +40,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             setSideBarOpen(false)
           }}
         >
-          Samuel Gutierrez
+          <Image src={logo} alt='logo' className={styles['logo']} />
         </button>
         <div className={styles['body__menu'] + ' hide-mobile'}>
           <span
