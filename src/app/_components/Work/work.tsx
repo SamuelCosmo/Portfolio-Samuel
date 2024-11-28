@@ -207,7 +207,7 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
           <Image src={expertises[0].image_mobile} alt='image' className={styles['modal']} />
         </>
       )
-  }, [changeModalContent])
+  }, [])
 
   return (
     <div className={styles['main']}>
@@ -273,14 +273,16 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
                 }),
               ]}
               setIndex={(value: number) => {
-                setSelected(value)
-                setDomainSelected(expertises[value].domain)
-                setTechnologiesAssets(expertises[value].technologies)
-                changeModalContent(
-                  <>
-                    <Image src={expertises[value].image_mobile} alt='image' className={styles['modal']} />
-                  </>
-                )
+                if (selected !== value) {
+                  setSelected(value)
+                  setDomainSelected(expertises[value].domain)
+                  setTechnologiesAssets(expertises[value].technologies)
+                  changeModalContent(
+                    <>
+                      <Image src={expertises[value].image_mobile} alt='image' className={styles['modal']} />
+                    </>
+                  )
+                }
               }}
             />
           </div>

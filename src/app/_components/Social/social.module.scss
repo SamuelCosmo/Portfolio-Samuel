@@ -10,6 +10,7 @@
   bottom: 0px;
   left: 32px;
   z-index: 3;
+
   @include mobile {
     gap: 12px;
     left: 0;
@@ -27,6 +28,15 @@
     @include mobile {
       width: 36px;
       height: 36px;
+    }
+  }
+
+  .button {
+    background: none;
+    border: 0;
+
+    &--disable {
+      opacity: 0.1;
     }
   }
 

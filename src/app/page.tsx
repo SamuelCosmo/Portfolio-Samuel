@@ -4,7 +4,6 @@ import HeaderComponent from './_components/Header/header'
 import AboutComponent from './_components/About/about'
 import SkillsetComponent from './_components/Skillset/skillset'
 import ContactComponent from './_components/Contact/contact'
-import ButtonsMovementComponent from './_components/ButtonsMovement/buttons-movement'
 import { useEffect, useRef, useState } from 'react'
 import HeroComponent from './_components/Hero/hero'
 import ExpertiseComponent from './_components/Expertise/expertise'
@@ -13,6 +12,7 @@ import SocialComponent from './_components/Social/social'
 import ModalComponent from '@/shared/components/Modal/modal'
 
 export default function Home() {
+  const bodyRef = useRef<HTMLDivElement>(null)
   const childRefs = {
     heroRef: useRef<HTMLDivElement>(null),
     aboutRef: useRef<HTMLDivElement>(null),
@@ -23,17 +23,25 @@ export default function Home() {
   }
 
   const [indexRef, setIndexRef] = useState<number>(0)
-  const [scrolling, setScrolling] = useState<boolean>(false)
   const [showModal, setModalShow] = useState<any>(null)
   const [modalContent, setModalContent] = useState<any>(null)
+  const [clickedButtonControl, setClickedButtonControl] = useState(false)
 
-  useEffect(() => {
-    if (!scrolling) {
-      const refKeys = Object.keys(childRefs) as (keyof typeof childRefs)[]
-      const targetRef = childRefs[refKeys[indexRef]]?.current
-      targetRef?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, [indexRef, childRefs, scrolling])
+  const scrollToChildrens = (index: number) => {
+    if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'none'
+    setClickedButtonControl(true)
+
+    const refKeys = Object.keys(childRefs) as (keyof typeof childRefs)[]
+    const targetRef = childRefs[refKeys[index]]?.current
+    targetRef?.scrollIntoView({ behavior: 'smooth' })
+    setIndexRef(index)
+
+    if (bodyRef)
+      setTimeout(() => {
+        if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'both mandatory'
+        setClickedButtonControl(false)
+      }, 800)
+  }
 
   useEffect(() => {
     const observerOptions = {
@@ -47,7 +55,6 @@ export default function Home() {
           const refKeys = Object.keys(childRefs) as (keyof typeof childRefs)[]
           const visibleIndex = refKeys.findIndex((key) => childRefs[key]?.current === entry.target)
           if (visibleIndex !== indexRef) {
-            setScrolling(true)
             setIndexRef(visibleIndex)
           }
         }
@@ -61,7 +68,7 @@ export default function Home() {
     return () => {
       observer.disconnect()
     }
-  }, [childRefs, indexRef])
+  }, [childRefs])
 
   return (
     <main className={styles.main}>
@@ -73,23 +80,21 @@ export default function Home() {
       >
         {modalContent}
       </ModalComponent>
-      <div className={styles.body}>
+      <div className={styles.body} ref={bodyRef}>
         <SocialComponent
+          disableControls={clickedButtonControl}
           indexRef={indexRef}
           maxIndexRef={5}
           setIndexRef={(position: number) => {
-            setIndexRef(position)
-            setScrolling(false)
+            scrollToChildrens(position)
           }}
         />
         <HeaderComponent
           indexRef={indexRef}
           setIndexRef={(position: number) => {
-            setIndexRef(position)
-            setScrolling(false)
+            scrollToChildrens(position)
           }}
         />
-        {/* <ButtonsMovementComponent childRefs={childRefs} /> */}
         <div ref={childRefs.heroRef} className={styles['body__container']}>
           <HeroComponent />
         </div>

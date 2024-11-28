@@ -12,12 +12,11 @@
     align-items: center;
     position: relative;
     gap: 256px;
-    min-height: 100dvh;
+    height: 100dvh;
     z-index: 2;
     scroll-snap-type: both mandatory;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 100dvh;
 
     @include mobile {
       gap: 0;

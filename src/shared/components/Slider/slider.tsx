@@ -67,7 +67,7 @@ export default function SliderComponent({ childrens, setIndex }: Props) {
         container.removeEventListener('scroll', handleScroll)
       }
     }
-  }, [indexSelected, setIndex])
+  }, [indexSelected])
 
   return (
     <div className={styles['main']}>
