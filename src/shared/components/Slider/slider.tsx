@@ -21,7 +21,8 @@ export default function SliderComponent({ childrens, setIndex }: Props) {
     const targetElement = childrenRefs.current[index]
     const bodyScrollLeft = bodyRef.current.scrollLeft
     const containerWidth = bodyRef.current.clientWidth
-    const targetOffsetLeft = targetElement.offsetLeft - containerWidth / 2 + targetElement.clientWidth / 2
+    let targetOffsetLeft = 0
+    if (targetElement) targetOffsetLeft = targetElement.offsetLeft - containerWidth / 2 + targetElement.clientWidth / 2
     const scrollAmount = targetOffsetLeft - bodyScrollLeft
 
     if (setIndex) setIndex(index)

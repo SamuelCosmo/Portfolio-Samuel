@@ -4,7 +4,12 @@ import styles from './header.module.scss'
 import Image from 'next/image'
 import menu from '../../../../public/svg/menu.svg'
 import logo from '../../../../public/assets/header/logo.png'
+import arrow from '../../../../public/svg/header/arrow-left.svg'
 import PlaneIcon from './header/paper-plane'
+import PersonIcon from './header/person'
+import CompanyIcon from './header/company'
+import ScienceIcon from './header/science'
+import FolderIcon from './header/folder'
 
 interface Props {
   indexRef: number
@@ -112,43 +117,60 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             setSideBarOpen(!sideBarOpen)
           }}
         >
-          {'<-- Back'}
+          <Image src={arrow} alt='arrow' /> Back
         </span>
         <div className={styles['main__side-menu__submenu']}>
           <span
-            className={styles['main__side-menu__submenu__option']}
+            className={
+              styles['main__side-menu__submenu__option'] +
+              ' ' +
+              (sideBarOpen && indexRef === 1 ? styles['selected'] : '')
+            }
             onClick={() => {
               setIndexRef(1)
               setSideBarOpen(!sideBarOpen)
             }}
           >
-            {sideBarOpen ? splitWord('About Me') : ''}
+            {PersonIcon('white')} {sideBarOpen ? splitWord('About Me') : ''}
           </span>
           <span
-            className={styles['main__side-menu__submenu__option']}
+            className={
+              styles['main__side-menu__submenu__option'] +
+              ' ' +
+              (sideBarOpen && indexRef === 2 ? styles['selected'] : '')
+            }
             onClick={() => {
               setIndexRef(2)
               setSideBarOpen(!sideBarOpen)
             }}
           >
-            {sideBarOpen ? splitWord('Skillset') : ''}
+            {ScienceIcon('white')} {sideBarOpen ? splitWord('Skillset') : ''}
           </span>
           <span
-            className={styles['main__side-menu__submenu__option']}
+            className={
+              styles['main__side-menu__submenu__option'] +
+              ' ' +
+              (sideBarOpen && indexRef === 3 ? styles['selected'] : '')
+            }
             onClick={() => {
               setIndexRef(3)
               setSideBarOpen(!sideBarOpen)
             }}
           >
-            {sideBarOpen ? splitWord('Expertise') : ''}
+            {CompanyIcon('white')} {sideBarOpen ? splitWord('Expertise') : ''}
           </span>
           <span
-            className={styles['main__side-menu__submenu__option']}
+            className={
+              styles['main__side-menu__submenu__option'] +
+              ' ' +
+              (sideBarOpen && indexRef === 4 ? styles['selected'] : '')
+            }
             onClick={() => {
               setIndexRef(4)
               setSideBarOpen(!sideBarOpen)
             }}
           >
+            {FolderIcon('white')}
             {sideBarOpen ? splitWord('Work') : ''}
           </span>
         </div>

@@ -41,18 +41,24 @@ export default function ContactComponent() {
           <div className={styles['body__left__body']}>
             <div className={styles['body__left__body__row']}>
               <div className={styles['body__left__body__row__inputs-container']}>
-                <label className={styles['body__left__body__row__inputs-container__title']}>Full Name</label>
-                <input className={styles['input']} type='text' />
+                <label className={styles['body__left__body__row__inputs-container__title']}>
+                  Full Name
+                  <input className={styles['input']} type='text' />
+                </label>
               </div>
               <div className={styles['body__left__body__row__inputs-container']}>
-                <label className={styles['body__left__body__row__inputs-container__title']}>Email</label>
-                <input className={styles['input']} type='text' />
+                <label className={styles['body__left__body__row__inputs-container__title']}>
+                  Email
+                  <input className={styles['input']} type='text' />
+                </label>
               </div>
             </div>
             <div className={styles['body__left__body__row']}>
               <div className={styles['body__left__body__row__inputs-container']}>
-                <label className={styles['body__left__body__row__inputs-container__title']}>Message</label>
-                <textarea className={styles['text-area-input']} />
+                <label className={styles['body__left__body__row__inputs-container__title']}>
+                  Message
+                  <textarea className={styles['text-area-input']} />
+                </label>
               </div>
             </div>
             <div className={styles['body__left__body__button-container']}>
