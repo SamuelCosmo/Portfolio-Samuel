@@ -248,14 +248,6 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
                   return (
                     <div className={styles['images-container']} key={'container-' + index}>
                       <p className={styles['job-title']}>{item.web_title}</p>
-                      <div className={styles['domain-container']}>
-                        <p className={styles['domain']}>
-                          Domain:{' '}
-                          <a href={item.domain} target='_blank' rel='noopener noreferrer'>
-                            {item.domain}
-                          </a>
-                        </p>
-                      </div>
                       <div className={styles['laptop-container']}>
                         <div className={styles['frame']}></div>
                         <Image
@@ -268,6 +260,11 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
                           key={index}
                         />
                       </div>
+                      <button className={styles['button-domain']}>
+                        <a href={item.domain} target='_blank' rel='noopener noreferrer'>
+                          VISIT PAGE
+                        </a>
+                      </button>
                     </div>
                   )
                 }),

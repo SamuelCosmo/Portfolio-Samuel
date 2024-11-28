@@ -46,6 +46,10 @@
         border-radius: 50%;
         background: white;
       }
+
+      &--disable {
+        opacity: 0.5;
+      }
     }
   }
 }

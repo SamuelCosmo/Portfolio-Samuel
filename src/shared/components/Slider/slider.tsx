@@ -8,25 +8,35 @@ interface Props {
 
 export default function SliderComponent({ childrens, setIndex }: Props) {
   const [indexSelected, setIndexSelected] = useState(0)
-  const [scrolling, setScrolling] = useState<boolean>(false)
   const childrenRefs = useRef<(HTMLDivElement | null)[]>([])
   const bodyRef = useRef<HTMLDivElement | null>(null)
+  const [clickedButtonControl, setClickedButtonControl] = useState(false)
 
-  useEffect(() => {
-    if (!scrolling) {
-      const targetElement = childrenRefs.current[indexSelected]
-      if (targetElement && bodyRef.current) {
-        const bodyScrollLeft = bodyRef.current.scrollLeft
-        const targetOffsetLeft = targetElement.offsetLeft
-        const scrollAmount = targetOffsetLeft - bodyScrollLeft
+  const scrollToSlide = (index: number) => {
+    if (!bodyRef.current || !childrenRefs.current[index]) return
 
-        bodyRef.current.scrollBy({
-          left: scrollAmount,
-          behavior: 'smooth',
-        })
-      }
-    }
-  }, [indexSelected, scrolling])
+    bodyRef.current.style.scrollSnapType = 'none'
+    setClickedButtonControl(true)
+
+    const targetElement = childrenRefs.current[index]
+    const bodyScrollLeft = bodyRef.current.scrollLeft
+    const containerWidth = bodyRef.current.clientWidth
+    const targetOffsetLeft = targetElement.offsetLeft - containerWidth / 2 + targetElement.clientWidth / 2
+    const scrollAmount = targetOffsetLeft - bodyScrollLeft
+
+    if (setIndex) setIndex(index)
+    setIndexSelected(index)
+
+    bodyRef.current.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth',
+    })
+
+    setTimeout(() => {
+      if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'both mandatory'
+      setClickedButtonControl(false)
+    }, 800)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,9 +60,7 @@ export default function SliderComponent({ childrens, setIndex }: Props) {
           }
         })
 
-        // Actualiza el índice seleccionado solo si cambia
         if (closestIndex !== indexSelected) {
-          setScrolling(true)
           setIndexSelected(closestIndex)
           if (setIndex) setIndex(closestIndex)
         }
@@ -85,12 +93,16 @@ export default function SliderComponent({ childrens, setIndex }: Props) {
       <div className={styles['controls-container']}>
         {childrens.map((item: any, index: number) => (
           <div
-            className={styles['control'] + ' ' + (indexSelected === index ? styles['control--active'] : '')}
+            className={
+              styles['control'] +
+              ' ' +
+              (clickedButtonControl ? styles['control--disable'] : '') +
+              ' ' +
+              (indexSelected === index ? styles['control--active'] : '')
+            }
             key={index}
             onClick={() => {
-              setScrolling(false)
-              setIndexSelected(index)
-              if (setIndex) setIndex(index)
+              scrollToSlide(index)
             }}
           ></div>
         ))}

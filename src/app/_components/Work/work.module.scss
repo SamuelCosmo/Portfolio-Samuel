@@ -399,6 +399,26 @@
   }
 }
 
+.button-domain {
+  width: 160px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 0;
+  background: #7ea153;
+  cursor: pointer;
+
+  a {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.08px;
+    text-align: left;
+    color: white;
+    z-index: 2;
+    text-decoration: none;
+  }
+}
+
 .domain-container {
   display: flex;
   justify-content: space-between;
@@ -413,6 +433,7 @@
     gap: 8px;
     align-items: flex-start;
     position: initial;
+    width: 75%;
   }
 
   .domain {
