@@ -68,6 +68,7 @@
 
         @include mobile {
           align-self: center;
+          line-height: 38.2px;
         }
       }
     }
@@ -85,6 +86,16 @@
         gap: 24px;
       }
 
+      .slider {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        overflow: auto;
+      }
+
       .menu {
         display: flex;
         flex-direction: column;
@@ -98,16 +109,8 @@
           flex-direction: row;
           height: auto;
           width: 100%;
-          // justify-content: center;
           align-items: center;
           padding-left: initial;
-        }
-
-        .division {
-          height: 16px;
-          width: 2px;
-          background: white;
-          flex: 0 0 auto;
         }
 
         .option {
@@ -163,7 +166,21 @@
 
         @include mobile {
           flex-direction: column;
-          gap: 16px;
+          gap: 8px;
+          width: 100vw;
+        }
+
+        .job-title {
+          font-family: 'Inter';
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 24.73px;
+          transition: all 0.8s ease;
+
+          @include mobile {
+            white-space: nowrap;
+            color: #7ea153;
+          }
         }
 
         .laptop-container {
@@ -176,6 +193,28 @@
           @include mobile {
             height: 360px;
             width: 226px;
+            animation: jumpingFrame 3.5s infinite ease-in-out;
+
+            @keyframes jumpingFrame {
+              0% {
+                transform: translateY(0px);
+              }
+              10% {
+                transform: translateY(-10px);
+              }
+              20% {
+                transform: translateY(10px);
+              }
+              30% {
+                transform: translateY(-10px);
+              }
+              40% {
+                transform: translateY(0px);
+              }
+              100% {
+                transform: translateY(0px);
+              }
+            }
           }
 
           .frame {
@@ -227,6 +266,7 @@
               width: 168px;
               height: 320px;
               border-radius: 4px;
+              opacity: 1;
             }
           }
         }
@@ -273,65 +313,69 @@
             }
           }
         }
-
-        .domain-container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-direction: row;
-          position: absolute;
-          bottom: -35px;
-          width: 100%;
-
-          @include mobile {
-            flex-direction: column;
-            gap: 8px;
-            align-items: flex-start;
-            position: initial;
-          }
-
-          .domain {
-            font-family: 'Inter';
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 16.08px;
-            text-align: left;
-            text-decoration: underline;
-            color: white;
-            z-index: 2;
-
-            a {
-              color: white;
-            }
-          }
-
-          .technologies-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-            font-family: 'Inter';
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 16.08px;
-            text-align: left;
-            color: white;
-            z-index: 2;
-
-            img {
-              width: 24px;
-              height: 24px;
-            }
-          }
-        }
       }
+    }
+  }
+}
+
+.domain-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: -35px;
+  width: 100%;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    position: initial;
+  }
+
+  .domain {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.08px;
+    text-align: left;
+    text-decoration: underline;
+    color: white;
+    z-index: 2;
+
+    a {
+      color: white;
+    }
+
+    @include mobile {
+      align-self: center;
+    }
+  }
+
+  .technologies-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.08px;
+    text-align: left;
+    color: white;
+    z-index: 2;
+
+    img {
+      width: 24px;
+      height: 24px;
     }
   }
 }
 
 .modal {
   position: initial;
-  width: 90vw;
+  width: 75vw;
   height: auto;
 }

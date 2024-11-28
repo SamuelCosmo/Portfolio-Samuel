@@ -69,6 +69,16 @@
         gap: 16px;
       }
 
+      .slider {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        overflow: auto;
+      }
+
       .menu {
         display: flex;
         flex-direction: column;
@@ -154,10 +164,9 @@
         position: relative;
 
         @include mobile {
-          height: 40dvh;
-          overflow: hidden;
-          width: 100%;
-          padding: 8px 12px;
+          max-width: 100%;
+          padding: 8px 16px;
+          height: initial;
         }
 
         .option {
@@ -177,7 +186,11 @@
           }
 
           @include mobile {
-            width: calc(100% - 24px);
+            width: 100%;
+            opacity: 1;
+            transform: translateX(0%);
+            padding: 0;
+            position: initial;
           }
 
           .title {
@@ -192,6 +205,7 @@
               font-weight: 400;
               line-height: 20.05px;
               align-self: center;
+              text-align: center;
             }
           }
 

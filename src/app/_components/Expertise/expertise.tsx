@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import styles from './expertise.module.scss'
 import Image from 'next/image'
 import shapes from '../../../../public/svg/expertise/shapes.svg'
+import SliderComponent from '@/shared/components/Slider/slider'
 
 interface Props {
   job_title: string
@@ -67,7 +68,30 @@ export default function ExpertiseComponent() {
           <h2 className={styles['body__title-container__title']}>Expertise</h2>
         </div>
         <div className={styles['information-container']}>
-          <div className={styles['menu']}>
+          <div className={styles['slider'] + ' hide-desktop hide-tablet'}>
+            <SliderComponent
+              childrens={[
+                ...expertises.map((item: Props, index: number) => {
+                  return (
+                    <div className={styles['information']} key={'info-' + index}>
+                      <div
+                        className={styles['option'] + ' ' + (selected === index ? styles['option--active'] : '')}
+                        key={'information-option-' + index}
+                      >
+                        <p className={styles['title']}>
+                          {item.job_title}
+                          <br />
+                          {item.title}
+                        </p>
+                        <p className={styles['description']}>{item.description}</p>
+                      </div>
+                    </div>
+                  )
+                }),
+              ]}
+            />
+          </div>
+          <div className={styles['menu'] + ' hide-mobile'}>
             {expertises.map((item: Props, index: number) => {
               return (
                 <Fragment key={'menu-option-' + index}>
@@ -86,7 +110,7 @@ export default function ExpertiseComponent() {
               )
             })}
           </div>
-          <div className={styles['information']}>
+          <div className={styles['information'] + ' hide-mobile'}>
             {expertises.map((item: Props, index: number) => {
               return (
                 <div

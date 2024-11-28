@@ -57,7 +57,12 @@ export default function ContactComponent() {
                 <Image alt='icon' src={location} />
                 <span>Mexico</span>
               </div>
-              <div className={styles['main__footer__container'] + ' hide-desktop hide-tablet'}>
+              <div
+                className={styles['main__footer__container'] + ' hide-desktop hide-tablet'}
+                onClick={() => {
+                  handleDownload()
+                }}
+              >
                 <Image alt='icon' src={download} />
                 <span>Download Resume</span>
               </div>

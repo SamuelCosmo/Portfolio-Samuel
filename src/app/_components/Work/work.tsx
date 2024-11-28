@@ -27,6 +27,7 @@ import react from '../../../../public/svg/work/react.svg'
 import sass from '../../../../public/svg/work/sass.svg'
 import typescript from '../../../../public/svg/work/typescript.svg'
 import shapes from '../../../../public/svg/work/shapes.svg'
+import SliderComponent from '@/shared/components/Slider/slider'
 
 interface ImageProps {
   image: StaticImageData
@@ -199,12 +200,13 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
   const [technologiesAssets, setTechnologiesAssets] = useState<ImageProps[]>(expertises[0].technologies)
 
   useEffect(() => {
-    changeModalContent(
-      <>
-        <Image src={expertises[0].image_mobile} alt='image' className={styles['modal']} />
-      </>
-    )
-  }, [])
+    if (changeModalContent)
+      changeModalContent(
+        <>
+          <Image src={expertises[0].image_mobile} alt='image' className={styles['modal']} />
+        </>
+      )
+  }, [changeModalContent])
 
   return (
     <div className={styles['main']}>
@@ -216,11 +218,53 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
           <h2 className={styles['body__title-container__title']}>My Work</h2>
         </div>
         <div className={styles['information-container']}>
-          <div className={styles['menu']}>
+          <div className={styles['slider'] + ' hide-desktop hide-tablet'}>
+            <SliderComponent
+              childrens={[
+                ...expertises.map((item: Props, index: number) => {
+                  return (
+                    <div className={styles['images-container']} key={'container-' + index}>
+                      <p className={styles['job-title']}>{item.web_title}</p>
+                      <div className={styles['domain-container']}>
+                        <p className={styles['domain']}>
+                          Domain:{' '}
+                          <a href={item.domain} target='_blank' rel='noopener noreferrer'>
+                            {item.domain}
+                          </a>
+                        </p>
+                      </div>
+                      <div className={styles['laptop-container']}>
+                        <div className={styles['frame']}></div>
+                        <Image
+                          src={item.image_mobile}
+                          alt='image'
+                          className={styles['images']}
+                          onClick={() => {
+                            showModal(true)
+                          }}
+                          key={index}
+                        />
+                      </div>
+                    </div>
+                  )
+                }),
+              ]}
+              setIndex={(value: number) => {
+                setSelected(value)
+                setDomainSelected(expertises[value].domain)
+                setTechnologiesAssets(expertises[value].technologies)
+                changeModalContent(
+                  <>
+                    <Image src={expertises[value].image_mobile} alt='image' className={styles['modal']} />
+                  </>
+                )
+              }}
+            />
+          </div>
+          <div className={styles['menu'] + ' hide-mobile'}>
             {expertises.map((item: Props, index: number) => {
               return (
                 <Fragment key={'menu-option-' + index}>
-                  {index !== 0 && <div className={styles['division'] + ' hide-tablet hide-desktop'}></div>}
                   <div
                     className={styles['option'] + ' ' + (selected === index ? styles['option--active'] : '')}
                     onClick={() => {
@@ -242,8 +286,8 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
               )
             })}
           </div>
-          <div className={styles['images-container']}>
-            <div className={styles['information'] + ' hide-mobile'}>
+          <div className={styles['images-container'] + ' hide-mobile'}>
+            <div className={styles['information']}>
               {expertises.map((item: Props, index: number) => {
                 return (
                   <div
@@ -257,7 +301,7 @@ export default function WorkComponent({ showModal, changeModalContent }: Compone
             </div>
             <div className={styles['laptop-container']}>
               <div className={styles['frame']}></div>
-              <div className={styles['background'] + ' hide-mobile'} />
+              <div className={styles['background']} />
               {expertises.map((item: Props, index: number) => {
                 return (
                   <Fragment key={'images-' + index}>

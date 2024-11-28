@@ -1,0 +1,51 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  .body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 8px 16px;
+    scroll-snap-type: both mandatory;
+
+    .children {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      scroll-snap-align: center;
+    }
+  }
+
+  .controls-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    padding: 16px;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .control {
+      width: 16px;
+      height: 16px;
+      border: 2px solid white;
+      transition: all 0.3s ease;
+
+      &--active {
+        border-radius: 50%;
+        background: white;
+      }
+    }
+  }
+}
