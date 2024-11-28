@@ -17,6 +17,92 @@
     width: 50%;
     height: auto;
     opacity: 0.5;
+
+    @include mobile {
+      display: flex;
+      width: 100%;
+      height: 100dvh;
+      align-items: flex-start;
+      justify-content: end;
+      flex-direction: column;
+      position: absolute;
+    }
+
+    &__first {
+      max-width: 50%;
+      width: 100%;
+      height: auto;
+    }
+
+    &__second {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 150px;
+
+      &--a {
+        animation: moveToLeftFirst 20s infinite linear;
+
+        @keyframes moveToLeftFirst {
+          0% {
+            transform: translateX(0%);
+          }
+
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      }
+
+      &--b {
+        animation: moveToLeftSecond 20s infinite linear;
+
+        @keyframes moveToLeftSecond {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
+    }
+
+    &__third {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      bottom: 150px;
+
+      &--a {
+        animation: moveToRightFirst 20s infinite linear;
+
+        @keyframes moveToRightFirst {
+          0% {
+            transform: translateX(0%);
+          }
+
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      }
+
+      &--b {
+        animation: moveToRightSecond 20s infinite linear;
+
+        @keyframes moveToRightSecond {
+          0% {
+            transform: translateX(100%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
+    }
   }
 
   .body {
@@ -30,6 +116,7 @@
     max-width: 1245px;
     padding: 16px;
     height: 100vh;
+    z-index: 2;
 
     @include mobile {
       gap: 8px;

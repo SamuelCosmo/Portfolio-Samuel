@@ -3,6 +3,7 @@ import styles from './expertise.module.scss'
 import Image from 'next/image'
 import shapes from '../../../../public/svg/expertise/shapes.svg'
 import SliderComponent from '@/shared/components/Slider/slider'
+import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 
 interface Props {
   job_title: string
@@ -62,6 +63,28 @@ export default function ExpertiseComponent() {
 
   return (
     <div className={styles['main']}>
+      <div className={styles.shapes}>
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__second'] + ' ' + styles['shapes__second--a'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__second'] + ' ' + styles['shapes__second--b'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--a'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--b'] + ' hide-desktop hide-tablet'}
+        />
+      </div>
       <Image src={shapes} alt='shapes' className={styles['shapes'] + ' hide-mobile'} />
       <div className={styles['body']}>
         <div className={styles['body__title-container']}>

@@ -1,3 +1,5 @@
+import styles from './paper-plane.module.scss'
+
 export default function PlaneIcon(color?: string) {
   return (
     <>
@@ -10,7 +12,7 @@ export default function PlaneIcon(color?: string) {
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 512.002 512.002'
       >
-        <g>
+        <g className={styles['plane']}>
           <g>
             <path
               d='M511.058,371.945l-68.409-128.267c-1.394-2.612-4.113-4.245-7.074-4.245h-17.102h-17.637v-85.912c0-0.007,0-0.014,0-0.014
@@ -74,7 +76,7 @@ export default function PlaneIcon(color?: string) {
             />
           </g>
         </g>
-        <g>
+        <g className={styles['wind']}>
           <g>
             <path
               d='M469.78,68.41H358.615c-4.427,0-8.017,3.589-8.017,8.017c0,4.428,3.589,8.017,8.017,8.017H469.78
@@ -82,7 +84,7 @@ export default function PlaneIcon(color?: string) {
             />
           </g>
         </g>
-        <g>
+        <g className={styles['wind-2']}>
           <g>
             <path
               d='M281.655,427.559H170.49c-4.427,0-8.017,3.588-8.017,8.017c0,4.428,3.589,8.017,8.017,8.017h111.165
@@ -90,7 +92,7 @@ export default function PlaneIcon(color?: string) {
             />
           </g>
         </g>
-        <g>
+        <g className={styles['wind-2']}>
           <g>
             <path
               d='M427.024,34.206H264.552c-4.427,0-8.017,3.588-8.017,8.017c0,4.428,3.589,8.017,8.017,8.017h162.472
@@ -98,7 +100,7 @@ export default function PlaneIcon(color?: string) {
             />
           </g>
         </g>
-        <g>
+        <g className={styles['wind']}>
           <g>
             <path
               d='M392.819,461.763H230.348c-4.427,0-8.017,3.588-8.017,8.017c0,4.428,3.589,8.017,8.017,8.017h162.472

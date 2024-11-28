@@ -2,6 +2,7 @@ import { LegacyRef, useState } from 'react'
 import styles from './skillset.module.scss'
 import Image from 'next/image'
 import shapes from '../../../../public/svg/skillset/shapes.svg'
+import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 import AngularIcon from './svg/angular'
 import JavaScriptIcon from './svg/javascript'
 import ReactIcon from './svg/react'
@@ -17,6 +18,28 @@ export default function SkillsetComponent() {
 
   return (
     <div className={styles.main}>
+      <div className={styles.shapes}>
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__second'] + ' ' + styles['shapes__second--a'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__second'] + ' ' + styles['shapes__second--b'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--a'] + ' hide-desktop hide-tablet'}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--b'] + ' hide-desktop hide-tablet'}
+        />
+      </div>
       <Image src={shapes} alt='shapes' className={styles['shapes--1'] + ' hide-mobile'} />
       <Image src={shapes} alt='shapes' className={styles['shapes--2'] + ' hide-mobile'} />
       <div className={styles.body}>

@@ -11,6 +11,16 @@
   overflow: hidden;
 
   .shapes {
+    @include mobile {
+      display: flex;
+      width: 100%;
+      height: 100dvh;
+      position: absolute;
+      align-items: flex-start;
+      justify-content: end;
+      flex-direction: column;
+    }
+
     &--1 {
       position: absolute;
       top: 160px;
@@ -26,6 +36,76 @@
       height: auto;
       width: 70%;
       transform: scaleX(-1);
+    }
+
+    &__second {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 150px;
+
+      &--a {
+        animation: moveToLeftFirst 20s infinite linear;
+
+        @keyframes moveToLeftFirst {
+          0% {
+            transform: translateX(0%);
+          }
+
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      }
+
+      &--b {
+        animation: moveToLeftSecond 20s infinite linear;
+
+        @keyframes moveToLeftSecond {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
+    }
+
+    &__third {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      bottom: 150px;
+
+      &--a {
+        animation: moveToRightFirst 20s infinite linear;
+
+        @keyframes moveToRightFirst {
+          0% {
+            transform: translateX(0%);
+          }
+
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      }
+
+      &--b {
+        animation: moveToRightSecond 20s infinite linear;
+
+        @keyframes moveToRightSecond {
+          0% {
+            transform: translateX(100%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
     }
   }
 

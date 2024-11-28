@@ -3,7 +3,6 @@ import { LegacyRef, useState } from 'react'
 import styles from './header.module.scss'
 import Image from 'next/image'
 import menu from '../../../../public/svg/menu.svg'
-import paper_plane from '../../../../public/svg/header/paper-plane.svg'
 import PlaneIcon from './header/paper-plane'
 
 interface Props {
@@ -85,11 +84,14 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             onMouseLeave={() => setIsHovered(false)}
           >
             <p className={styles['text'] + ' ' + (isHovered ? styles['text--active'] : '')}>Contact</p>
-            <Image
+            {/* <Image
               src={paper_plane}
               alt='paper_plane'
               className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}
-            />
+            /> */}
+            <div className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}>
+              {PlaneIcon('black')}
+            </div>
           </button>
         </div>
         <Image

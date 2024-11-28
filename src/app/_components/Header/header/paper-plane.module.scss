@@ -1,0 +1,43 @@
+.wind {
+  position: absolute;
+  animation: moveWind 1s infinite linear;
+
+  @keyframes moveWind {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.wind-2 {
+  position: absolute;
+  animation: moveWind 0.7s infinite linear;
+
+  @keyframes moveWindFaster {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.plane {
+  animation: movePlane 0.7s infinite ease-in-out;
+
+  @keyframes movePlane {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+}
