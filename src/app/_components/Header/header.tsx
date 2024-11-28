@@ -84,11 +84,6 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             onMouseLeave={() => setIsHovered(false)}
           >
             <p className={styles['text'] + ' ' + (isHovered ? styles['text--active'] : '')}>Contact</p>
-            {/* <Image
-              src={paper_plane}
-              alt='paper_plane'
-              className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}
-            /> */}
             <div className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}>
               {PlaneIcon('black')}
             </div>
@@ -110,6 +105,14 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           styles['main__side-menu'] + ' hide-desktop ' + (sideBarOpen ? styles['main__side-menu--opened'] : '')
         }
       >
+        <span
+          className={styles['main__side-menu__back_button']}
+          onClick={() => {
+            setSideBarOpen(!sideBarOpen)
+          }}
+        >
+          {'<-- Back'}
+        </span>
         <div className={styles['main__side-menu__submenu']}>
           <span
             className={styles['main__side-menu__submenu__option']}

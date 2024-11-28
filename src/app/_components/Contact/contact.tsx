@@ -17,6 +17,20 @@ export default function ContactComponent() {
     link.download = 'resume.pdf'
     link.click()
   }
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:link_1095@hotmail.com'
+  }
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+1234567890' // Replace with your phone number
+  }
+
+  const handleMapsClick = () => {
+    const mapsUrl = 'https://www.google.com/maps?q=mexico' // Latitude and longitude for Mexico
+    window.open(mapsUrl, '_blank') // Opens in a new tab
+  }
+
   return (
     <div className={styles.main}>
       <div className={styles.body}>
@@ -45,15 +59,30 @@ export default function ContactComponent() {
               <button className={styles['button']}>Submit</button>
             </div>
             <div className={styles['main__footer']}>
-              <div className={styles['main__footer__container']}>
+              <div
+                className={styles['main__footer__container']}
+                onClick={() => {
+                  handleEmailClick()
+                }}
+              >
                 <Image alt='icon' src={email} />
                 <span>link_1095@hotmail.com</span>
               </div>
-              <div className={styles['main__footer__container']}>
+              <div
+                className={styles['main__footer__container']}
+                onClick={() => {
+                  handlePhoneClick()
+                }}
+              >
                 <Image alt='icon' src={phone} />
                 <span>+52 686 255-1906</span>
               </div>
-              <div className={styles['main__footer__container']}>
+              <div
+                className={styles['main__footer__container']}
+                onClick={() => {
+                  handleMapsClick()
+                }}
+              >
                 <Image alt='icon' src={location} />
                 <span>Mexico</span>
               </div>
