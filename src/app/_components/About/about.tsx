@@ -2,7 +2,7 @@ import { LegacyRef } from 'react'
 import styles from './about.module.scss'
 import Image from 'next/image'
 import background from '../../../../public/svg/about/background_photo.svg'
-import photo from '../../../../public/assets/about/photo.png'
+import photo from '../../../../public/assets/about/photo.webp'
 import shapes1 from '../../../../public/svg/hero/shapes_1.svg'
 import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 

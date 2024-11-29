@@ -3,7 +3,7 @@ import Image from 'next/image'
 import shapes1 from '../../../../public/svg/hero/shapes_1.svg'
 import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 import background from '../../../../public/svg/about/background_photo.svg'
-import photo from '../../../../public/assets/about/photo.png'
+import photo from '../../../../public/assets/about/photo.webp'
 import { Fragment, useState } from 'react'
 
 const title = 'Samuel Gutierrez'
@@ -47,8 +47,8 @@ export default function HeroComponent() {
       </div>
       <div className={styles.body}>
         <div className={styles['body__photo-container'] + ' hide-desktop hide-tablet'}>
-          <Image alt='background_photo' src={background} className={styles['body__photo-container__back']} />
-          <Image alt='photo' src={photo} className={styles['body__photo-container__photo']} />
+          <Image alt='background_photo' src={background} className={styles['body__photo-container__back']} priority />
+          <Image alt='photo' src={photo} className={styles['body__photo-container__photo']} priority />
         </div>
         <h1 className={styles.title + ' hide-mobile'}>{splitString(title)}</h1>
         <h1 className={styles.title + ' hide-desktop hide-tablet'}>{title}</h1>

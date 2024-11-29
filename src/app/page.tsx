@@ -1,15 +1,32 @@
 'use client'
 import styles from './page.module.scss'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
 import HeaderComponent from './_components/Header/header'
-import AboutComponent from './_components/About/about'
-import SkillsetComponent from './_components/Skillset/skillset'
-import ContactComponent from './_components/Contact/contact'
-import { useEffect, useRef, useState } from 'react'
 import HeroComponent from './_components/Hero/hero'
-import ExpertiseComponent from './_components/Expertise/expertise'
-import WorkComponent from './_components/Work/work'
 import SocialComponent from './_components/Social/social'
 import ModalComponent from '@/shared/components/Modal/modal'
+
+const AboutComponent = dynamic(() => import('./_components/About/about'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+const SkillsetComponent = dynamic(() => import('./_components/Skillset/skillset'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+const ExpertiseComponent = dynamic(() => import('./_components/Expertise/expertise'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+const WorkComponent = dynamic(() => import('./_components/Work/work'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+const ContactComponent = dynamic(() => import('./_components/Contact/contact'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
 
 export default function Home() {
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -27,7 +44,7 @@ export default function Home() {
   const [modalContent, setModalContent] = useState<any>(null)
   const [clickedButtonControl, setClickedButtonControl] = useState(false)
 
-  const scrollToChildrens = (index: number) => {
+  const scrollToChildrens = useCallback((index: number) => {
     if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'none'
     setClickedButtonControl(true)
 
@@ -41,19 +58,18 @@ export default function Home() {
         if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'both mandatory'
         setClickedButtonControl(false)
       }, 800)
-  }
+  }, [])
 
   useEffect(() => {
     const observerOptions = {
-      root: null,
+      root: bodyRef.current,
       threshold: 0.1,
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const refKeys = Object.keys(childRefs) as (keyof typeof childRefs)[]
-          const visibleIndex = refKeys.findIndex((key) => childRefs[key]?.current === entry.target)
+          const visibleIndex = Object.values(childRefs).findIndex((ref) => ref.current === entry.target)
           if (visibleIndex !== indexRef) {
             setIndexRef(visibleIndex)
           }
@@ -61,14 +77,13 @@ export default function Home() {
       })
     }, observerOptions)
 
-    Object.values(childRefs).forEach((ref) => {
-      if (ref.current) observer.observe(ref.current)
-    })
+    const refsArray = Object.values(childRefs).map((ref) => ref.current)
+    refsArray.forEach((ref) => ref && observer.observe(ref))
 
     return () => {
       observer.disconnect()
     }
-  }, [childRefs])
+  }, [childRefs, indexRef])
 
   return (
     <main className={styles.main}>

@@ -10,8 +10,9 @@ import TypescriptIcon from './svg/typescript'
 import HtmlIcon from './svg/html'
 import SassIcon from './svg/sass'
 import CSharpIcon from './svg/c-sharp'
+import CypressIcon from './svg/cypress'
 
-const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'html', 'sass', 'c-sharp']
+const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'html', 'sass', 'cypress']
 
 export default function SkillsetComponent() {
   const [skillSet, setSkillSet] = useState(-1)
@@ -134,7 +135,7 @@ export default function SkillsetComponent() {
             >
               {SassIcon(skillSet === 5 ? '#CF6C9C' : undefined)}
             </div>
-            <div
+            {/* <div
               className={styles['icons']}
               onMouseEnter={() => {
                 setSkillSet(6)
@@ -144,6 +145,17 @@ export default function SkillsetComponent() {
               }}
             >
               {CSharpIcon(skillSet === 6 ? '#6D287E' : undefined)}
+            </div> */}
+            <div
+              className={styles['icons']}
+              onMouseEnter={() => {
+                setSkillSet(6)
+              }}
+              onMouseLeave={() => {
+                setSkillSet(-1)
+              }}
+            >
+              {CypressIcon(skillSet === 6 ? '#356A5D' : undefined)}
             </div>
           </div>
         </div>
