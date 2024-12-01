@@ -1,13 +1,21 @@
 'use client'
-import { LegacyRef, useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './contact.module.scss'
 import Image from 'next/image'
 import email from '../../../../public/svg/contact/email.svg'
 import phone from '../../../../public/svg/contact/phone.svg'
 import location from '../../../../public/svg/contact/location.svg'
 import download from '../../../../public/svg/contact/download.svg'
+import { sendMessage } from '@/config/services'
+
+interface Props {
+  name: string
+  email: string
+  message: string
+}
 
 export default function ContactComponent() {
+  const [info, setInfo] = useState<Props>({ name: '', email: '', message: '' })
   const [showDownload, setShowDownload] = useState(false)
 
   const handleDownload = () => {
@@ -31,6 +39,12 @@ export default function ContactComponent() {
     window.open(mapsUrl, '_blank') // Opens in a new tab
   }
 
+  const sendInfoMessage = () => {
+    if (info.name && info.email && info.message) {
+      sendMessage(info.name, info.email, info.message)
+    }
+  }
+
   return (
     <div className={styles.main}>
       <div className={styles.body}>
@@ -43,13 +57,27 @@ export default function ContactComponent() {
               <div className={styles['body__left__body__row__inputs-container']}>
                 <label className={styles['body__left__body__row__inputs-container__title']}>
                   Full Name
-                  <input className={styles['input']} type='text' />
+                  <input
+                    className={styles['input']}
+                    type='text'
+                    onChange={(event) => {
+                      setInfo({ ...info, name: event.target.value.toUpperCase() })
+                    }}
+                    value={info.name}
+                  />
                 </label>
               </div>
               <div className={styles['body__left__body__row__inputs-container']}>
                 <label className={styles['body__left__body__row__inputs-container__title']}>
                   Email
-                  <input className={styles['input']} type='text' />
+                  <input
+                    className={styles['input']}
+                    type='text'
+                    onChange={(event) => {
+                      setInfo({ ...info, email: event.target.value.toUpperCase() })
+                    }}
+                    value={info.email}
+                  />
                 </label>
               </div>
             </div>
@@ -57,12 +85,26 @@ export default function ContactComponent() {
               <div className={styles['body__left__body__row__inputs-container']}>
                 <label className={styles['body__left__body__row__inputs-container__title']}>
                   Message
-                  <textarea className={styles['text-area-input']} />
+                  <textarea
+                    className={styles['text-area-input']}
+                    onChange={(event) => {
+                      setInfo({ ...info, message: event.target.value.toUpperCase() })
+                    }}
+                    value={info.message}
+                  />
                 </label>
               </div>
             </div>
             <div className={styles['body__left__body__button-container']}>
-              <button className={styles['button']}>Submit</button>
+              <button
+                className={styles['button']}
+                onClick={(e: any) => {
+                  e.preventDefault()
+                  sendInfoMessage()
+                }}
+              >
+                Submit
+              </button>
             </div>
             <div className={styles['main__footer']}>
               <div
