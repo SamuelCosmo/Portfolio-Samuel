@@ -282,3 +282,22 @@
     }
   }
 }
+
+.loading {
+  animation: rotateLoad 2s linear infinite;
+
+  @keyframes rotateLoad {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    0% {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+.disable-button {
+  color: #708d4d !important;
+  border: 1px solid #333333 !important;
+}

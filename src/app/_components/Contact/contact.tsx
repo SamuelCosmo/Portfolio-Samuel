@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './contact.module.scss'
 import Image from 'next/image'
 import email from '../../../../public/svg/contact/email.svg'
@@ -16,7 +16,11 @@ interface Props {
 
 export default function ContactComponent() {
   const [info, setInfo] = useState<Props>({ name: '', email: '', message: '' })
+  const [loading, setLoading] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
+  const [failed, setFailed] = useState<boolean>(false)
   const [showDownload, setShowDownload] = useState(false)
+  const [disableButton, setDisableButton] = useState(false)
 
   const handleDownload = () => {
     const pdfUrl = '/files/resume.pdf'
@@ -31,19 +35,41 @@ export default function ContactComponent() {
   }
 
   const handlePhoneClick = () => {
-    window.location.href = 'tel:+1234567890' // Replace with your phone number
+    window.location.href = 'tel:+526862551906'
   }
 
   const handleMapsClick = () => {
-    const mapsUrl = 'https://www.google.com/maps?q=mexico' // Latitude and longitude for Mexico
-    window.open(mapsUrl, '_blank') // Opens in a new tab
+    const mapsUrl = 'https://www.google.com/maps?q=mexico'
+    window.open(mapsUrl, '_blank')
   }
 
-  const sendInfoMessage = () => {
-    if (info.name && info.email && info.message) {
-      sendMessage(info.name, info.email, info.message)
+  const sendInfoMessage = async () => {
+    const canClick = !loading && !success && !failed
+    if (info.name && info.email && info.message && canClick) {
+      try {
+        setLoading(true)
+        await sendMessage(info.name, info.email, info.message)
+        setLoading(false)
+        setSuccess(true)
+        setTimeout(() => {
+          setSuccess(false)
+        }, 1000)
+      } catch (e: any) {
+        setLoading(false)
+        setSuccess(false)
+        setFailed(true)
+        console.error(e)
+
+        setTimeout(() => {
+          setFailed(false)
+        }, 1000)
+      }
     }
   }
+
+  useEffect(() => {
+    setDisableButton(loading || success || failed || info.name === '' || info.email === '' || info.message === '')
+  }, [loading, success, failed, info])
 
   return (
     <div className={styles.main}>
@@ -97,13 +123,27 @@ export default function ContactComponent() {
             </div>
             <div className={styles['body__left__body__button-container']}>
               <button
-                className={styles['button']}
+                className={styles['button'] + ' ' + (disableButton ? styles['disable-button'] : '')}
                 onClick={(e: any) => {
                   e.preventDefault()
                   sendInfoMessage()
                 }}
               >
-                Submit
+                {loading ? (
+                  <Image src={'/svg/loading.svg'} alt='loading' width={24} height={24} className={styles['loading']} />
+                ) : success ? (
+                  <Image
+                    src={'/svg/check-mark.svg'}
+                    alt='check-mark'
+                    width={24}
+                    height={24}
+                    className={styles['check-mark']}
+                  />
+                ) : failed ? (
+                  <Image src={'/svg/wrong.svg'} alt='wrong' width={24} height={24} className={styles['wrong']} />
+                ) : (
+                  'Submit'
+                )}
               </button>
             </div>
             <div className={styles['main__footer']}>
