@@ -208,13 +208,14 @@ export default function ContactComponent() {
             />
             {showDownload && <p className={styles['download']}>Download PDF</p>}
           </div>
-          <Image
+          {/* <Image
             alt='cv'
             width={595}
             height={842}
             src={'/assets/background_cv.webp'}
             className={styles['body__right__background']}
-          />
+          /> */}
+          <div className={styles['body__right__background']}></div>
         </div>
       </div>
     </div>

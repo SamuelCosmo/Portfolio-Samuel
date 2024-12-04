@@ -193,6 +193,9 @@
         font-weight: 700;
         line-height: 18.2px;
         text-decoration: underline;
+        background: #7c7c7c;
+        padding: 4px 8px;
+        border-radius: 4px;
       }
 
       &__background {
@@ -202,6 +205,9 @@
         height: auto;
         bottom: 0rem;
         right: 0rem;
+        width: 319px;
+        height: 412px;
+        background: #7c7c7c;
       }
     }
   }
