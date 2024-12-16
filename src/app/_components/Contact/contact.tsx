@@ -175,7 +175,7 @@ export default function ContactComponent() {
                 <span>Mexico</span>
               </div>
               <div
-                className={styles['main__footer__container'] + ' hide-desktop hide-tablet'}
+                className={styles['main__footer__container'] + ' hide-desktop'}
                 onClick={() => {
                   handleDownload()
                 }}
@@ -186,7 +186,7 @@ export default function ContactComponent() {
             </div>
           </div>
         </div>
-        <div className={styles['body__right'] + ' hide-mobile'}>
+        <div className={styles['body__right'] + ' hide-tablet hide-mobile'}>
           <div
             className={styles['body__right__cv-container']}
             onClick={() => {
@@ -208,13 +208,6 @@ export default function ContactComponent() {
             />
             {showDownload && <p className={styles['download']}>Download PDF</p>}
           </div>
-          {/* <Image
-            alt='cv'
-            width={595}
-            height={842}
-            src={'/assets/background_cv.webp'}
-            className={styles['body__right__background']}
-          /> */}
           <div className={styles['body__right__background']}></div>
         </div>
       </div>

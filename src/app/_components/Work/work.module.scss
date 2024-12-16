@@ -26,6 +26,10 @@
       right: 0;
       width: 50%;
       height: auto;
+
+      @include tablet {
+        width: 75%;
+      }
     }
 
     &--2 {
@@ -33,6 +37,10 @@
       width: 50%;
       height: auto;
       transform: scaleY(-1);
+
+      @include tablet {
+        width: 75%;
+      }
     }
 
     &--3 {
@@ -42,6 +50,10 @@
       width: 50%;
       height: auto;
       transform: scaleX(-1);
+
+      @include tablet {
+        width: 75%;
+      }
     }
 
     &__second {
@@ -128,6 +140,10 @@
     height: 100vh;
     z-index: 2;
 
+    @include tablet {
+      padding: 0 96px;
+    }
+
     @include mobile {
       gap: 8px;
     }
@@ -147,6 +163,10 @@
         font-weight: 700;
         line-height: 56.2px;
 
+        @include tablet {
+          font-size: 32px;
+        }
+
         @include mobile {
           align-self: center;
           line-height: 38.2px;
@@ -160,7 +180,11 @@
       justify-content: center;
       align-items: flex-start;
       width: 100%;
-      gap: 32px;
+      gap: 128px;
+
+      @include tablet {
+        gap: 32px;
+      }
 
       @include mobile {
         flex-direction: column;
@@ -200,6 +224,10 @@
           width: 100%;
           transition: all 0.8s ease;
           cursor: pointer;
+
+          @include tablet {
+            padding: 12px 8px;
+          }
 
           @include mobile {
             border-left: 0;
@@ -306,6 +334,11 @@
             border-radius: 16px;
             border: 2px solid #4a5568;
 
+            @include tablet {
+              height: 210px;
+              max-width: 387px;
+            }
+
             @include mobile {
               height: 356px;
               width: 196px;
@@ -324,6 +357,11 @@
             border-radius: 8px;
             background: black;
 
+            @include tablet {
+              height: 172px;
+              max-width: 347px;
+            }
+
             @include mobile {
               height: 230px;
             }
@@ -341,6 +379,11 @@
 
             &--active {
               opacity: 1;
+            }
+
+            @include tablet {
+              height: 172px;
+              max-width: 347px;
             }
 
             @include mobile {
@@ -384,6 +427,13 @@
   position: absolute;
   bottom: -35px;
   width: 100%;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    bottom: -60px;
+  }
 
   @include mobile {
     flex-direction: column;

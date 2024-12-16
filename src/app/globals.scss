@@ -62,6 +62,12 @@ body {
   }
 }
 
+.hide-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
 .hide-desktop {
   @include desktop {
     display: none !important;

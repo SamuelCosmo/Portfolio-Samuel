@@ -47,7 +47,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
         >
           <Image src={logo} alt='logo' className={styles['logo']} />
         </button>
-        <div className={styles['body__menu'] + ' hide-mobile'}>
+        <div className={styles['body__menu'] + ' hide-tablet hide-mobile'}>
           <span
             className={styles['body__menu__option']}
             onClick={() => {

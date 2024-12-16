@@ -12,34 +12,18 @@ import SassIcon from './svg/sass'
 import CSharpIcon from './svg/c-sharp'
 import CypressIcon from './svg/cypress'
 
-const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'html', 'sass', 'cypress']
+const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'react-native', 'sass', 'cypress']
 
 export default function SkillsetComponent() {
   const [skillSet, setSkillSet] = useState(-1)
 
   return (
     <div className={styles.main}>
-      <div className={styles.shapes}>
-        <Image
-          src={shapes2}
-          alt='shapes'
-          className={styles['shapes__second'] + ' ' + styles['shapes__second--a'] + ' hide-desktop hide-tablet'}
-        />
-        <Image
-          src={shapes2}
-          alt='shapes'
-          className={styles['shapes__second'] + ' ' + styles['shapes__second--b'] + ' hide-desktop hide-tablet'}
-        />
-        <Image
-          src={shapes2}
-          alt='shapes'
-          className={styles['shapes__third'] + ' ' + styles['shapes__third--a'] + ' hide-desktop hide-tablet'}
-        />
-        <Image
-          src={shapes2}
-          alt='shapes'
-          className={styles['shapes__third'] + ' ' + styles['shapes__third--b'] + ' hide-desktop hide-tablet'}
-        />
+      <div className={styles.shapes + ' hide-desktop hide-tablet'}>
+        <Image src={shapes2} alt='shapes' className={styles['shapes__second'] + ' ' + styles['shapes__second--a']} />
+        <Image src={shapes2} alt='shapes' className={styles['shapes__second'] + ' ' + styles['shapes__second--b']} />
+        <Image src={shapes2} alt='shapes' className={styles['shapes__third'] + ' ' + styles['shapes__third--a']} />
+        <Image src={shapes2} alt='shapes' className={styles['shapes__third'] + ' ' + styles['shapes__third--b']} />
       </div>
       <Image src={shapes} alt='shapes' className={styles['shapes--1'] + ' hide-mobile'} />
       <Image src={shapes} alt='shapes' className={styles['shapes--2'] + ' hide-mobile'} />
@@ -120,7 +104,8 @@ export default function SkillsetComponent() {
                 setSkillSet(-1)
               }}
             >
-              {HtmlIcon(skillSet === 4 ? '#FF5225' : undefined)}
+              {/* {HtmlIcon(skillSet === 4 ? '#FF5225' : undefined)} */}
+              {ReactIcon(skillSet === 4 ? '#09D9FF' : undefined)}
             </div>
           </div>
           <div className={styles['body__icons-container__first']}>
@@ -135,17 +120,6 @@ export default function SkillsetComponent() {
             >
               {SassIcon(skillSet === 5 ? '#CF6C9C' : undefined)}
             </div>
-            {/* <div
-              className={styles['icons']}
-              onMouseEnter={() => {
-                setSkillSet(6)
-              }}
-              onMouseLeave={() => {
-                setSkillSet(-1)
-              }}
-            >
-              {CSharpIcon(skillSet === 6 ? '#6D287E' : undefined)}
-            </div> */}
             <div
               className={styles['icons']}
               onMouseEnter={() => {
