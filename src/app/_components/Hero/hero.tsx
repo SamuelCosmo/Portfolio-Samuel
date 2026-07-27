@@ -8,7 +8,7 @@ import { Fragment, useState } from 'react'
 
 const title = 'Samuel Gutierrez'
 const subtitle = 'Building things for the web'
-const subtitleMobile = 'Front-end Developer'
+const subtitleMobile = 'Fullstack Developer'
 
 export default function HeroComponent() {
   const splitString = (text: any) => {

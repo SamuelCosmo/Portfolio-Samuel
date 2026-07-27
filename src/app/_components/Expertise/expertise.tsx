@@ -11,51 +11,91 @@ interface Props {
   description: any
 }
 
+const salesHubText = (
+  <>
+    Developed and maintained commercial landing pages using React, Next.js, TypeScript, and SCSS for multiple client
+    campaigns and products.
+    <br />
+    <br />
+    Built reusable and modular UI components to improve scalability, maintainability, and development efficiency.
+    <br />
+    <br />
+    Implemented dynamic enrollment workflows and subscription plans, enabling customers to request and manage products
+    through responsive interfaces
+  </>
+)
+
+const kiranaText = (
+  <>
+    Developed applications using React and React Native for healthcare management solutions.
+    <br />
+    <br />
+    Built an internal management platform for doctors, patients, caregivers, appointments, medications, and treatment
+    plans.
+    <br />
+    <br />
+    Created a public-facing website to improve service visibility and patient engagement.
+  </>
+)
+
 const salesText = (
   <>
-    Developed a sales and user management system using Angular, TypeScript, and SCSS in the first year.
+    Developed and maintained a sales and user management platform using Angular, TypeScript, and SCSS.
     <br />
-    In the second year, migrated multiple projects to React and Next.js with TypeScript, improving efficiency and
-    modularity.
     <br />
-    Implemented automated tests with Cypress to ensure proper functionality across systems.
+    Migrated legacy projects to React and Next.js, improving code modularity and maintainability.
     <br />
-    Optimized animations and collaborated with design and backend teams to maintain visual and functional consistency.
+    <br />
+    Designed and developed responsive landing pages focused on user experience and conversion optimization.
   </>
 )
 
 const gpsText = (
   <>
-    Designed and developed robust database architectures using Node, Knex, and MySQL, ensuring scalability, data
-    integrity, and high performance for various internal systems.
+    Designed and implemented database structures using Node.js, Knex, and MySQL.
     <br />
-    Created and optimized complex SQL queries to handle large datasets, enabling efficient data retrieval and real-time
-    reporting for the warehouse and vehicle management systems.
     <br />
-    Integrated backend services with front-end applications to ensure smooth communication between the server and the
-    user interface, improving overall system functionality
+    Optimized complex SQL queries and backend processes to improve system performance.
+    <br />
+    <br />
+    Developed scalable APIs and reusable modules using JavaScript and TypeScript.
   </>
 )
 
 const redText = (
   <>
-    Developed dynamic web pages using Angular, JavaScript, and Node.js, focusing on both front-end and back-end
-    integration.
+    Developed and maintained dynamic web applications using Angular, JavaScript, and Node.js.
+    <br />
+    <br />
+    Built reusable components and modular architectures to improve scalability.
+    <br />
+    <br />
+    Enhanced UI responsiveness and overall user experience across multiple projects.
   </>
 )
 
 const expertises: Props[] = [
   {
-    job_title: 'N3 Devices (Sales-Hub)',
-    title: 'Front-end Developer (2022-2024)',
+    job_title: 'Sales-Hub',
+    title: 'Front-end Developer (January 2026 - June 2024)',
+    description: salesHubText,
+  },
+  {
+    job_title: 'Kirana Labs',
+    title: 'Fullstack Developer (April 2025- October2025)',
+    description: kiranaText,
+  },
+  {
+    job_title: 'Sales-Hub',
+    title: 'Front-end Developer (October 2022- November 2024)',
     description: salesText,
   },
   {
     job_title: 'GPS Geologistic',
-    title: 'Fullstack Developer (2021-2022)',
+    title: 'Fullstack Developer (September 2021- October 2022)',
     description: gpsText,
   },
-  { job_title: 'Grupo Red', title: 'Fullstack Developer (2019-2019)', description: redText },
+  { job_title: 'Grupo Red', title: 'Fullstack Developer (February 2020- June 2020)', description: redText },
 ]
 
 export default function ExpertiseComponent() {

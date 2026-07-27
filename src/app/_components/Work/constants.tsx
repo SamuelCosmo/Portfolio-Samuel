@@ -1,4 +1,6 @@
 import { StaticImageData } from 'next/image'
+import kings from '../../../../public/assets/work/kings.png'
+import kings_mobile from '../../../../public/assets/work/kings-mobile.png'
 import byop from '../../../../public/assets/work/byop-excess.png'
 import byop_mobile from '../../../../public/assets/work/byop-excess-mobile.png'
 import ssi from '../../../../public/assets/work/ssi-excess.png'
@@ -44,6 +46,17 @@ export interface ComponentProps {
 }
 
 export const expertises: Props[] = [
+  {
+    web_title: 'Kings Auto-Refinish',
+    domain: 'https://kingsautorefinish.com',
+    image: kings,
+    image_mobile: kings_mobile,
+    technologies: [
+      { image: react, alt: 'react' },
+      { image: sass, alt: 'sass' },
+      { image: typescript, alt: 'typescript' },
+    ],
+  },
   {
     web_title: 'Excess - Byop',
     domain: 'https://excess-byop.1wireless.com',

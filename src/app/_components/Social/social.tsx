@@ -1,6 +1,5 @@
 import styles from './social.module.scss'
 import Image from 'next/image'
-import facebook from '../../../../public/svg/social/facebook.svg'
 import github from '../../../../public/svg/social/github.svg'
 import linkedin from '../../../../public/svg/social/linkedin.svg'
 import arrow_left from '../../../../public/svg/social/arrow-left.svg'
@@ -35,9 +34,6 @@ export default function SocialComponent({ disableControls, indexRef, setIndexRef
         <Image src={arrow_left} alt='arrow' className={styles['arrow-left'] + ' hide-tablet hide-desktop'} />
       </button>
       <div className={styles['line'] + ' hide-tablet hide-desktop'} />
-      <a href='https://www.facebook.com/samuel.cosmo1095' target='_blank' rel='noopener noreferrer'>
-        <Image src={facebook} alt='facebook' />
-      </a>
       <a href='https://github.com/SamuelCosmo' target='_blank' rel='noopener noreferrer'>
         <Image src={github} alt='github' />
       </a>

@@ -31,7 +31,7 @@ export default function ContactComponent() {
   }
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:link_1095@hotmail.com'
+    window.location.href = 'mailto:sammy10203024@gmail.com'
   }
 
   const handlePhoneClick = () => {
@@ -154,7 +154,7 @@ export default function ContactComponent() {
                 }}
               >
                 <Image alt='icon' src={email} />
-                <span>link_1095@hotmail.com</span>
+                <span>sammy10203024@gmail.com</span>
               </div>
               <div
                 className={styles['main__footer__container']}
@@ -201,9 +201,9 @@ export default function ContactComponent() {
           >
             <Image
               alt='cv'
-              width={595}
+              width={652}
               height={842}
-              src={'/assets/cv.webp'}
+              src={'/assets/cv.png'}
               className={styles['body__right__cv'] + ' ' + (showDownload ? styles['body__right__cv--active'] : '')}
             />
             {showDownload && <p className={styles['download']}>Download PDF</p>}

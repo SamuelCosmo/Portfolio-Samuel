@@ -36,9 +36,11 @@ export default function AboutComponent() {
         <div className={styles['body__information-container']}>
           <h1 className={styles['body__information-container__title']}>About me</h1>
           <span className={styles['body__information-container__description']}>
-            Front-End Developer with 3 years of experience creating fast and functional interfaces using React, Next.js,
-            Angular, and TypeScript. Focused on enhancing user experience with dynamic, interactive animations and
-            ensuring code quality through automated testing with Cypress.
+            Fullstack Developer with 6+ years of experience designing and developing scalable web and mobile
+            applications. Strong background in React, Next.js, React Native, Angular, TypeScript, and modern frontend
+            architectures. Experienced in building responsive user interfaces, optimizing application performance,
+            creating reusable component systems, and collaborating with cross-functional teams to deliver high-quality
+            products. Passionate about clean code, user experience, and scalable software solutions.
           </span>
         </div>
         <div className={styles['body__photo-container'] + ' hide-mobile'}>

@@ -85,7 +85,9 @@ export default function SliderComponent({ childrens, setIndex }: Props) {
           <div
             className={styles['children']}
             key={'children-' + index}
-            ref={(el) => (childrenRefs.current[index] = el)}
+            ref={(el) => {
+              childrenRefs.current[index] = el
+            }}
           >
             {item}
           </div>
