@@ -1,4 +1,5 @@
 @import 'src/shared/scss/media-queries';
+@import 'src/shared/scss/variables';
 
 .main {
   display: flex;
@@ -135,9 +136,9 @@
       width: 100%;
 
       &__title {
-        color: #f8f8ff;
+        color: $color-text-primary;
         text-align: start;
-        font-family: 'Inter';
+        font-family: $font-family-sans;
         font-size: 36px;
         font-weight: 700;
         line-height: 56.2px;
@@ -198,13 +199,13 @@
         .division {
           height: 16px;
           width: 2px;
-          background: white;
+          background: $color-white;
           flex: 0 0 auto;
         }
 
         .option {
           padding: 16px;
-          border-left: 4px solid black;
+          border-left: 4px solid $color-black;
           width: 100%;
           transition: all 0.8s ease;
           cursor: pointer;
@@ -214,17 +215,16 @@
           }
 
           .job-title {
-            font-family: 'Inter';
+            font-family: $font-family-sans;
             font-size: 20px;
             font-weight: 400;
             line-height: 22.73px;
-            color: #7c7c7c;
+            color: $color-surface-muted;
             transition: all 0.8s ease;
             white-space: nowrap;
 
             &--active {
-              color: #7ea153;
-              font-weight: 500;
+              color: $color-text-accent;
             }
 
             &:hover {
@@ -246,7 +246,7 @@
           }
 
           &--active {
-            border-left: 4px solid #7ea153;
+            border-left: 4px solid $color-text-accent;
           }
 
           @include mobile {
@@ -306,11 +306,11 @@
           }
 
           .title {
-            font-family: 'Inter';
+            font-family: $font-family-sans;
             font-size: 24px;
             font-weight: 600;
             line-height: 26.05px;
-            color: #a5d170;
+            color: $color-accent-green-light;
 
             @include tablet {
               font-size: 18px;
@@ -326,12 +326,12 @@
           }
 
           .description {
-            font-family: 'Inter';
+            font-family: $font-family-sans;
             font-size: 20px;
             font-weight: 400;
             line-height: 24.2px;
             text-align: left;
-            color: #848484;
+            color: $color-text-tertiary;
 
             @include tablet {
               font-size: 18px;

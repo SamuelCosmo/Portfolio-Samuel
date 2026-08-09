@@ -1,4 +1,5 @@
 @import 'src/shared/scss/media-queries';
+@import 'src/shared/scss/variables';
 
 .main {
   display: flex;
@@ -72,9 +73,9 @@
       align-items: center;
 
       &__option {
-        color: white;
+        color: $color-white;
         text-align: right;
-        font-family: 'Inter';
+        font-family: $font-family-sans;
         font-size: 24px;
         font-style: normal;
         font-weight: 400;
@@ -93,7 +94,7 @@
         gap: 4px;
         border: 0;
         border-radius: 6px;
-        background: #99c06c;
+        background: $color-accent-green;
         cursor: pointer;
         overflow: hidden;
         width: 132px;
@@ -101,8 +102,8 @@
         position: relative;
 
         .text {
-          color: black;
-          font-family: 'Inter';
+          color: $color-black;
+          font-family: $font-family-sans;
           font-size: 24px;
           font-style: normal;
           font-weight: 400;
@@ -154,7 +155,7 @@
     gap: 32px;
     top: 56px;
     left: -100vw;
-    background: linear-gradient(180deg, #2b2b2b 0%, #333333 100%);
+    background: $gradient-dark;
     transition: all 0.3s ease-in-out;
     z-index: 1;
     opacity: 0;
@@ -169,9 +170,9 @@
       justify-content: flex-start;
       align-items: center;
       gap: 16px;
-      color: white;
+      color: $color-white;
       text-align: left;
-      font-family: 'Inter';
+      font-family: $font-family-sans;
       font-size: 24px;
       font-style: normal;
       font-weight: 500;
@@ -200,9 +201,9 @@
         justify-content: flex-start;
         align-items: center;
         padding: 4px 16px;
-        color: white;
+        color: $color-white;
         text-align: right;
-        font-family: 'Inter';
+        font-family: $font-family-sans;
         font-size: 24px;
         font-style: normal;
         font-weight: 500;
@@ -248,7 +249,7 @@
       }
 
       .selected {
-        background: #7c7c7c;
+        background: $color-surface-muted;
         border-radius: 4px;
         animation: showOption 0.5s ease-in-out forwards;
 
@@ -278,7 +279,7 @@
       .line {
         height: 2px;
         width: 145px;
-        background: white;
+        background: $color-white;
         border-radius: 4px;
       }
 

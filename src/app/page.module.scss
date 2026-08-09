@@ -1,9 +1,10 @@
 @import 'src/shared/scss/media-queries';
+@import 'src/shared/scss/variables';
 
 .main {
   z-index: 1;
   position: relative;
-  background: linear-gradient(180deg, #2b2b2b 0%, #333333 100%);
+  background: $gradient-dark;
   overflow: hidden;
 
   .body {

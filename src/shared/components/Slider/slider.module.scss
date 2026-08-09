@@ -1,3 +1,5 @@
+@import 'src/shared/scss/variables';
+
 .main {
   display: flex;
   justify-content: center;
@@ -39,12 +41,12 @@
     .control {
       width: 16px;
       height: 16px;
-      border: 2px solid white;
+      border: 2px solid $color-white;
       transition: all 0.3s ease;
 
       &--active {
         border-radius: 50%;
-        background: white;
+        background: $color-white;
       }
 
       &--disable {

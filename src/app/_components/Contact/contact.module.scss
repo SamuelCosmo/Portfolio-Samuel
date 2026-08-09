@@ -1,4 +1,5 @@
 @import 'src/shared/scss/media-queries';
+@import 'src/shared/scss/variables';
 
 .main {
   display: flex;
@@ -54,9 +55,9 @@
         }
 
         &__title {
-          color: #f8f8ff;
+          color: $color-text-primary;
           text-align: center;
-          font-family: 'Inter';
+          font-family: $font-family-sans;
           font-size: 36px;
           font-weight: 700;
           line-height: 56.2px;
@@ -111,12 +112,12 @@
               flex-direction: column;
               gap: 8px;
               width: 100%;
-              font-family: 'Inter';
+              font-family: $font-family-sans;
               font-size: 20px;
               font-weight: 400;
               line-height: 24.2px;
               text-align: left;
-              color: #a5a5a5;
+              color: $color-text-secondary;
 
               @include mobile {
                 gap: 4px;
@@ -135,9 +136,9 @@
             display: flex;
             padding: 8px 64px;
             border-radius: 4px;
-            background: #333333;
-            color: #a5d170;
-            border: 1px solid #a5d170;
+            background: $color-background-card;
+            color: $color-accent-green-light;
+            border: 1px solid $color-accent-green-light;
             text-align: center;
             font-size: 16px;
             font-style: normal;
@@ -147,11 +148,11 @@
             transition: all 0.5s ease;
 
             &:hover {
-              background: #474747;
+              background: $color-surface;
             }
 
             &:active {
-              background: #333333;
+              background: $color-background-card;
             }
           }
         }
@@ -190,14 +191,14 @@
       .download {
         z-index: 2;
         position: absolute;
-        color: #f8f8ff;
+        color: $color-text-primary;
         text-align: center;
-        font-family: 'Inter';
+        font-family: $font-family-sans;
         font-size: 16px;
         font-weight: 700;
         line-height: 18.2px;
         text-decoration: underline;
-        background: #7c7c7c;
+        background: $color-surface-muted;
         padding: 4px 8px;
         border-radius: 4px;
       }
@@ -211,7 +212,7 @@
         right: 0rem;
         width: 319px;
         height: 412px;
-        background: #7c7c7c;
+        background: $color-surface-muted;
       }
     }
   }
@@ -219,11 +220,11 @@
   .input {
     width: 100%;
     border-radius: 8px;
-    background: #393939;
-    border: 1px solid #7b7b7b;
+    background: $color-surface-strong;
+    border: 1px solid $color-border-default;
     padding: 8px 16px;
 
-    color: #f8f8ff;
+    color: $color-text-primary;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -233,12 +234,12 @@
   .text-area-input {
     width: 100%;
     border-radius: 8px;
-    background: #393939;
-    border: 1px solid #7b7b7b;
+    background: $color-surface-strong;
+    border: 1px solid $color-border-default;
     min-height: 144px;
     padding: 8px 16px;
 
-    color: #f8f8ff;
+    color: $color-text-primary;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -277,7 +278,7 @@
       align-items: center;
       flex-direction: row;
       gap: 8px;
-      color: #f8f8ff;
+      color: $color-text-primary;
 
       &:hover {
         text-decoration: underline;
@@ -289,8 +290,8 @@
       }
 
       span {
-        color: #f8f8ff;
-        font-family: 'Inter';
+        color: $color-text-primary;
+        font-family: $font-family-sans;
         font-size: 12px;
         font-weight: 400;
         line-height: 23.42px;
@@ -315,6 +316,6 @@
 }
 
 .disable-button {
-  color: #708d4d !important;
-  border: 1px solid #333333 !important;
+  color: $color-status-success !important;
+  border: 1px solid $color-background-card !important;
 }
