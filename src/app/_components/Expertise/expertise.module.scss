@@ -7,13 +7,13 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 100dvh;
   position: relative;
   overflow: hidden;
+  background: #212121;
 
   .shapes {
     position: absolute;
-    bottom: 0px;
+    bottom: 64px;
     right: 0;
     width: 50%;
     height: auto;
@@ -22,7 +22,6 @@
     @include mobile {
       display: flex;
       width: 100%;
-      height: 100dvh;
       align-items: flex-start;
       justify-content: end;
       flex-direction: column;
@@ -111,12 +110,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 16px;
+    gap: 42px;
     background: transparent;
     width: 100%;
     max-width: 1245px;
-    padding: 16px;
-    height: 100vh;
+    padding: 64px 32px;
     z-index: 2;
 
     @include tablet {
@@ -125,7 +123,7 @@
     }
 
     @include mobile {
-      gap: 8px;
+      gap: 24px;
     }
 
     &__title-container {
@@ -139,7 +137,7 @@
         color: $color-text-primary;
         text-align: start;
         font-family: $font-family-sans;
-        font-size: 36px;
+        font-size: 32px;
         font-weight: 700;
         line-height: 56.2px;
 
@@ -148,7 +146,9 @@
         }
 
         @include mobile {
-          align-self: center;
+          font-size: 24px;
+          line-height: 32px;
+          align-self: left;
         }
       }
     }
@@ -180,101 +180,24 @@
         overflow: auto;
       }
 
-      .menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: flex-start;
-        width: 25%;
-
-        @include mobile {
-          flex-direction: row;
-          height: auto;
-          width: 100%;
-          align-items: center;
-          padding-left: initial;
-          overflow: auto;
-        }
-
-        .division {
-          height: 16px;
-          width: 2px;
-          background: $color-white;
-          flex: 0 0 auto;
-        }
-
-        .option {
-          padding: 16px;
-          border-left: 4px solid $color-black;
-          width: 100%;
-          transition: all 0.8s ease;
-          cursor: pointer;
-
-          @include tablet {
-            padding: 12px 8px;
-          }
-
-          .job-title {
-            font-family: $font-family-sans;
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 22.73px;
-            color: $color-surface-muted;
-            transition: all 0.8s ease;
-            white-space: nowrap;
-
-            &--active {
-              color: $color-text-accent;
-            }
-
-            &:hover {
-              text-decoration: underline;
-            }
-
-            @include tablet {
-              font-size: 18px;
-            }
-
-            @include mobile {
-              text-align: center;
-              align-self: center;
-              width: 100%;
-              font-size: 18px;
-              font-weight: 400;
-              line-height: 20.73px;
-            }
-          }
-
-          &--active {
-            border-left: 4px solid $color-text-accent;
-          }
-
-          @include mobile {
-            display: flex;
-            align-items: center;
-            border-left: initial;
-            padding: 4px 8px;
-
-            &--active {
-              border-left: initial;
-            }
-          }
-        }
-      }
-
       .information {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         width: 720px;
-        height: 333px;
         position: relative;
+        background-color: $color-background-card;
+        padding: 16px;
+        border-radius: 16px;
+        margin-right: 32px;
+        max-width: 448px;
 
         @include mobile {
           max-width: 100%;
-          padding: 8px 16px;
+          padding: 16px;
           height: initial;
+          margin-right: 0px;
         }
 
         .option {
@@ -282,16 +205,9 @@
           flex-direction: column;
           justify-content: start;
           align-items: flex-start;
-          gap: 16px;
-          opacity: 0;
+          gap: 12px;
           transition: all 0.8s ease;
-          position: absolute;
-          transform: translateX(100%);
-
-          &--active {
-            opacity: 1;
-            transform: translateX(0%);
-          }
+          background: transparent;
 
           @include tablet {
             gap: 8px;
@@ -305,33 +221,99 @@
             position: initial;
           }
 
-          .title {
-            font-family: $font-family-sans;
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 26.05px;
-            color: $color-accent-green-light;
+          &__header {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+          }
 
-            @include tablet {
-              font-size: 18px;
-            }
+          &__image {
+            width: 64px;
+            height: auto;
+            border-radius: 16px;
+            background: $color-white;
 
             @include mobile {
-              font-size: 18px;
+              width: 44px;
+            }
+          }
+
+          &__title-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            gap: 8px;
+            width: 100%;
+
+            @include mobile {
+              grid-template-columns: 1fr;
+              gap: 0px;
+            }
+
+            .title {
+              font-family: $font-family-sans;
+              font-size: 16px;
+              font-weight: $font-weight-bold;
+              line-height: 26.05px;
+              color: $color-white;
+            }
+
+            .date {
+              font-family: $font-family-sans;
+              font-size: 12px;
               font-weight: 400;
-              line-height: 20.05px;
-              align-self: center;
-              text-align: center;
+              line-height: 22.4px;
+              color: $color-text-accent;
+              text-align: right;
+              width: 100%;
+              white-space: nowrap;
+
+              @include tablet {
+                font-size: 16px;
+                line-height: 20.73px;
+              }
+
+              @include mobile {
+                text-align: left;
+                font-size: 12px;
+                line-height: 19.6px;
+              }
+            }
+
+            .position {
+              font-family: $font-family-sans;
+              font-size: 14px;
+              font-weight: $font-weight-semibold;
+              line-height: 22.4px;
+              white-space: nowrap;
+              color: $color-text-secondary;
+
+              @include tablet {
+                font-size: 18px;
+                line-height: 20.73px;
+              }
+
+              @include mobile {
+                display: none;
+              }
             }
           }
 
           .description {
             font-family: $font-family-sans;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 400;
-            line-height: 24.2px;
+            line-height: 22px;
             text-align: left;
-            color: $color-text-tertiary;
+            color: $color-text-secondary;
+            overflow: auto;
+            max-height: 140px;
+            padding-right: 8px;
 
             @include tablet {
               font-size: 18px;
@@ -339,8 +321,9 @@
             }
 
             @include mobile {
-              font-size: 16px;
-              line-height: 20px;
+              font-size: 12px;
+              line-height: 16px;
+              max-height: 140px;
             }
           }
         }
