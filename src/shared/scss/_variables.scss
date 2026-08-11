@@ -1,5 +1,6 @@
 // Color palette
 $color-white: #ffffff;
+$color-gray-dark: #212121;
 $color-black: #000000;
 
 // Typography
@@ -46,7 +47,11 @@ $color-card-background: #b4b9bc;
 $color-card-border: #838687;
 
 // Gradients
-$gradient-dark: linear-gradient(180deg, $color-bg-dark-start 0%, $color-bg-dark-end 100%);
+$gradient-dark: linear-gradient(
+  180deg,
+  $color-bg-dark-start 0%,
+  $color-bg-dark-end 100%
+);
 $gradient-primary-glow: conic-gradient(
   from 180deg at 50% 50%,
   #16abff33 0deg,
@@ -55,5 +60,16 @@ $gradient-primary-glow: conic-gradient(
   #0071ff33 160deg,
   transparent 360deg
 );
-$gradient-secondary-glow: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-$tile-border-gradient: conic-gradient(#00000080, #00000040, #00000030, #00000020, #00000010, #00000010, #00000080);
+$gradient-secondary-glow: radial-gradient(
+  rgba(255, 255, 255, 1),
+  rgba(255, 255, 255, 0)
+);
+$tile-border-gradient: conic-gradient(
+  #00000080,
+  #00000040,
+  #00000030,
+  #00000020,
+  #00000010,
+  #00000010,
+  #00000080
+);

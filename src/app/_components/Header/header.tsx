@@ -56,18 +56,18 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           >
             About me
           </span>
-          <span
+          {/* <span
             className={styles['body__menu__option']}
             onClick={() => {
               setIndexRef(2)
             }}
           >
             Skillset
-          </span>
+          </span> */}
           <span
             className={styles['body__menu__option']}
             onClick={() => {
-              setIndexRef(3)
+              setIndexRef(2)
             }}
           >
             Expertise
@@ -75,7 +75,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           <span
             className={styles['body__menu__option']}
             onClick={() => {
-              setIndexRef(4)
+              setIndexRef(3)
             }}
           >
             Work
@@ -84,7 +84,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             className={styles['body__menu__contact']}
             onClick={(e: any) => {
               e.preventDefault()
-              setIndexRef(5)
+              setIndexRef(4)
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -133,7 +133,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           >
             {PersonIcon('white')} {sideBarOpen ? splitWord('About Me') : ''}
           </span>
-          <span
+          {/* <span
             className={
               styles['main__side-menu__submenu__option'] +
               ' ' +
@@ -145,7 +145,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
             }}
           >
             {ScienceIcon('white')} {sideBarOpen ? splitWord('Skillset') : ''}
-          </span>
+          </span> */}
           <span
             className={
               styles['main__side-menu__submenu__option'] +
@@ -153,7 +153,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
               (sideBarOpen && indexRef === 3 ? styles['selected'] : '')
             }
             onClick={() => {
-              setIndexRef(3)
+              setIndexRef(2)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -166,7 +166,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
               (sideBarOpen && indexRef === 4 ? styles['selected'] : '')
             }
             onClick={() => {
-              setIndexRef(4)
+              setIndexRef(3)
               setSideBarOpen(!sideBarOpen)
             }}
           >
@@ -179,7 +179,7 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           <div
             className={styles['contact-container__plane']}
             onClick={() => {
-              setIndexRef(5)
+              setIndexRef(4)
               setSideBarOpen(!sideBarOpen)
             }}
           >

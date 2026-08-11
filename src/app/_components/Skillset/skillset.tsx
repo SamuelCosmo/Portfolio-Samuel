@@ -12,7 +12,15 @@ import SassIcon from './svg/sass'
 import CSharpIcon from './svg/c-sharp'
 import CypressIcon from './svg/cypress'
 
-const skills: string[] = ['angular', 'javascript', 'react', 'typescript', 'react-native', 'sass', 'cypress']
+const skills: string[] = [
+  'angular',
+  'javascript',
+  'react',
+  'typescript',
+  'react-native',
+  'sass',
+  'cypress',
+]
 
 export default function SkillsetComponent() {
   const [skillSet, setSkillSet] = useState(-1)
@@ -20,16 +28,46 @@ export default function SkillsetComponent() {
   return (
     <div className={styles.main}>
       <div className={styles.shapes + ' hide-desktop hide-tablet'}>
-        <Image src={shapes2} alt='shapes' className={styles['shapes__second'] + ' ' + styles['shapes__second--a']} />
-        <Image src={shapes2} alt='shapes' className={styles['shapes__second'] + ' ' + styles['shapes__second--b']} />
-        <Image src={shapes2} alt='shapes' className={styles['shapes__third'] + ' ' + styles['shapes__third--a']} />
-        <Image src={shapes2} alt='shapes' className={styles['shapes__third'] + ' ' + styles['shapes__third--b']} />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={
+            styles['shapes__second'] + ' ' + styles['shapes__second--a']
+          }
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={
+            styles['shapes__second'] + ' ' + styles['shapes__second--b']
+          }
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--a']}
+        />
+        <Image
+          src={shapes2}
+          alt='shapes'
+          className={styles['shapes__third'] + ' ' + styles['shapes__third--b']}
+        />
       </div>
-      <Image src={shapes} alt='shapes' className={styles['shapes--1'] + ' hide-mobile'} />
-      <Image src={shapes} alt='shapes' className={styles['shapes--2'] + ' hide-mobile'} />
+      <Image
+        src={shapes}
+        alt='shapes'
+        className={styles['shapes--1'] + ' hide-mobile'}
+      />
+      <Image
+        src={shapes}
+        alt='shapes'
+        className={styles['shapes--2'] + ' hide-mobile'}
+      />
       <div className={styles.body}>
         <div className={styles['body__title-container']}>
-          <span className={styles['body__title-container__title']}>Skillset</span>
+          <span className={styles['body__title-container__title']}>
+            Skillset
+          </span>
           <div className={styles['skills-names-container']}>
             {skills.map((item: string, index: number) => {
               return (
@@ -37,7 +75,9 @@ export default function SkillsetComponent() {
                   className={
                     styles['body__title-container__skillset-title'] +
                     ' ' +
-                    (index === skillSet ? styles['body__title-container__skillset-title--active'] : '')
+                    (index === skillSet
+                      ? styles['body__title-container__skillset-title--active']
+                      : '')
                   }
                   key={item + '-' + index}
                 >
