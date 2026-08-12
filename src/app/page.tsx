@@ -11,35 +11,24 @@ const AboutComponent = dynamic(() => import('./_components/About/about'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 })
-/* const SkillsetComponent = dynamic(() => import('./_components/Skillset/skillset'), {
+const ExpertiseComponent = dynamic(() => import('./_components/Expertise/expertise'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
-}) */
-const ExpertiseComponent = dynamic(
-  () => import('./_components/Expertise/expertise'),
-  {
-    ssr: false,
-    loading: () => <p>Loading...</p>,
-  },
-)
+})
 const WorkComponent = dynamic(() => import('./_components/Work/work'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 })
-const ContactComponent = dynamic(
-  () => import('./_components/Contact/contact'),
-  {
-    ssr: false,
-    loading: () => <p>Loading...</p>,
-  },
-)
+const ContactComponent = dynamic(() => import('./_components/Contact/contact'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
 
 export default function Home() {
   const bodyRef = useRef<HTMLDivElement>(null)
   const childRefs = {
     heroRef: useRef<HTMLDivElement>(null),
     aboutRef: useRef<HTMLDivElement>(null),
-    //skillsetRef: useRef<HTMLDivElement>(null),
     expertiseRef: useRef<HTMLDivElement>(null),
     workRef: useRef<HTMLDivElement>(null),
     contactRef: useRef<HTMLDivElement>(null),
@@ -58,20 +47,11 @@ export default function Home() {
     const targetRef = childRefs[refKeys[index]]?.current
     if (targetRef && bodyRef.current) {
       const offsetTop = targetRef.offsetTop
-      const isMobileOrTablet =
-        typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches
-      const scrollTop = isMobileOrTablet
-        ? Math.max(0, offsetTop - 96)
-        : offsetTop
+      const isMobileOrTablet = typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches
+      const scrollTop = isMobileOrTablet ? Math.max(0, offsetTop - 96) : offsetTop
       bodyRef.current.scrollTo({ top: scrollTop, behavior: 'smooth' })
     }
     setIndexRef(index)
-
-    /* if (bodyRef)
-      setTimeout(() => {
-        if (bodyRef.current) bodyRef.current.style.scrollSnapType = 'both mandatory'
-        setClickedButtonControl(false)
-      }, 800) */
   }, [])
 
   useEffect(() => {
@@ -83,9 +63,7 @@ export default function Home() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const visibleIndex = Object.values(childRefs).findIndex(
-            (ref) => ref.current === entry.target,
-          )
+          const visibleIndex = Object.values(childRefs).findIndex((ref) => ref.current === entry.target)
           if (visibleIndex !== indexRef) {
             setIndexRef(visibleIndex)
           }
@@ -132,21 +110,11 @@ export default function Home() {
         <div ref={childRefs.aboutRef} className={styles['body__container']}>
           <AboutComponent />
         </div>
-        {/* <div ref={childRefs.skillsetRef} className={styles['body__container']}>
-          <SkillsetComponent />
-        </div> */}
         <div ref={childRefs.expertiseRef} className={styles['body__container']}>
           <ExpertiseComponent />
         </div>
         <div ref={childRefs.workRef} className={styles['body__container']}>
-          <WorkComponent
-            showModal={(value: boolean) => {
-              setModalShow(value)
-            }}
-            changeModalContent={(value: any) => {
-              setModalContent(value)
-            }}
-          />
+          <WorkComponent />
         </div>
         <div ref={childRefs.contactRef} className={styles['body__container']}>
           <ContactComponent />

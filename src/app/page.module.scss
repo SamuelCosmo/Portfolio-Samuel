@@ -4,7 +4,7 @@
 .main {
   z-index: 1;
   position: relative;
-  background: $gradient-dark;
+  background: $color-bg-dark-end;
   overflow: hidden;
 
   .body {
@@ -12,15 +12,14 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    gap: 256px;
+    gap: 64px;
     height: 100dvh;
     z-index: 2;
-    //scroll-snap-type: both mandatory;
     overflow-y: auto;
     overflow-x: hidden;
 
     @include mobile {
-      gap: 0;
+      gap: 42px;
     }
 
     &__container {

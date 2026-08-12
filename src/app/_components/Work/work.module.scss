@@ -7,7 +7,6 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 100dvh;
   position: relative;
 
   .shapes {
@@ -133,12 +132,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 16px;
+    gap: 42px;
     background: transparent;
     width: 100%;
-    max-width: 1245px;
-    padding: 16px;
-    height: 100vh;
     z-index: 2;
 
     @include tablet {
@@ -154,7 +150,12 @@
       flex-direction: column;
       align-items: start;
       gap: 16px;
+      padding: 0 64px;
       width: 100%;
+
+      @include mobile {
+        padding: 0 24px;
+      }
 
       &__title {
         color: $color-text-primary;
@@ -169,321 +170,135 @@
         }
 
         @include mobile {
-          align-self: center;
+          font-size: 24px;
           line-height: 38.2px;
+          text-align: left;
         }
       }
     }
 
     .information-container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       width: 100%;
-      gap: 128px;
+      gap: 42px;
 
-      @include tablet {
-        gap: 32px;
-      }
-
-      @include mobile {
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .slider {
+      &__item {
         display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
+        flex-direction: row;
+        width: 100%;
         height: auto;
-        width: 100%;
-        overflow: auto;
-      }
-
-      .menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding-left: 16px;
-        overflow: auto;
-        height: 413px;
-
-        @include mobile {
-          flex-direction: row;
-          height: auto;
-          width: 100%;
-          align-items: center;
-          padding-left: initial;
-        }
-
-        .option {
-          padding: 16px;
-          border-left: 4px solid $color-black;
-          width: 100%;
-          transition: all 0.8s ease;
-          cursor: pointer;
-
-          @include tablet {
-            padding: 12px 8px;
-          }
-
-          @include mobile {
-            border-left: 0;
-            padding: 8px 16px;
-          }
-
-          .job-title {
-              font-family: $font-family-sans;
-              font-size: 16px;
-              font-weight: 400;
-              line-height: 18.73px;
-              color: $color-surface-muted;
-
-            &--active {
-              color: $color-text-accent;
-            }
-
-            &:hover {
-              text-decoration: underline;
-            }
-
-            @include mobile {
-              white-space: nowrap;
-            }
-          }
-
-          &--active {
-              border-left: 4px solid $color-text-accent;
-            @include mobile {
-              border-left: 0;
-            }
-          }
-        }
-      }
-
-      .images-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 720px;
-        width: 100%;
         position: relative;
 
         @include mobile {
           flex-direction: column;
-          gap: 8px;
-          width: 100vw;
         }
 
-        .job-title {
-          font-family: $font-family-sans;
-          font-size: 22px;
-          font-weight: 500;
-          line-height: 24.73px;
-          transition: all 0.8s ease;
+        img {
+          width: 50%;
+          height: auto;
+          object-fit: cover;
 
           @include mobile {
-            white-space: nowrap;
-            color: $color-text-accent;
-          }
-        }
-
-        .laptop-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          position: relative;
-
-          @include mobile {
-            height: 360px;
-            width: 226px;
-            animation: jumpingFrame 3.5s infinite ease-in-out;
-
-            @keyframes jumpingFrame {
-              0% {
-                transform: translateY(0px);
-              }
-              10% {
-                transform: translateY(-10px);
-              }
-              20% {
-                transform: translateY(10px);
-              }
-              30% {
-                transform: translateY(-10px);
-              }
-              40% {
-                transform: translateY(0px);
-              }
-              100% {
-                transform: translateY(0px);
-              }
-            }
-          }
-
-          .frame {
             width: 100%;
-            max-width: 688px;
-            height: 388px;
-            background: $color-bg-deep;
-            border-radius: 16px;
-            border: 2px solid $color-border-strong;
+          }
+        }
 
-            @include tablet {
-              height: 210px;
-              max-width: 387px;
-            }
+        &__information {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 20px;
+          width: 50%;
+          padding: 24px 32px;
+
+          @include mobile {
+            align-self: center;
+            text-align: center;
+            padding: 24px;
+            width: 100%;
+            gap: 12px;
+          }
+
+          &__title {
+            color: $color-text-primary;
+            font-family: $font-family-sans;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0;
 
             @include mobile {
-              height: 356px;
-              width: 196px;
-              background: $color-black;
-              border: 1px solid $color-border-strong;
+              font-size: 18px;
             }
           }
 
-          .background {
-            z-index: 2;
-            height: auto;
-            position: absolute;
-            max-width: calc(100% - (688px - 655px));
-            width: 655px;
-            height: 361px;
-            border-radius: 8px;
-            background: $color-black;
-
-            @include tablet {
-              height: 172px;
-              max-width: 347px;
-            }
+          &__description {
+            color: $color-text-secondary;
+            font-family: $font-family-sans;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 22px;
 
             @include mobile {
-              height: 230px;
+              font-size: 14px;
+              text-align: left;
             }
           }
 
-          .images {
-            z-index: 3;
-            height: auto;
-            position: absolute;
-            max-width: calc(100% - (655px - 623px));
-            width: 623px;
-            height: 336px;
-            opacity: 0;
-            transition: all 0.5s ease;
-
-            &--active {
-              opacity: 1;
-            }
-
-            @include tablet {
-              height: 172px;
-              max-width: 347px;
-            }
+          &__technologies-title {
+            color: $color-text-primary;
+            font-family: $font-family-sans;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0;
 
             @include mobile {
-              width: 168px;
-              height: auto;
-              border-radius: 4px;
-              opacity: 1;
+              font-size: 14px;
+            }
+          }
+
+          &__technologies {
+            color: $color-text-accent;
+            font-family: $font-family-sans;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0;
+
+            @include mobile {
+              font-size: 14px;
+              text-align: left;
+            }
+          }
+
+          &__domain-title {
+            color: $color-text-primary;
+            font-family: $font-family-sans;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0;
+
+            @include mobile {
+              font-size: 14px;
+            }
+          }
+
+          &__domain {
+            color: $color-text-accent;
+            font-family: $font-family-sans;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0;
+
+            @include mobile {
+              font-size: 12px;
             }
           }
         }
       }
     }
   }
-}
-
-.button-domain {
-  width: 160px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  border: 0;
-  background: $color-text-accent;
-  cursor: pointer;
-
-  a {
-    font-family: $font-family-sans;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 16.08px;
-    text-align: left;
-    color: $color-white;
-    z-index: 2;
-    text-decoration: none;
-  }
-}
-
-.domain-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  position: absolute;
-  bottom: -35px;
-  width: 100%;
-
-  @include tablet {
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-    bottom: -60px;
-  }
-
-  @include mobile {
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-    position: initial;
-    width: 75%;
-  }
-
-  .domain {
-    font-family: $font-family-sans;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 16.08px;
-    text-align: left;
-    text-decoration: underline;
-    color: $color-white;
-    z-index: 2;
-
-    a {
-      color: $color-white;
-    }
-
-    @include mobile {
-      align-self: center;
-    }
-  }
-
-  .technologies-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    font-family: $font-family-sans;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 16.08px;
-    text-align: left;
-    color: $color-white;
-    z-index: 2;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-  }
-}
-
-.modal {
-  position: initial;
-  width: 75vw;
-  height: auto;
 }
