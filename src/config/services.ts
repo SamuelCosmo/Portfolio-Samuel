@@ -1,18 +1,18 @@
-import axios from 'axios'
-import endpoints from './endpoints'
-
 export const sendMessage = async (name: string, email: string, message: string) => {
-  try {
-    const response = await axios.post(endpoints.send_message, {
-      full_name: name,
-      email_address: email,
-      message: message,
-    })
-    console.log('Response data:', response.data)
-  } catch (error) {
-    // Opcional: manejar errores HTTP específicos
-    if (axios.isAxiosError(error)) {
-      console.error('Axios error:', error.response?.data)
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/messages/${process.env.REACT_APP_API_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        full_name: name,
+        email_address: email,
+        message,
+      }),
     }
+  )
+
+  if (!response.ok) {
+    throw new Error(`Failed to send message: ${response.status}`)
   }
 }

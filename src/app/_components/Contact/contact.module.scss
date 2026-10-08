@@ -279,6 +279,12 @@
       flex-direction: row;
       gap: 8px;
       color: $color-text-primary;
+      text-decoration: none;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
 
       &:hover {
         text-decoration: underline;

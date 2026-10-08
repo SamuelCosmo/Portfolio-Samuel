@@ -63,6 +63,14 @@
       width: 44px;
       height: auto;
       cursor: pointer;
+      background: transparent;
+      border: 0;
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     &__menu {

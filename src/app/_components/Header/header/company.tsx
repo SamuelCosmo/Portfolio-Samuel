@@ -1,4 +1,4 @@
-export default function CompanyIcon(color?: string) {
+export default function CompanyIcon({ color }: { color?: string }) {
   return (
     <>
       <svg

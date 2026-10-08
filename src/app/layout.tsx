@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import './globals.scss'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
+  ),
   title: 'Samuel Gutierrez',
   description: 'Portfolio of Samuel Gutierrez',
   openGraph: {

@@ -1,6 +1,6 @@
 import styles from './paper-plane.module.scss'
 
-export default function PlaneIcon(color?: string) {
+export default function PlaneIcon({ color }: { color?: string }) {
   return (
     <>
       <svg

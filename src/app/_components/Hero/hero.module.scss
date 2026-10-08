@@ -159,6 +159,14 @@
   opacity: 0;
   animation: showLetter 0.5s steps(1, end) forwards;
   animation-fill-mode: forwards;
+
+  &--space {
+    width: 16px;
+
+    @include mobile {
+      width: 8px;
+    }
+  }
 }
 
 @keyframes showLetter {

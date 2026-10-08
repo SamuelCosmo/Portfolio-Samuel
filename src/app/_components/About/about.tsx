@@ -1,4 +1,3 @@
-import { LegacyRef } from 'react'
 import styles from './about.module.scss'
 import Image from 'next/image'
 import background from '../../../../public/svg/about/background_photo.svg'

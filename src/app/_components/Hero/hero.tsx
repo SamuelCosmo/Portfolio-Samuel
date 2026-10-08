@@ -4,40 +4,22 @@ import shapes1 from '../../../../public/svg/hero/shapes_1.svg'
 import shapes2 from '../../../../public/svg/hero/shapes_2.svg'
 import background from '../../../../public/svg/about/background_photo.svg'
 import photo from '../../../../public/assets/about/photo.webp'
-import { Fragment, useState } from 'react'
 
 const title = 'Samuel Gutierrez'
 const subtitle = 'Building things for the web'
 const subtitleMobile = 'Fullstack Developer'
 
 export default function HeroComponent() {
-  const splitString = (text: any) => {
-    const list = text.split('')
-    return list.map((item: string, index: number) => {
-      return (
-        <Fragment key={'letter-' + index}>
-          <div
-            style={{
-              width: item === ' ' ? '16px' : 'initial',
-              animationDelay: `${index * 0.1 + 0.5}s`,
-            }}
-            className={styles['letter'] + ' hide-mobile'}
-          >
-            {item}
-          </div>
-          <div
-            style={{
-              width: item === ' ' ? '8px' : 'initial',
-              animationDelay: `${index * 0.1 + 0.5}s`,
-            }}
-            className={styles['letter'] + ' hide-desktop hide-tablet'}
-          >
-            {item}
-          </div>
-        </Fragment>
-      )
-    })
-  }
+  const splitString = (text: string) =>
+    text.split('').map((item, index) => (
+      <div
+        key={index}
+        style={{ animationDelay: `${index * 0.1 + 0.5}s` }}
+        className={styles.letter + ' ' + (item === ' ' ? styles['letter--space'] : '')}
+      >
+        {item}
+      </div>
+    ))
 
   return (
     <div className={styles.main}>

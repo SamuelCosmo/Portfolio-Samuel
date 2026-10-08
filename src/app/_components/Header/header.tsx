@@ -1,5 +1,5 @@
 'use client'
-import { LegacyRef, useState } from 'react'
+import { useState } from 'react'
 import styles from './header.module.scss'
 import Image from 'next/image'
 import menu from '../../../../public/svg/menu.svg'
@@ -8,7 +8,6 @@ import arrow from '../../../../public/svg/header/arrow-left.svg'
 import PlaneIcon from './header/paper-plane'
 import PersonIcon from './header/person'
 import CompanyIcon from './header/company'
-import ScienceIcon from './header/science'
 import FolderIcon from './header/folder'
 
 interface Props {
@@ -16,12 +15,24 @@ interface Props {
   setIndexRef: (position: number) => void
 }
 
+const NAV_ITEMS = [
+  { label: 'About me', index: 1 },
+  { label: 'Expertise', index: 2 },
+  { label: 'Work', index: 3 },
+]
+
+const SIDE_MENU_ITEMS = [
+  { label: 'About Me', index: 1, Icon: PersonIcon },
+  { label: 'Expertise', index: 2, Icon: CompanyIcon },
+  { label: 'Work', index: 3, Icon: FolderIcon },
+]
+
 export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
   const [sideBarOpen, setSideBarOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
-  const splitWord = (value: string) => {
-    return value.split('').map((letter, letterIndex) => (
+  const splitWord = (value: string) =>
+    value.split('').map((letter, letterIndex) => (
       <div key={letterIndex} className={styles['main__side-menu__submenu__option--letter']}>
         <span
           style={{
@@ -33,77 +44,43 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
         </span>
       </div>
     ))
+
+  const goTo = (index: number) => {
+    setIndexRef(index)
+    setSideBarOpen(false)
   }
 
   return (
     <div className={styles.main}>
       <div className={styles.body}>
-        <button
-          className={styles['body__title']}
-          onClick={() => {
-            setIndexRef(0)
-            setSideBarOpen(false)
-          }}
-        >
-          <Image src={logo} alt='logo' className={styles['logo']} />
+        <button className={styles['body__title']} onClick={() => goTo(0)}>
+          <Image src={logo} alt='logo' className={styles.logo} />
         </button>
         <div className={styles['body__menu'] + ' hide-tablet hide-mobile'}>
-          <span
-            className={styles['body__menu__option']}
-            onClick={() => {
-              setIndexRef(1)
-            }}
-          >
-            About me
-          </span>
-          {/* <span
-            className={styles['body__menu__option']}
-            onClick={() => {
-              setIndexRef(2)
-            }}
-          >
-            Skillset
-          </span> */}
-          <span
-            className={styles['body__menu__option']}
-            onClick={() => {
-              setIndexRef(2)
-            }}
-          >
-            Expertise
-          </span>
-          <span
-            className={styles['body__menu__option']}
-            onClick={() => {
-              setIndexRef(3)
-            }}
-          >
-            Work
-          </span>
+          {NAV_ITEMS.map(({ label, index }) => (
+            <span key={label} className={styles['body__menu__option']} onClick={() => goTo(index)}>
+              {label}
+            </span>
+          ))}
           <button
             className={styles['body__menu__contact']}
-            onClick={(e: any) => {
-              e.preventDefault()
-              setIndexRef(4)
-            }}
+            onClick={() => goTo(4)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <p className={styles['text'] + ' ' + (isHovered ? styles['text--active'] : '')}>Contact</p>
-            <div className={styles['plane'] + ' ' + (isHovered ? styles['plane--active'] : '')}>
-              {PlaneIcon('black')}
+            <p className={styles.text + ' ' + (isHovered ? styles['text--active'] : '')}>Contact</p>
+            <div className={styles.plane + ' ' + (isHovered ? styles['plane--active'] : '')}>
+              <PlaneIcon color='black' />
             </div>
           </button>
         </div>
-        <Image
-          alt='menu'
-          src={menu}
+        <button
           className={styles['body__menu-icon'] + ' hide-desktop'}
-          onClick={(e: any) => {
-            e.preventDefault()
-            setSideBarOpen(!sideBarOpen)
-          }}
-        />
+          onClick={() => setSideBarOpen(!sideBarOpen)}
+          aria-label='Toggle menu'
+        >
+          <Image alt='menu' src={menu} />
+        </button>
       </div>
 
       <div
@@ -111,81 +88,30 @@ export default function HeaderComponent({ indexRef, setIndexRef }: Props) {
           styles['main__side-menu'] + ' hide-desktop ' + (sideBarOpen ? styles['main__side-menu--opened'] : '')
         }
       >
-        <span
-          className={styles['main__side-menu__back_button']}
-          onClick={() => {
-            setSideBarOpen(!sideBarOpen)
-          }}
-        >
+        <span className={styles['main__side-menu__back_button']} onClick={() => setSideBarOpen(false)}>
           <Image src={arrow} alt='arrow' /> Back
         </span>
         <div className={styles['main__side-menu__submenu']}>
-          <span
-            className={
-              styles['main__side-menu__submenu__option'] +
-              ' ' +
-              (sideBarOpen && indexRef === 1 ? styles['selected'] : '')
-            }
-            onClick={() => {
-              setIndexRef(1)
-              setSideBarOpen(!sideBarOpen)
-            }}
-          >
-            {PersonIcon('white')} {sideBarOpen ? splitWord('About Me') : ''}
-          </span>
-          {/* <span
-            className={
-              styles['main__side-menu__submenu__option'] +
-              ' ' +
-              (sideBarOpen && indexRef === 2 ? styles['selected'] : '')
-            }
-            onClick={() => {
-              setIndexRef(2)
-              setSideBarOpen(!sideBarOpen)
-            }}
-          >
-            {ScienceIcon('white')} {sideBarOpen ? splitWord('Skillset') : ''}
-          </span> */}
-          <span
-            className={
-              styles['main__side-menu__submenu__option'] +
-              ' ' +
-              (sideBarOpen && indexRef === 3 ? styles['selected'] : '')
-            }
-            onClick={() => {
-              setIndexRef(2)
-              setSideBarOpen(!sideBarOpen)
-            }}
-          >
-            {CompanyIcon('white')} {sideBarOpen ? splitWord('Expertise') : ''}
-          </span>
-          <span
-            className={
-              styles['main__side-menu__submenu__option'] +
-              ' ' +
-              (sideBarOpen && indexRef === 4 ? styles['selected'] : '')
-            }
-            onClick={() => {
-              setIndexRef(3)
-              setSideBarOpen(!sideBarOpen)
-            }}
-          >
-            {FolderIcon('white')}
-            {sideBarOpen ? splitWord('Work') : ''}
-          </span>
+          {SIDE_MENU_ITEMS.map(({ label, index, Icon }) => (
+            <span
+              key={label}
+              className={
+                styles['main__side-menu__submenu__option'] +
+                ' ' +
+                (sideBarOpen && indexRef === index ? styles.selected : '')
+              }
+              onClick={() => goTo(index)}
+            >
+              <Icon color='white' /> {sideBarOpen ? splitWord(label) : ''}
+            </span>
+          ))}
         </div>
         <div className={styles['contact-container']}>
-          <div className={styles['line']}></div>
-          <div
-            className={styles['contact-container__plane']}
-            onClick={() => {
-              setIndexRef(4)
-              setSideBarOpen(!sideBarOpen)
-            }}
-          >
-            {PlaneIcon('white')}
+          <div className={styles.line}></div>
+          <div className={styles['contact-container__plane']} onClick={() => goTo(4)}>
+            <PlaneIcon color='white' />
           </div>
-          <div className={styles['line']}></div>
+          <div className={styles.line}></div>
         </div>
       </div>
     </div>
